@@ -32,7 +32,7 @@ const BtnCuadrado = styled.button`
     width:100%;
     padding: 0;
 
-    font-size: 22px;
+    font-size: 20px;
     color: white;
     background-color: #00000063;
 
@@ -43,6 +43,10 @@ const BtnCuadrado = styled.button`
     h1 {
         transform: rotate(-45deg);
         margin: 0;
+        font-size: 24px;
+        @media (max-width: 600px) {
+            font-size: 20px;
+        }
     }
 
     cursor: pointer;
@@ -62,8 +66,8 @@ export const CuadradoContenedor = () => {
     }
     return (
         <CuadradoContenedorStyled>
-            <BtnCuadrado noLeft noTop onClick={ () => handleClick('Contacto')}><h1>1</h1></BtnCuadrado>
-            <BtnCuadrado noTop><h1>2</h1></BtnCuadrado>
+            <BtnCuadrado noLeft noTop onClick={ () => handleClick('Contacto')}><h1>Contacto</h1></BtnCuadrado>
+            <BtnCuadrado noTop onClick={ () => handleClick('timeline')}><h1>Mi Historia</h1></BtnCuadrado>
             <BtnCuadrado noLeft><h1>3</h1></BtnCuadrado>
             <BtnCuadrado ><h1>4</h1></BtnCuadrado>
     

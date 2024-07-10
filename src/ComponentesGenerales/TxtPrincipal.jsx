@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const TxtPrincipalStyled = styled.h3`
+export const TxtPrincipalStyled = styled.h3`
     margin: 0;
     font-size: ${props => props.size ? props.size : '36px'}; 
     color: black;

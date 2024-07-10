@@ -6,10 +6,12 @@ const ImageContainer = styled.div`
     position: ${props => props.bg ? 'absolute' : ''};
     top: ${props => props.bg ? '0' : ''};
     left: ${props => props.bg ? '0' : ''};
+    
     z-index: ${props => props.bg ? '-1000' : ''};
     display: ${props => props.bg ? 'flex' : ''};
     justify-content: ${props => props.bg ? 'center' : ''};
     align-items: ${props => props.bg ? 'center' : ''};
+    z-index: ${props => props.zIndex ? props.zIndex : ''};
     
     picture{
         height:100%;
@@ -25,10 +27,10 @@ const ImageContainer = styled.div`
   
 `;
 
-export const ImgPicture = ({ src, alt, index, hover, bg}) => {
+export const ImgPicture = ({ src, alt, index, hover, bg, zIndex }) => {
     
     return src ? (
-        <ImageContainer index={index}  hover={hover} bg={bg}>
+        <ImageContainer index={index}  hover={hover} bg={bg} zIndex={zIndex} >
             <picture>
                 <source srcSet={`${src}`} type="image/webp" />
                 <source srcSet={`${src}`} type="image/jpeg" />

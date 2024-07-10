@@ -4,6 +4,7 @@ html, #root, body, .App{
   margin: 0;
 
   font-family: 'Poppins', sans-serif;
+  overflow: hidden;
 }
 
 @font-face {
@@ -14,4 +15,5 @@ html, #root, body, .App{
 
 :root{
   --AmarilloEspecial:  #FCB71C;
+  --RojoNegativo:  #cd1414;
 }
