@@ -1,15 +1,13 @@
 import styled from "styled-components";
-import { FaAngleLeft } from "react-icons/fa";
+import { FaAngleLeft, FaAngleRight  } from "react-icons/fa";
 import { ImgPicture } from "../../Img";
 import { TxtPrincipalStyled } from "../../../ComponentesGenerales/TxtPrincipal";
 import { useContext } from "react";
 import { ModalContext } from "./ContextoModal";
-import imgPreparatoria from "../../../Img/imgPreparatoria.png"
-import imgSecundaria from "../../../Img/imgSecundaria.png"
-import imgUniversidad from "../../../Img/imgUniversidad.webp"
-import imgMcondalds from "../../../Img/imgMcDonalds.jpg"
-import imgSabatino from "../../../Img/imgSabatino.jpg"
-import imgGerente from "../../../Img/imgGerente.jpg"
+
+import { ContextoGeneral } from "../ContextoGeneral";
+
+
 const ContenedorLineaTiempo = styled.div`
   position: relative;
   height: 100%;
@@ -17,7 +15,7 @@ const ContenedorLineaTiempo = styled.div`
   display: flex;
   
   align-items:center;
-
+ 
   padding: 0 20px; /* Agrega padding a ambos lados */
 
 `;
@@ -34,10 +32,11 @@ const Line = styled.div`
   gap: 20px;
 `;
 
-const Btn = styled.div`
+const Btn = styled.button`
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  border: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -45,6 +44,8 @@ const Btn = styled.div`
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   color: white;
   font-weight: bold;
+
+  cursor: pointer;
 `;
 const BtnInicialFinal = styled(Btn)`
   margin-top: -38px;
@@ -59,8 +60,8 @@ const ContenedorItemLineaDeTiempoStyled = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 300px;
-  height: 300px;
-  margin-top: ${props => props.side ? '-280px' : '-18px'};
+  height: 325px;
+  margin-top: ${props => props.side ? '-305px' : '-18px'};
 
 
   @media (max-width : 400px) {
@@ -69,12 +70,12 @@ const ContenedorItemLineaDeTiempoStyled = styled.div`
   
 `
 const ContenedorImg = styled.div`
-  height: 200px;
+  height: 250px;
   width: 400px;
   position: relative;
   display: flex;
   flex-direction: column;
-
+  cursor: pointer;
   @media (max-width : 400px) {
       width: 250px;
   }
@@ -103,73 +104,157 @@ const ContenedorDescripcion = styled.div`
   }
 `
 
-const ItemLineaTiempo = ({numero, titulo, descripcion, img, side}) =>{
+const ItemLineaTiempo = ({numero, titulo, descripcion, img, side, id, listaData}) =>{
   const {setEstadoModal, setInformacionModal, informacionModal} = useContext(ModalContext);
+  const {setBoolSlider, Datos,setPosicionTimeline, posicionTimeline} = useContext(ContextoGeneral);
+
   const handleClick = ()=> {
     console.log(informacionModal);
     setInformacionModal({img: img, descripcion:descripcion, titulo: titulo});
     setEstadoModal(true);
+    setBoolSlider(false);
     console.log(informacionModal);
   }
+
+  const handleClickBtn = () =>{
+    const element = document.getElementById(id);
+    const elementPadre = document.getElementById('timeline');
+    if (element && id != 'punto0') {
+      setPosicionTimeline(listaData.indexOf(id));
+      element.scrollIntoView({
+        behavior: 'smooth',
+        
+        inline: 'center'
+      });
+
+    }else  if (elementPadre && id == 'punto0') {
+      elementPadre.scrollTo({
+        left:0,
+        behavior: 'smooth',
+         
+         
+      });
+
+    }
+  }
   return(
-    <ContenedorItemLineaDeTiempoStyled side={side} onClick={() => handleClick()}>
-        <Btn> {numero} </Btn>
+    <ContenedorItemLineaDeTiempoStyled id={id} side={side} >
+        <Btn onClick={() => handleClickBtn()}> {numero} </Btn>
         <TxtItemLineaTiempo>{titulo}</TxtItemLineaTiempo>
-        <ContenedorImg> <ImgPicture bg  alt={'Img ' + titulo} src={img}  zIndex = {1}/> <ContenedorDescripcion side={side}>{descripcion}</ContenedorDescripcion>  </ContenedorImg>
+        <ContenedorImg onClick={() => handleClick()} > <ImgPicture bg  alt={'Img ' + titulo} src={img}  zIndex = {1}/> <ContenedorDescripcion side={side}>{descripcion}</ContenedorDescripcion>  </ContenedorImg>
        
     </ContenedorItemLineaDeTiempoStyled>
   )
 }
 
-const Datos = [
-  {
-    titulo: "Nacimiento",
-    fecha: "07/07/2003",
-    descripcion: "Nací un 7 de julio de 2003, el mismo año en que salió la PlayStation Slim y se descifra casi por completo el genoma humano. Mi nacimiento es sin duda un acontecimiento que marca un antes y un después en la historia humana. ",
-    img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-jor4MRYg8l38d_rJocGsiXoBygToYlSoM-7BNkxd4lNVK-f5CxlBbO3T9BFokPhKGiw5kM0GBwKw2TKbSnwggykF5hIPY3eLRtVdNS0'
-  },
-  {
-    titulo: "Secundaria",
-    fecha: "2014",
-    descripcion: "Recién graduado del colegio Begsu, ingresé a la universidad latinoamericana. Lugar en donde formé buenas amistades que a día de hoy sigo teniendo en estima. En esta etapa de mi vida, donde todo era más sencillo, formé más mi individualidad y se empezó a desarrollar la persona que soy ahora. ",
-    img: imgSecundaria
-  },
-  {
-    titulo: "Preparatoria",
-    fecha: "2017",
-    descripcion: "Cursé la preparatoria en José Vasconcelos, donde elegí Informática como optativa y Físico-Matemático como área disciplinar   (las buenas). En esta etapa de mi vida terminé de desarrollar gran parte de mi personalidad y ese gusto que tenía por la informática se terminó convirtiendo en una pasión por la programación. Si bien no adquirí habilidades muy avanzadas de desarrollo, se me capacitó con las bases en lógica para desarrollar mis habilidades por mí mismo.",
-    img: imgPreparatoria
-  },
-  {
-    titulo: "Universidad",
-    fecha: "2021",
-    descripcion: "En 2021 comencé mis estudios universitarios en UAdeO como Ingeniero de Software, carrera que sigo cursando a día de hoy. La universidad me ha permitido asistir a múltiples charlas y eventos en donde he aprendido más sobre el desarrollo, estas son las que considero las experiencias más enriquecedoras de la carrera. Trato de no quedarme solo con lo que me enseñan aquí, soy aficionado en el estudio autodidacta y en la producción de software en mi tiempo libre.  ",
-    img: imgUniversidad
-  },
-  {
-    titulo: "McDondalds",
-    fecha: "2022",
-    descripcion: "En las vacaciones del tercer semestre tomé la decisión de buscar un empleo temporal, terminé entrando a McDonald. Terminando las vacaciones, se me ofreció un ascenso como entrenador y me ofrecieron un horario que se compaginaba con mi vida de estudiante, por lo que decidí continuar.",
-    img: imgMcondalds
-  },
-  {
-    titulo: "Sabatino",
-    fecha: "2023",
-    descripcion: "En 5to semestre, tome la decisión de continuar mis estudios de forma sabatina, sentía que la universidad no me estaba especializando en el tipo de programación que buscaba, por lo que a partir de esta fecha comienzan mis estudios de forma autodidacta. Mirando al pasado creo que ha sido una muy buena decisión, pues me permitió desarrollar mis habilidades como programador. ",
-    img: imgSabatino
-  },
-  {
-    titulo: "Gerencia",
-    fecha: "2023",
-    descripcion: "En 2023 se me dio la oportunidad de continuar desarrollándome dentro de la empresa y se me otorgó un puesto gerencial, cargo con el que continuó. La experiencia que he tenido me ha desarrollado mucho como persona . ",
-    img: imgGerente
-  },
-];
-export const SeccionLineaDeTiempoUx = () => {
+
+
+const ContenedorControl = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  width: ${props => props.boolSlider ? '100px' : '0'};
+  
+  
+
+  height: 50px;
+  border-radius: 30px;
+
+  background-color: var(--AmarilloEspecial);
+  position: fixed;
+  z-index: 2000;
+  bottom: 20px;
+  left: calc(50% - 50px);
+  overflow: hidden;
+
+  transition: width .3s ;
+`
+const BtnControlStyled = styled.button`
+  height: 100%;
+  width: 100%;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: transparent;
+
+  display: flex;
+  justify-content:center;
+  align-items: center;
+` 
+
+const BtnControl = ({fn, icono, listaData}) =>{
+  const {posicionTimeline, setPosicionTimeline} = useContext(ContextoGeneral);
+  
+  const handleClick = () => {
+    console.log(posicionTimeline);
+    let nuevaPosicion = posicionTimeline;
+
+    if (fn === 1 && posicionTimeline > 1) {
+      nuevaPosicion = posicionTimeline - 1;
+    } else if (fn === 2 && posicionTimeline < listaData.length - 1) {
+      nuevaPosicion = posicionTimeline + 1;
+    }
+
+    // Si la nueva posición es la misma que la actual, no hacer nada
+    if (nuevaPosicion === posicionTimeline) return;
+
+    setPosicionTimeline(nuevaPosicion);
+    const elementPadre = document.getElementById('timeline');
+    const posicion = listaData[nuevaPosicion];
+    const element = document.getElementById(posicion);
+    if (element) {
+      if (nuevaPosicion <= 1) {
+        elementPadre.scrollTo({
+          left:0,
+          behavior: 'smooth',
+           
+        });
+      } else {
+        element.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+      }
+    }
+
+    console.log(nuevaPosicion);
+  };
+  return(
+    <BtnControlStyled listaData={listaData} onClick={() => handleClick()}>
+        {icono}
+    </BtnControlStyled>
+  )
+}
+const ContenedorNumeroControl = styled.div`
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+`
+const Control = ({listaData}) =>{
+  
+  const {boolSlider, posicionTimeline} = useContext(ContextoGeneral);
+  return(
+    <ContenedorControl boolSlider={boolSlider}>
+      <BtnControl listaData={listaData} fn={1} icono={<FaAngleLeft />}/>
+      <ContenedorNumeroControl> {posicionTimeline} </ContenedorNumeroControl>
+      <BtnControl listaData={listaData} fn={2} icono={<FaAngleRight />}/>
+
+  
+    </ContenedorControl>
+  )
+}
+export const SeccionLineaDeTiempoUx = ({boolSlider}) => {
+  const {setBoolSlider, Datos, posicionTimeline, setPosicionTimeline} = useContext(ContextoGeneral);
+  const listaData = Datos.map((item, index) => {
+    return `punto${index}`;
+  });
   const handleClick = () => {
     const element = document.getElementById('main');
     if (element) {
+     
         element.scrollIntoView({ behavior: 'smooth' });
+        setBoolSlider(false);
     }
 }
   return (
@@ -177,12 +262,12 @@ export const SeccionLineaDeTiempoUx = () => {
       <Line>
         <BtnInicialFinal onClick={handleClick}><FaAngleLeft size={'32px'} /></BtnInicialFinal>
         {Datos.map((data, index) => (
-          <ItemLineaTiempo key={index} side = {(index % 2 == 0)} numero={index} titulo ={data.titulo} descripcion={data.descripcion} img={data.img} >{data}</ItemLineaTiempo>
+          <ItemLineaTiempo listaData={listaData} id={listaData[index]} key={index} side = {(index % 2 == 0)} numero={index} titulo ={data.titulo} descripcion={data.descripcion} img={data.img}  setPosicionTimeline={setPosicionTimeline}>{data}</ItemLineaTiempo>
         ))}
 
         <BtnInicialFinal final>Final</BtnInicialFinal>
       </Line>
-  
+      <Control  boolSlider={boolSlider} listaData={listaData}/>
     </ContenedorLineaTiempo>
   );
 };

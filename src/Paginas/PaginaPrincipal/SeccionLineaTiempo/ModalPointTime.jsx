@@ -4,6 +4,7 @@ import { ImgPicture } from "../../Img";
 import ReactDOM from 'react-dom';
 import { ModalContext } from "./ContextoModal";
 import { useContext } from "react";
+import { ContextoGeneral } from "../ContextoGeneral";
 
 const ContenedorModal = styled.div`
     height: 100%;
@@ -39,14 +40,18 @@ const TxtDescripcion = styled.p`
 const TxtDescripcionFecha = styled(TxtDescripcion)`
     font-size: 24px;
     font-weight: bold;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.46);
     color: var(--AmarilloEspecial);
 
     text-align: center;
 `
 const ContenedorImg = styled.div`
     width: 100%;
-    height: 400px;
+    height: 600px;
+
+    @media (max-width: 600px) {
+        height: 400px;
+    }
     position: relative;
 
     display: flex;
@@ -68,6 +73,7 @@ const BtnCerrarModal = styled.button`
 
     height: 34px;
     width: 120px;
+    cursor: pointer;
 
 `
 const ContenedorSegundaSeccion = styled.div`
@@ -77,7 +83,7 @@ const ContenedorSegundaSeccion = styled.div`
     justify-content: space-between;
 `
 const InteriorModal = styled.div`
-    max-width: 1200px;
+    max-width: 800px;
     width: 100%;
     height: 100%;
     display: flex;
@@ -87,7 +93,7 @@ const InteriorModal = styled.div`
 
 export const Modal = () =>{
         const { estadoModal, setEstadoModal, informacionModal } = useContext(ModalContext);
-
+        const {setBoolSlider} = useContext(ContextoGeneral);
         return estadoModal ? (
           <ContenedorModal>
             <InteriorModal>
@@ -102,7 +108,7 @@ export const Modal = () =>{
                         <TxtDescripcion>{informacionModal.descripcion}</TxtDescripcion>
                     </div>
             
-                    <ContenedorBtn > <BtnCerrarModal onClick={() => setEstadoModal(false)}> Cerrar </BtnCerrarModal> </ContenedorBtn>
+                    <ContenedorBtn > <BtnCerrarModal onClick={() => {setEstadoModal(false); setBoolSlider(true);}}> Cerrar </BtnCerrarModal> </ContenedorBtn>
                 </ContenedorSegundaSeccion>
             </InteriorModal>
           </ContenedorModal>

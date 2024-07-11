@@ -1,4 +1,7 @@
+import { useContext } from "react";
 import styled from "styled-components";
+import { ModalContext } from "./SeccionLineaTiempo/ContextoModal";
+import { ContextoGeneral } from "./ContextoGeneral";
 
 const CuadradoContenedorStyled = styled.div`
     display: grid;
@@ -58,10 +61,14 @@ const BtnCuadrado = styled.button`
 `
 
 export const CuadradoContenedor = () => {
+    const {setBoolSlider} = useContext(ContextoGeneral);
     const handleClick = (url) =>{
         const element = document.getElementById(url);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
+        }
+        if(url == 'timeline'){
+            setBoolSlider(true);
         }
     }
     return (

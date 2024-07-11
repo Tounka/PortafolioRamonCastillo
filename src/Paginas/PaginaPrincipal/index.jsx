@@ -5,6 +5,7 @@ import {  SeccionContacto } from "./SeccionContacto";
 import { SeccionLineaDeTiempo } from "./SeccionLineaTiempo";
 
 import { useEffect } from "react";
+import { ContextoProviderGeneral } from "./ContextoGeneral";
 const ContenedorHorizontal = styled.div`
     display: flex;
     overflow: hidden;
@@ -20,16 +21,19 @@ export const PaginaPrincipal = () =>{
         }
     }, []);
     return(
-        <DisplayPrincipal>
+        <ContextoProviderGeneral>
+            <DisplayPrincipal>
             
-            <SeccionContacto />
+                <SeccionContacto />
 
-            <ContenedorHorizontal>
-                <SeccionPrincipal />
-                <SeccionLineaDeTiempo />
-            </ContenedorHorizontal>
+                <ContenedorHorizontal>
+                    <SeccionPrincipal />
+                    <SeccionLineaDeTiempo />
+                </ContenedorHorizontal>
 
 
-        </DisplayPrincipal>
+            </DisplayPrincipal>
+        </ContextoProviderGeneral>
+
     )
 }
