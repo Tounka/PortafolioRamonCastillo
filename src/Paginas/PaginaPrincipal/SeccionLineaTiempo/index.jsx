@@ -8,6 +8,7 @@ import ReactDOM from 'react-dom';
 import { ModalProvider } from "./ContextoModal";
 const ContenedorLineaDeTiempo = styled(ContenedorPrincipal)`
      overflow: hidden;
+     height: 100vh;
     align-items: baseline;
     background-color: black;
  
