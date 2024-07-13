@@ -23,8 +23,7 @@ const ContenedorLineaTiempo = styled.div`
 const Line = styled.div`
   display: flex;
   justify-content: space-between;
-  position: absolute;
-  top: calc(50% - 2px);
+
   height: 4px;
   
 
