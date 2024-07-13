@@ -9,6 +9,7 @@ import { ModalProvider } from "./ContextoModal";
 const ContenedorLineaDeTiempo = styled(ContenedorPrincipal)`
      overflow: hidden;
      height: 100vh;
+     height: 100dvh;
     align-items: baseline;
     background-color: black;
  

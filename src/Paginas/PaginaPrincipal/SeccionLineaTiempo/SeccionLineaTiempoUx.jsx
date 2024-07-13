@@ -10,7 +10,7 @@ import { ContextoGeneral } from "../ContextoGeneral";
 
 const ContenedorLineaTiempo = styled.div`
   position: relative;
-  height: 100vh;
+  height: 100dvh;
  
   display: flex;
   
