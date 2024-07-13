@@ -119,22 +119,19 @@ const ItemLineaTiempo = ({numero, titulo, descripcion, img, side, id, listaData}
   const handleClickBtn = () =>{
     const element = document.getElementById(id);
     const elementPadre = document.getElementById('timeline');
-    if (element && id != 'punto0') {
+    if (element && (id !== 'punto0' && id !== 'punto1')) {
       setPosicionTimeline(listaData.indexOf(id));
       element.scrollIntoView({
         behavior: 'smooth',
-        
         inline: 'center'
       });
-
-    }else  if (elementPadre && id == 'punto0') {
+    } else if (elementPadre && (id === 'punto0' || id === 'punto1')) {
+      setPosicionTimeline(listaData.indexOf(id));
       elementPadre.scrollTo({
-        left:0,
-        behavior: 'smooth',
-         
-         
+        left: 0,
+        behavior: 'smooth'
       });
-
+      
     }
   }
   return(
