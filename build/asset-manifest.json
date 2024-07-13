@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.7c15ba90.css",
-    "main.js": "/static/js/main.bfd3f128.js",
+    "main.js": "/static/js/main.89538099.js",
     "static/media/imgMcDonalds.jpg": "/static/media/imgMcDonalds.c28d5ceb62e4eb0cd664.jpg",
     "static/media/imgSecundaria.png": "/static/media/imgSecundaria.ee76bfe5058f2aea705f.png",
     "static/media/imgSabatino.jpg": "/static/media/imgSabatino.8cdfcabf4e8421a6267c.jpg",
@@ -13,10 +13,10 @@
     "static/media/fotoPerfil.jpg": "/static/media/fotoPerfil.cf15baad0595097fcc1f.jpg",
     "index.html": "/index.html",
     "main.7c15ba90.css.map": "/static/css/main.7c15ba90.css.map",
-    "main.bfd3f128.js.map": "/static/js/main.bfd3f128.js.map"
+    "main.89538099.js.map": "/static/js/main.89538099.js.map"
   },
   "entrypoints": [
     "static/css/main.7c15ba90.css",
-    "static/js/main.bfd3f128.js"
+    "static/js/main.89538099.js"
   ]
 }
