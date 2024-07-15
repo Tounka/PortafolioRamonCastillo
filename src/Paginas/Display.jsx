@@ -5,7 +5,7 @@ export const ContenedorPrincipal = styled.div`
     height: 100vh;
     height: 100dvh;
     width:100%;
-
+   
  
     max-width:100%;
     

@@ -1,12 +1,16 @@
 import styled from "styled-components"
 import { ContenedorGenerico } from "../../Display"
 import { PaginaContactoUx } from "./PaginaContactoUx"
-
+const ContenedorContacto = styled(ContenedorGenerico)`
+    margin-left: 100%;
+    margin-left: 100dvw;
+    height: 100dvh;
+`
 
 export const SeccionContacto = () => {
     return(
-        <ContenedorGenerico id="Contacto">
+        <ContenedorContacto id="Contacto">
             <PaginaContactoUx />
-        </ContenedorGenerico>
+        </ContenedorContacto>
     )
 }

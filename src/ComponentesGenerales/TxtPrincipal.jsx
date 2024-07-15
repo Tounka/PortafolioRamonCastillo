@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const TxtPrincipalStyled = styled.h3`
     margin: 0;
     font-size: ${props => props.size ? props.size : '36px'}; 
-    color: black;
+    color: ${props => props.color ? props.color : 'black'};
     text-align: center;
 
     ${props => props.subrayado ? `
@@ -18,8 +18,8 @@ export const TxtPrincipalStyled = styled.h3`
         }
     ` : ''}
 `;
-export const TxtPrincipal = ({txt, size, subrayado, mediaDismFontSize}) =>{
+export const TxtPrincipal = ({txt, size, subrayado, mediaDismFontSize, color}) =>{
     return(
-        <TxtPrincipalStyled size={size} subrayado={subrayado} mediaDismFontSize={mediaDismFontSize}> {txt} </TxtPrincipalStyled>
+        <TxtPrincipalStyled color={color} size={size} subrayado={subrayado} mediaDismFontSize={mediaDismFontSize}> {txt} </TxtPrincipalStyled>
     )
 };

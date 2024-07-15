@@ -3,14 +3,14 @@ import { DisplayPrincipal } from "../Display";
 import { SeccionPrincipal } from "./SeccionPrincipal";
 import {  SeccionContacto } from "./SeccionContacto";
 import { SeccionLineaDeTiempo } from "./SeccionLineaTiempo";
-
+import { SeccionHabilidades } from "./SeccionHabilidades";
 import { useEffect } from "react";
 import { ContextoProviderGeneral } from "./ContextoGeneral";
 const ContenedorHorizontal = styled.div`
     display: flex;
     overflow: hidden;
 
-    width: calc(100%* 2);
+    width: calc(100%* 3);
 
 `
 export const PaginaPrincipal = () =>{
@@ -23,10 +23,11 @@ export const PaginaPrincipal = () =>{
     return(
         <ContextoProviderGeneral>
             <DisplayPrincipal>
-            
+               
                 <SeccionContacto />
 
                 <ContenedorHorizontal>
+                    <SeccionHabilidades />
                     <SeccionPrincipal />
                     <SeccionLineaDeTiempo />
                 </ContenedorHorizontal>
