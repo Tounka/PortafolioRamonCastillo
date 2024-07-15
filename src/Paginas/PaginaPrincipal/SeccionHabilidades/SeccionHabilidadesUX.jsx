@@ -1,13 +1,15 @@
 import styled from "styled-components"
 import { TxtPrincipal } from "../../../ComponentesGenerales/TxtPrincipal"
 
-import { FaCss3Alt, FaHtml5,FaReact ,FaGithub, FaBootstrap} from "react-icons/fa";
+import { FaCss3Alt, FaHtml5,FaReact ,FaGithub, FaBootstrap, FaAngleRight} from "react-icons/fa";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { IoLogoJavascript } from "react-icons/io";
 import { FaPhp } from "react-icons/fa";
 import { RiSupabaseFill } from "react-icons/ri";
 import { RiFirebaseFill } from "react-icons/ri";
 import { SiStyledcomponents } from "react-icons/si";
+
+
 
 const ContenedorSeccionStyled = styled.div`
     height: auto;
@@ -95,6 +97,50 @@ const CardStyled = ({bgColor, icon, caso }) => {
     )   
 }
 
+const ContenedorInferiorBtnStyled = styled.button`
+    border: none;
+    background-color: var(--AmarilloEspecial);
+    width: 100%;
+    height:60px;
+
+    border-radius: 15px;
+
+`
+const ContenedoroIcono = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    
+    
+
+    font-size: 42px;
+    cursor: pointer;
+    transition: width .2s ease-in-out;
+    &:hover{
+        width: 110%;
+        transition: width .2s ease-in-out;
+    }
+
+`
+const ContenedorInferiorBtn = () =>{
+    const handleClick = () => {
+        const element = document.getElementById('main');
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    return(
+        <ContenedorInferiorBtnStyled onClick={handleClick}>
+            <ContenedoroIcono>
+                <FaAngleRight />
+            </ContenedoroIcono>
+            
+        </ContenedorInferiorBtnStyled>
+     
+    )
+}
 
 export const SeccionHabilidadesUx = () => {
     return(
@@ -129,6 +175,7 @@ export const SeccionHabilidadesUx = () => {
              
 
                 </ContenedorCardStyled>
+                <ContenedorInferiorBtn />
         </ContenedorSeccionStyled>
 
     </>

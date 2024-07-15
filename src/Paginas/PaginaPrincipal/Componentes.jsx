@@ -31,8 +31,17 @@ const CuadradoContenedorStyled = styled.div`
 `
 const BtnCuadrado = styled.button`
     border: none;
-    height: 100%;
-    width:100%;
+    @media (max-width: 800px) {
+        height: 150px;
+        width: 150px;
+    }
+    @media (max-width: 600px) {
+        height: 100px;
+        width: 100px;
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0;
 
     font-size: 20px;
