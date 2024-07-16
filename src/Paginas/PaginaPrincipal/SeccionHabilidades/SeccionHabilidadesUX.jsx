@@ -44,6 +44,11 @@ const CardIconoStyled = styled.div`
     background-color: ${props => props.bgColor ? props.bgColor : 'fff'};
     color: white;
     font-size: 100px;
+    transition: font-size .2s;
+        &:hover{
+            font-size: 105px;
+            transition: font-size .2s;
+        }
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,6 +76,11 @@ const CardIconoStyled = styled.div`
         font-size: 80px;
         width: 100px;
         height: 100px;
+        transition: font-size .2s;
+        &:hover{
+            font-size: 85px;
+            transition: font-size .2s;
+        }
     }
   & > div {
     position: absolute;
@@ -86,6 +96,7 @@ const CardIconoStyled = styled.div`
     
     
   }
+ 
 
 `;
 

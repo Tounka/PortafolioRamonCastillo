@@ -119,13 +119,13 @@ const ItemLineaTiempo = ({numero, titulo, descripcion, img, side, id, listaData}
   const handleClickBtn = () =>{
     const element = document.getElementById(id);
     const elementPadre = document.getElementById('timeline');
-    if (element && (id !== 'punto0' && id !== 'punto1')) {
+    if (element && (id !== 'punto0' )) {
       setPosicionTimeline(listaData.indexOf(id));
       element.scrollIntoView({
         behavior: 'smooth',
         inline: 'center'
       });
-    } else if (elementPadre && (id === 'punto0' || id === 'punto1')) {
+    } else if (elementPadre && (id === 'punto0' )) {
       setPosicionTimeline(listaData.indexOf(id));
       elementPadre.scrollTo({
         left: 0,
@@ -186,7 +186,7 @@ const BtnControl = ({fn, icono, listaData}) =>{
     console.log(posicionTimeline);
     let nuevaPosicion = posicionTimeline;
 
-    if (fn === 1 && posicionTimeline > 1) {
+    if (fn === 1 && posicionTimeline > 0) {
       nuevaPosicion = posicionTimeline - 1;
     } else if (fn === 2 && posicionTimeline < listaData.length - 1) {
       nuevaPosicion = posicionTimeline + 1;
@@ -200,12 +200,16 @@ const BtnControl = ({fn, icono, listaData}) =>{
     const posicion = listaData[nuevaPosicion];
     const element = document.getElementById(posicion);
     if (element) {
-      if (nuevaPosicion <= 1) {
+      if (nuevaPosicion <= 0) {
         elementPadre.scrollTo({
           left:0,
           behavior: 'smooth',
            
         });
+      }else if (nuevaPosicion == 1){
+        
+          element.scrollIntoView({ behavior: 'smooth'});
+      
       } else {
         element.scrollIntoView({ behavior: 'smooth', inline: 'center' });
       }
