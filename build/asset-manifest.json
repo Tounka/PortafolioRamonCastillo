@@ -1,22 +1,38 @@
 {
   "files": {
     "main.css": "/static/css/main.7c15ba90.css",
-    "main.js": "/static/js/main.9dfdefe3.js",
+    "main.js": "/static/js/main.47a74f35.js",
+    "static/media/PgLRopa_img1.png": "/static/media/PgLRopa_img1.e9fc8bcf3e0e1e40537a.png",
+    "static/media/PgNogano_img1.png": "/static/media/PgNogano_img1.1159769dbe37beeeef9f.png",
+    "static/media/PgBlog_img1.png": "/static/media/PgBlog_img1.ad8a0129b73bd9ff441a.png",
+    "static/media/PgBagelia_img1.png": "/static/media/PgBagelia_img1.ad4904bb94076ffbc1af.png",
+    "static/media/PgNogano_img2.png": "/static/media/PgNogano_img2.5d29dd50098c77cfba8d.png",
+    "static/media/PgLRopa_img2.png": "/static/media/PgLRopa_img2.1f4f869fa3b65200c4f7.png",
+    "static/media/PgBlog_img2.png": "/static/media/PgBlog_img2.f8d2255a1c134bec19f1.png",
+    "static/media/PgBagelia_img2.png": "/static/media/PgBagelia_img2.8bebb1c107766157a548.png",
     "static/media/imgMcDonalds.jpg": "/static/media/imgMcDonalds.c28d5ceb62e4eb0cd664.jpg",
     "static/media/imgSecundaria.png": "/static/media/imgSecundaria.ee76bfe5058f2aea705f.png",
     "static/media/imgSabatino.jpg": "/static/media/imgSabatino.8cdfcabf4e8421a6267c.jpg",
     "static/media/imgGerente.jpg": "/static/media/imgGerente.a49eec3aef76c760a7e1.jpg",
     "static/media/bgPrincipal.jpg": "/static/media/bgPrincipal.0bf211227a92dc0f7c7f.jpg",
     "static/media/Poppins-Medium.ttf": "/static/media/Poppins-Medium.673ed42382ab264e0bf5.ttf",
+    "static/media/PgTarjetas_img1.png": "/static/media/PgTarjetas_img1.ed3b9947da998c672dec.png",
+    "static/media/PgMc_img1.png": "/static/media/PgMc_img1.eda8462c770049060656.png",
+    "static/media/PgCasaItalia_img1.png": "/static/media/PgCasaItalia_img1.37087ac4bee83fd0b4c7.png",
+    "static/media/PgMc_img2.png": "/static/media/PgMc_img2.b06ba88a79e763d2cf36.png",
     "static/media/imgPreparatoria.png": "/static/media/imgPreparatoria.0b3a567c776e689941b8.png",
+    "static/media/PgUadeo_img1.png": "/static/media/PgUadeo_img1.43b191888bbe32bba003.png",
     "static/media/imgUniversidad.webp": "/static/media/imgUniversidad.1baead57797008c3cf01.webp",
+    "static/media/PgTarjetas_img2.png": "/static/media/PgTarjetas_img2.cb716d6357d6f7bbb119.png",
+    "static/media/PgCasaItalia_img2.png": "/static/media/PgCasaItalia_img2.18b6c1f880fd61cbaf66.png",
     "static/media/fotoPerfil.jpg": "/static/media/fotoPerfil.cf15baad0595097fcc1f.jpg",
+    "static/media/PgUadeo_img2.png": "/static/media/PgUadeo_img2.0e0583763c171041b74b.png",
     "index.html": "/index.html",
     "main.7c15ba90.css.map": "/static/css/main.7c15ba90.css.map",
-    "main.9dfdefe3.js.map": "/static/js/main.9dfdefe3.js.map"
+    "main.47a74f35.js.map": "/static/js/main.47a74f35.js.map"
   },
   "entrypoints": [
     "static/css/main.7c15ba90.css",
-    "static/js/main.9dfdefe3.js"
+    "static/js/main.47a74f35.js"
   ]
 }

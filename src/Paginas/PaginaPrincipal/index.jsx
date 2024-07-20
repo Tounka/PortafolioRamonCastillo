@@ -6,6 +6,7 @@ import { SeccionLineaDeTiempo } from "./SeccionLineaTiempo";
 import { SeccionHabilidades } from "./SeccionHabilidades";
 import { useEffect } from "react";
 import { ContextoProviderGeneral } from "./ContextoGeneral";
+import { SeccionProyectos } from "./SeccionProyectos";
 const ContenedorHorizontal = styled.div`
     display: flex;
     overflow: hidden;
@@ -32,6 +33,7 @@ export const PaginaPrincipal = () =>{
                     <SeccionLineaDeTiempo />
                 </ContenedorHorizontal>
 
+                <SeccionProyectos />
 
             </DisplayPrincipal>
         </ContextoProviderGeneral>

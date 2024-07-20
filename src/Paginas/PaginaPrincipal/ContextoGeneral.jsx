@@ -21,7 +21,7 @@ const ContextoProviderGeneral = ({ children }) => {
     {
       titulo: "Secundaria",
       fecha: "2014",
-      descripcion: "Recién graduado del colegio Begsu, ingresé a la universidad latinoamericana. Lugar en donde formé buenas amistades que a día de hoy sigo teniendo en estima. En esta etapa de mi vida, donde todo era más sencillo, formé más mi individualidad y se empezó a desarrollar la persona que soy ahora. ",
+      descripcion: "Recién graduado del colegio Begsu, ingresé a la multiversidad latinoamericana. Lugar en donde formé buenas amistades que a día de hoy sigo teniendo en estima. En esta etapa de mi vida, donde todo era más sencillo, formé más mi individualidad y se empezó a desarrollar la persona que soy ahora. ",
       img: imgSecundaria
     },
     {

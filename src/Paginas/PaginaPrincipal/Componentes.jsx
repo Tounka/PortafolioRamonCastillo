@@ -85,7 +85,7 @@ export const CuadradoContenedor = () => {
             <BtnCuadrado noLeft noTop onClick={ () => handleClick('Contacto')}><h1>Contacto</h1></BtnCuadrado>
             <BtnCuadrado noTop onClick={ () => handleClick('timeline')}><h1>Mi Historia</h1></BtnCuadrado>
             <BtnCuadrado noLeft onClick={ () => handleClick('tecnologias')} ><h1> Tecnologías</h1></BtnCuadrado>
-            <BtnCuadrado    ><h1> 4 </h1></BtnCuadrado>
+            <BtnCuadrado  onClick={ () => handleClick('proyectos')}   ><h1> Proyectos </h1></BtnCuadrado>
     
         </CuadradoContenedorStyled>
     );

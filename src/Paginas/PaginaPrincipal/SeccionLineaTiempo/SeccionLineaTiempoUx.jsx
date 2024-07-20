@@ -119,17 +119,28 @@ const ItemLineaTiempo = ({numero, titulo, descripcion, img, side, id, listaData}
   const handleClickBtn = () =>{
     const element = document.getElementById(id);
     const elementPadre = document.getElementById('timeline');
-    if (element && (id !== 'punto0' )) {
+
+    if (element && (id === 'punto1' )) {
       setPosicionTimeline(listaData.indexOf(id));
       element.scrollIntoView({
         behavior: 'smooth',
+        block: 'nearest',
+       
+      });
+    }
+    else if (element && (id !== 'punto0' )) {
+      setPosicionTimeline(listaData.indexOf(id));
+      element.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
         inline: 'center'
       });
     } else if (elementPadre && (id === 'punto0' )) {
       setPosicionTimeline(listaData.indexOf(id));
       elementPadre.scrollTo({
         left: 0,
-        behavior: 'smooth'
+        behavior: 'smooth',
+        
       });
       
     }
@@ -204,14 +215,15 @@ const BtnControl = ({fn, icono, listaData}) =>{
         elementPadre.scrollTo({
           left:0,
           behavior: 'smooth',
+          block: 'nearest'
            
         });
       }else if (nuevaPosicion == 1){
         
-          element.scrollIntoView({ behavior: 'smooth'});
+          element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       
       } else {
-        element.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+        element.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       }
     }
 
