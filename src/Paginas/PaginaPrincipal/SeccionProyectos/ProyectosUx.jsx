@@ -88,6 +88,7 @@ export const SeccionProyectosUx = () =>{
                 srcImg={pagina[imgToUse]}
                 srcImg2={pagina.img2}
                 tecnologias={pagina.tecnologias}
+                url={pagina.url}
             />
             ))}
            

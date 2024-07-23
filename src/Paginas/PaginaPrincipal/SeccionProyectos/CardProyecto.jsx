@@ -9,7 +9,7 @@ import { RiFirebaseFill, RiSupabaseFill } from 'react-icons/ri';
 
 
 const CardProyectoStyled = styled.div`
-    height: 176px;
+    height: auto;
     width: 100%;
     gap: 20px;
     display: grid;
@@ -39,8 +39,12 @@ const SegundoContenedorSeccionProyecto = styled(ContenedorSeccionProyecto)`
     display: grid;
     grid-template-rows: auto auto 40px;
     gap: 5px;
-    padding: 5px 0;
+    padding: 5px 10px;
 
+    @media (max-width: 450px) {
+        grid-template-rows: auto auto 25px;
+       
+    }
     
 
     
@@ -48,7 +52,7 @@ const SegundoContenedorSeccionProyecto = styled(ContenedorSeccionProyecto)`
 `
 const ContenedorImg = styled.div`
     width: 266px;
-    height: 176px;
+    height: 100%;
     @media (max-width: 450px) {
         width: 133px;
        
@@ -58,17 +62,25 @@ const ContenedorImg = styled.div`
 const ContenedorIcono = styled.div`
     height: 40px;
     width: 40px;
-    font-size: 36px;
+    font-size: 34px;
     background-color: ${props => props.bgColor ? props.bgColor : ''};
     color: ${props => props.color ? props.color : ''};
     display: flex;
     justify-content:center;
     align-items:center;
     border-radius: 10px;
+
+    @media (max-width: 450px) {
+        height: 25px;
+        width: 25px;
+        font-size: 20px;
+       
+    }
+    
 `
 const tecnologiaMap = {
-    html: { icon: <FaHtml5 />, bgColor: '#FC490B' },
-    css: { icon: <FaCss3Alt />, bgColor: '#264DE4' },
+    html: { icon: <FaHtml5 />, bgColor: '#FC490B' ,color: 'white' },
+    css: { icon: <FaCss3Alt />, bgColor: '#264DE4', color: 'white'},
     js: { icon: <IoLogoJavascript />, bgColor: '#F0DB4F' },
     react: { icon: <FaReact />, bgColor: '#262626', color: '#02DCFF' },
     bootstrap: { icon: <FaBootstrap />, bgColor: '#ffffff', color: '#8411F6' },
@@ -92,7 +104,7 @@ const ContenedorIconos = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
-    gap: 20px;
+    gap: 10px;
 `
 const Iconos = ({tecnologias}) =>{
     
@@ -109,13 +121,17 @@ export const CardProyecto = ({
     titulo = 'Soy un titulo',
     descripcionCorta = 'soy una pagina web que hace X cosas',
     tecnologias = ['react', 'js', 'html', 'css'],
+    url,
     srcImg = 'https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a',
     srcImg2 = 'https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a'}
+    
 
     ) =>{
-   
+        const handleClick = () => {
+            window.open(url, '_blank'); // Abre el enlace en una nueva pestaña
+          };
         return(
-        <CardProyectoStyled>
+        <CardProyectoStyled onClick={() => handleClick()}>
             <ContenedorSeccionProyecto>
                 <ContenedorImg position = 'right'>
                     <ImgPicture src={srcImg} obPosition = 'top' />

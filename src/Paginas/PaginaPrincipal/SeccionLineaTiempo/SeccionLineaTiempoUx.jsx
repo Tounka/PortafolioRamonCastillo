@@ -158,6 +158,7 @@ const ItemLineaTiempo = ({numero, titulo, descripcion, img, side, id, listaData}
 
 
 const ContenedorControl = styled.div`
+
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
   width: ${props => props.boolSlider ? '100px' : '0'};
@@ -175,6 +176,14 @@ const ContenedorControl = styled.div`
   overflow: hidden;
 
   transition: width .3s ;
+
+  opacity: .7;
+  transition: .6s;
+  transition-delay: 1s;
+  &:hover {
+    opacity: 1;
+    transition: .3s;
+  }
 `
 const BtnControlStyled = styled.button`
   height: 100%;

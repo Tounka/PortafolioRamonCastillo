@@ -23,56 +23,64 @@ export const Data = [
         descripcion: 'Sitio para manejar entradas en aula de computo.',
         img: UadeoImg1,
         img2: UadeoImg2,
-        tecnologias: ['html', 'css', 'js', 'react']
+        tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
+        url: 'https://laboratoriouadeo.netlify.app/'
     },
     { 
         nombre: 'Tarjetas',
         descripcion: 'Sitio para administrar varios créditos.',
         img: TarjetasImg1,
         img2: TarjetasImg2,
-        tecnologias: ['html', 'css', 'js', 'react']
+        tecnologias: ['html', 'css', 'js', 'react', 'postgresql'],
+        url: 'https://targety.netlify.app/'
     },
     { 
         nombre: 'Mc Donald\'s',
         descripcion: 'Herramientas para hacer mas eficientes ciertas tareas.',
         img: McImg1,
         img2: McImg2,
-        tecnologias: ['html', 'css', 'js', 'react']
+        tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
+        url: 'https://inventariodetalladomc.netlify.app/'
     },
     { 
         nombre: 'Bagelia',
         descripcion: 'Sitio para promocionar tienda de bolsas.',
         img: BageliaImg1,
         img2: BageliaImg2,
-        tecnologias: ['html', 'css', 'js', 'react']
+        tecnologias: ['html', 'css', 'js', 'react'],
+        url: 'https://bagelia.netlify.app/'
     },
     { 
         nombre: 'Blog',
         descripcion: 'Se trata de un blog en donde los usuarios pueden subir post.',
         img: BlogImg1,
         img2: BlogImg2,
-        tecnologias: ['html', 'css', 'js', 'react']
+        tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
+        url: 'https://app.netlify.com/sites/towblog/overview'
     },
     { 
         nombre: 'Casa Italia',
         descripcion: 'Sistema de comandas web para una pizzeria.',
         img: CasaItaliaImg1,
         img2: CasaItaliaImg2,
-        tecnologias: ['html', 'css', 'js', 'react']
+        tecnologias: ['html', 'css', 'js', 'react'],
+        url: 'https://casaitalia.netlify.app/'
     },
     { 
         nombre: 'Nogano',
         descripcion: 'Sitio web para un restaurante.',
         img: NoganoImg1,
         img2: NoganoImg2,
-        tecnologias: ['html', 'css', 'js', 'react']
+        tecnologias: ['html', 'css', 'js', 'react', 'styledcomponents'],
+        url: 'https://nogano.netlify.app/'
     },
     { 
         nombre: 'Tienda de Ropa',
         descripcion: 'Sitio sobre venta de ropa, lo realice para experimentar con animaciones.',
         img: LRopaImg1,
         img2: LRopaImg2,
-        tecnologias: ['html', 'css', 'js', 'react']
+        tecnologias: ['html', 'css', 'js', 'react'],
+        url: 'https://little-legend.netlify.app/'
     },
     
   
