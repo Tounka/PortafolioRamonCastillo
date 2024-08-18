@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { ImgPicture } from "../../Img"
 import foto from '../../../Img/fotoPerfil.jpg'
+import fotoWebp from '../../../Img/fotoPerfil.webp'
 import { TxtPrincipal } from "../../../ComponentesGenerales/TxtPrincipal"
 import { FaInstagram, FaFacebookF, FaWhatsapp, FaAngleDown   } from "react-icons/fa";
 
@@ -66,7 +67,7 @@ const ContenedorIzquierdo = () =>{
     return(
         <ContenedorIzquierdoStyled>
             <ContenedorImg>
-                <ImgPicture src={foto} alt='Imagen de perfil'/>
+                <ImgPicture src={foto} srcWebp={fotoWebp} alt='Imagen de perfil'/>
             </ContenedorImg>
             <TxtPrincipal size={'34px'} mediaDismFontSize txt={'Ramon Castillo'} subrayado/>
         </ContenedorIzquierdoStyled> 

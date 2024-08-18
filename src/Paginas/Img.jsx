@@ -29,12 +29,12 @@ const ImageContainer = styled.div`
   
 `;
 
-export const ImgPicture = ({ src, alt, index, hover, bg, zIndex, obPosition }) => {
+export const ImgPicture = ({ src, srcWebp = '', alt, index, hover, bg, zIndex, obPosition }) => {
     
     return src ? (
         <ImageContainer index={index}  hover={hover} bg={bg} zIndex={zIndex} obPosition={obPosition} >
             <picture>
-                <source srcSet={`${src}`} type="image/webp" />
+                <source srcSet={`${srcWebp}`} type="image/webp" />
                 <source srcSet={`${src}`} type="image/jpeg" />
                 <img src={`${src}`} alt={alt} loading="lazy"/>
             </picture>

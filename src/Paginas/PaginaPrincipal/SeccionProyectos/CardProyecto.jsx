@@ -123,8 +123,8 @@ export const CardProyecto = ({
     tecnologias = ['react', 'js', 'html', 'css'],
     url,
     srcImg = 'https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a',
-    srcImg2 = 'https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a'}
-    
+    srcImgWebp = 'https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a'}
+   
 
     ) =>{
         const handleClick = () => {
@@ -134,7 +134,7 @@ export const CardProyecto = ({
         <CardProyectoStyled onClick={() => handleClick()}>
             <ContenedorSeccionProyecto>
                 <ContenedorImg position = 'right'>
-                    <ImgPicture src={srcImg} obPosition = 'top' />
+                    <ImgPicture alt={'Imagen del sitio web ' + titulo} src={srcImg} srcWebp = {srcImgWebp}  obPosition = 'top' />
                 </ContenedorImg>
             </ContenedorSeccionProyecto>
 

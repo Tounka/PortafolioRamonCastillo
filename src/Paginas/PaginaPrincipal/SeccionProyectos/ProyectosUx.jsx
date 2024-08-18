@@ -77,6 +77,7 @@ export const SeccionProyectosUx = () =>{
       };
       const windowWidth = useWindowWidth();
       const imgToUse = windowWidth < 450 ? 'img2' : 'img';
+      const imgToUseWebp = windowWidth < 450 ? 'img2Webp' : 'imgWebp';
     return(
         <ContenedorProyectosUx>
             <ContenedorInferiorBtn />
@@ -86,7 +87,7 @@ export const SeccionProyectosUx = () =>{
                 titulo={pagina.nombre}
                 descripcionCorta={pagina.descripcion}
                 srcImg={pagina[imgToUse]}
-                srcImg2={pagina.img2}
+                srcImgWebp={pagina[imgToUseWebp]}
                 tecnologias={pagina.tecnologias}
                 url={pagina.url}
             />

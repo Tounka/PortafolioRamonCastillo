@@ -104,7 +104,7 @@ const ContenedorDescripcion = styled.div`
   }
 `
 
-const ItemLineaTiempo = ({numero, titulo, descripcion, img, side, id, listaData}) =>{
+const ItemLineaTiempo = ({numero, titulo, descripcion, img, imgWebp = "" , side, id, listaData}) =>{
   const {setEstadoModal, setInformacionModal, informacionModal} = useContext(ModalContext);
   const {setBoolSlider, Datos,setPosicionTimeline, posicionTimeline} = useContext(ContextoGeneral);
 
@@ -147,9 +147,9 @@ const ItemLineaTiempo = ({numero, titulo, descripcion, img, side, id, listaData}
   }
   return(
     <ContenedorItemLineaDeTiempoStyled id={id} side={side} >
-        <Btn onClick={() => handleClickBtn()}> {numero} </Btn>
+        <Btn name={'Boton mover a item numero ' + numero} onClick={() => handleClickBtn()}> {numero} </Btn>
         <TxtItemLineaTiempo>{titulo}</TxtItemLineaTiempo>
-        <ContenedorImg onClick={() => handleClick()} > <ImgPicture bg  alt={'Img ' + titulo} src={img}  zIndex = {1}/> <ContenedorDescripcion side={side}>{descripcion}</ContenedorDescripcion>  </ContenedorImg>
+        <ContenedorImg onClick={() => handleClick()} > <ImgPicture bg  alt={'Img ' + titulo} src={img} srcWebp = {imgWebp}  zIndex = {1}/> <ContenedorDescripcion side={side}>{descripcion}</ContenedorDescripcion>  </ContenedorImg>
        
     </ContenedorItemLineaDeTiempoStyled>
   )
@@ -199,7 +199,7 @@ const BtnControlStyled = styled.button`
   align-items: center;
 ` 
 
-const BtnControl = ({fn, icono, listaData}) =>{
+const BtnControl = ({fn, icono, listaData, name}) =>{
   const {posicionTimeline, setPosicionTimeline} = useContext(ContextoGeneral);
   
   const handleClick = () => {
@@ -239,7 +239,7 @@ const BtnControl = ({fn, icono, listaData}) =>{
     console.log(nuevaPosicion);
   };
   return(
-    <BtnControlStyled listaData={listaData} onClick={() => handleClick()}>
+    <BtnControlStyled name={name} listaData={listaData} onClick={() => handleClick()}>
         {icono}
     </BtnControlStyled>
   )
@@ -258,9 +258,9 @@ const Control = ({listaData}) =>{
   const {boolSlider, posicionTimeline} = useContext(ContextoGeneral);
   return(
     <ContenedorControl boolSlider={boolSlider}>
-      <BtnControl listaData={listaData} fn={1} icono={<FaAngleLeft />}/>
+      <BtnControl name={'Control linea de tiempo anterior'} listaData={listaData} fn={1} icono={<FaAngleLeft />}/>
       <ContenedorNumeroControl> {posicionTimeline} </ContenedorNumeroControl>
-      <BtnControl listaData={listaData} fn={2} icono={<FaAngleRight />}/>
+      <BtnControl name={'Control linea de tiempo siguiente'} listaData={listaData} fn={2} icono={<FaAngleRight />}/>
 
   
     </ContenedorControl>
@@ -284,7 +284,7 @@ export const SeccionLineaDeTiempoUx = ({boolSlider}) => {
       <Line>
         <BtnInicialFinal onClick={handleClick}><FaAngleLeft size={'32px'} /></BtnInicialFinal>
         {Datos.map((data, index) => (
-          <ItemLineaTiempo listaData={listaData} id={listaData[index]} key={index} side = {(index % 2 == 0)} numero={index} titulo ={data.titulo} descripcion={data.descripcion} img={data.img}  setPosicionTimeline={setPosicionTimeline}>{data}</ItemLineaTiempo>
+          <ItemLineaTiempo listaData={listaData} id={listaData[index]} key={index} side = {(index % 2 == 0)} numero={index} titulo ={data.titulo} descripcion={data.descripcion} img={data.img} imgWebp={data.imgWebp}  setPosicionTimeline={setPosicionTimeline}>{data}</ItemLineaTiempo>
         ))}
 
         <BtnInicialFinal final>Final</BtnInicialFinal>

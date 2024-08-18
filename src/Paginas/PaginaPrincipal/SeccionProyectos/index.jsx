@@ -9,6 +9,7 @@ const ContenedorSeccionProyectos = styled(ContenedorPrincipal)`
     padding: 30px 0;
     background-color: black;
     overflow: scroll;
+    overflow-x: hidden;
 `
 export const SeccionProyectos = () =>{
     return(
