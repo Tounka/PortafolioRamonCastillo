@@ -21,16 +21,40 @@ const CuadradoContenedorStyled = styled.div`
     }
 
     
-    
-    transform: rotate(45deg);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-
-
-  
+            
+      
+        transform: rotate(45deg);
+        overflow: hidden;
+        position: relative;
+        
 `
+
+const Blur = styled.div`
+    z-index: -1;
+  position: absolute;
+  position: absolute;
+  
+
+  width: 200px; // Adjust this value as needed
+  height: 200px; // Adjust this value as needed
+
+  @media (max-width: 800px) {
+        width: 200px; // Adjust this value as needed
+        height: 200px; // Adjust this value as needed
+    }
+    @media (max-width: 600px) {
+        height: 150px;
+        width: 150px;
+    }
+  
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+`;
 const BtnCuadrado = styled.button`
+position: relative;
     border: none;
+    overflow: hidden;
     @media (max-width: 800px) {
         height: 150px;
         width: 150px;
@@ -51,7 +75,8 @@ const BtnCuadrado = styled.button`
     border-left: ${props => props.noLeft ? null : 'solid white 2px'};
     border-top: ${props => props.noTop ? null : 'solid white 2px'};
     
-
+   
+   
     h1 {
         transform: rotate(-45deg);
         margin: 0;
@@ -67,7 +92,9 @@ const BtnCuadrado = styled.button`
         background-color: #000000;
         transition: .1s ease-in;
     }
+
 `
+
 
 export const CuadradoContenedor = () => {
     const {setBoolSlider} = useContext(ContextoGeneral);
@@ -82,10 +109,11 @@ export const CuadradoContenedor = () => {
     }
     return (
         <CuadradoContenedorStyled>
-            <BtnCuadrado name="Botón ir a contacto" noLeft noTop onClick={ () => handleClick('Contacto')}><h1>Contacto</h1></BtnCuadrado>
-            <BtnCuadrado name="Botón ir a linea de tiempo" noTop onClick={ () => handleClick('timeline')}><h1>Mi Historia</h1></BtnCuadrado>
-            <BtnCuadrado name="Botón ir a tecnologías" noLeft onClick={ () => handleClick('tecnologias')} ><h1> Tecnologías</h1></BtnCuadrado>
-            <BtnCuadrado name="Botón ir a proyectos"  onClick={ () => handleClick('proyectos')}   ><h1> Proyectos </h1></BtnCuadrado>
+            
+            <BtnCuadrado name="Botón ir a contacto" noLeft noTop onClick={ () => handleClick('Contacto')}> <Blur /> <h1>Contacto</h1></BtnCuadrado>
+            <BtnCuadrado name="Botón ir a linea de tiempo" noTop onClick={ () => handleClick('timeline')}> <Blur /><h1>Mi Historia</h1></BtnCuadrado>
+            <BtnCuadrado name="Botón ir a tecnologías" noLeft onClick={ () => handleClick('tecnologias')} ><Blur /><h1> Tecnologías</h1></BtnCuadrado>
+            <BtnCuadrado name="Botón ir a proyectos"  onClick={ () => handleClick('proyectos')}   ><Blur /><h1> Proyectos </h1></BtnCuadrado>
     
         </CuadradoContenedorStyled>
     );

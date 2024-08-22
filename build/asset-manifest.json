@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.7c15ba90.css",
-    "main.js": "/static/js/main.5479cb8b.js",
+    "main.js": "/static/js/main.79b1f91e.js",
     "static/media/imgUniversidad.jpg": "/static/media/imgUniversidad.7637fd5d73174dba6990.jpg",
     "static/media/PgNogano_img2.png": "/static/media/PgNogano_img2.6cf7d34774cf448145eb.png",
     "static/media/PgLRopa_img2.png": "/static/media/PgLRopa_img2.f5b842edb033c1fb826e.png",
@@ -55,10 +55,10 @@
     "static/media/PgUadeo_img1.webp": "/static/media/PgUadeo_img1.554cbe182fe79320df5e.webp",
     "index.html": "/index.html",
     "main.7c15ba90.css.map": "/static/css/main.7c15ba90.css.map",
-    "main.5479cb8b.js.map": "/static/js/main.5479cb8b.js.map"
+    "main.79b1f91e.js.map": "/static/js/main.79b1f91e.js.map"
   },
   "entrypoints": [
     "static/css/main.7c15ba90.css",
-    "static/js/main.5479cb8b.js"
+    "static/js/main.79b1f91e.js"
   ]
 }
