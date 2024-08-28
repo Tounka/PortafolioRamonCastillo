@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { ImgPicture } from "../../Img"
-import foto from '../../../Img/fotoPerfil.jpg'
-import fotoWebp from '../../../Img/fotoPerfil.webp'
+import foto from '../../../Img/RamonCastillo.jpg'
+import fotoWebp from '../../../Img/RamonCastillo.webp'
 import { TxtPrincipal } from "../../../ComponentesGenerales/TxtPrincipal"
 import { FaInstagram, FaFacebookF, FaWhatsapp, FaAngleDown   } from "react-icons/fa";
 
