@@ -35,16 +35,16 @@ const Blur = styled.div`
   position: absolute;
   
 
-  width: 200px; // Adjust this value as needed
-  height: 200px; // Adjust this value as needed
+  width: 175px; // Adjust this value as needed
+  height: 175px; // Adjust this value as needed
 
   @media (max-width: 800px) {
-        width: 200px; // Adjust this value as needed
-        height: 200px; // Adjust this value as needed
+        width: 150px; // Adjust this value as needed
+        height: 150px; // Adjust this value as needed
     }
     @media (max-width: 600px) {
-        height: 150px;
-        width: 150px;
+        height: 100px;
+        width: 100px;
     }
   
     overflow: hidden;
