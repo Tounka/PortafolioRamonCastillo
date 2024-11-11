@@ -14,6 +14,10 @@ import TarjetasImg1 from '../../../Img/Pages/PgTarjetas_img1.png';
 import TarjetasImg2 from '../../../Img/Pages/PgTarjetas_img2.png';
 import UadeoImg1 from '../../../Img/Pages/PgUadeo_img1.png';
 import UadeoImg2 from '../../../Img/Pages/PgUadeo_img2.png';
+import MazatlanTuristasImg1 from '../../../Img/Pages/PgMazatlanTuristas_img1.png'
+import MazatlanTuristasImg2 from '../../../Img/Pages/PgMazatlanTuristas_img2.png'
+import MascotasImg1 from '../../../Img/Pages/PgMascotas_Img1.png'
+import MascotasImg2 from '../../../Img/Pages/PgMascotas_Img2.png'
 
 import BageliaImg1webp from '../../../Img/Pages/PgBagelia_img1.webp';
 import BageliaImg2webp from '../../../Img/Pages/PgBagelia_img2.webp';
@@ -31,9 +35,32 @@ import TarjetasImg1webp from '../../../Img/Pages/PgTarjetas_img1.webp';
 import TarjetasImg2webp from '../../../Img/Pages/PgTarjetas_img2.webp';
 import UadeoImg1webp from '../../../Img/Pages/PgUadeo_img1.webp';
 import UadeoImg2webp from '../../../Img/Pages/PgUadeo_img2.webp';
-
+import MazatlanTuristasImg1Webp from '../../../Img/Pages/PgMazatlanTuristas_img1.webp'
+import MazatlanTuristasImg2Webp from '../../../Img/Pages/PgMazatlanTuristas_img2.webp'
+import MascotasImg1Webp from '../../../Img/Pages/PgMascotas_Img1.webp'
+import MascotasImg2Webp from '../../../Img/Pages/PgMascotas_Img2.webp'
 
 export const Data = [
+    { 
+        nombre: 'Guía turistas',
+        descripcion: 'Sitio para promocionar servicio de guía de turistas.',
+        img: MazatlanTuristasImg1,
+        img2: MazatlanTuristasImg2,
+        imgWebp: MazatlanTuristasImg1Webp,
+        img2Webp: MazatlanTuristasImg2Webp,
+        tecnologias: ['html', 'css', 'js', 'react'],
+        url: 'https://recorridosmazatlan.netlify.app/'
+    },
+    { 
+        nombre: 'Mascotas',
+        descripcion: 'Red social similar a Instagram para mascotas.',
+        img: MascotasImg1,
+        img2: MascotasImg2,
+        imgWebp: MascotasImg1Webp,
+        img2Webp: MascotasImg2Webp,
+        tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
+        url: 'https://mimascotajs.netlify.app/'
+    },
     { 
         nombre: 'Registros UAdeO',
         descripcion: 'Sitio para manejar entradas en aula de computo.',

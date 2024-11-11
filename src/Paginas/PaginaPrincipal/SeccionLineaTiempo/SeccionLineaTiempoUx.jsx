@@ -90,6 +90,8 @@ const ContenedorDescripcion = styled.div`
   height: 50px;
   width: 100%;
   background-color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  color: black;
   text-align:Center;
   position: absolute;
   bottom: ${props => props.side ? '100' : '0'};

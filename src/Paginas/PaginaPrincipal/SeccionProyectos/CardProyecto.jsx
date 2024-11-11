@@ -38,11 +38,11 @@ const ContenedorSeccionProyecto = styled.div`
 const SegundoContenedorSeccionProyecto = styled(ContenedorSeccionProyecto)`
     display: grid;
     grid-template-rows: auto auto 40px;
-    gap: 5px;
+    gap: 10px;
     padding: 5px 10px;
-
+    align-items: center;
     @media (max-width: 450px) {
-        grid-template-rows: auto auto 25px;
+        grid-template-rows: auto auto auto;
        
     }
     
@@ -62,19 +62,24 @@ const ContenedorImg = styled.div`
 const ContenedorIcono = styled.div`
     height: 40px;
     width: 40px;
-    font-size: 34px;
+    font-size: 30px;
     background-color: ${props => props.bgColor ? props.bgColor : ''};
     color: ${props => props.color ? props.color : ''};
     display: flex;
     justify-content:center;
     align-items:center;
     border-radius: 10px;
-
+    flex-shrink: 0;
     @media (max-width: 450px) {
+        height: 30px;
+        width: 30px;
+        font-size: 24px;
+    }
+
+    @media (max-width: 350px) {
         height: 25px;
         width: 25px;
         font-size: 20px;
-       
     }
     
 `
@@ -99,20 +104,54 @@ const Icono = ({tecnologia}) =>{
         </ContenedorIcono>
     )
 }
-
-const ContenedorIconos = styled.div`
-    height: 100%;
-    width: 100%;
-    display: flex;
-    gap: 10px;
+const TxtPrincipalCard = styled.p`
+    margin: 0;
+    font-size: 36px;
+    color: black;
+    text-align: left;
+    font-weight: bold;
+    @media (max-width: 450px) {
+        font-size: 28px;
+    }
+    @media (max-width: 450px) {
+        font-size: 24px;
+    }
+    @media (max-width: 350px) {
+        font-size: 20px;
+    }
 `
+const ContenedorIconos = styled.div`
+    width: 100%; 
+    display: flex;
+    overflow-x: auto; 
+    
+`;
+
+const ContenedorInternoIconos = styled.div`
+    display: flex;
+    width: auto; 
+    gap: 10px; 
+    flex-wrap: nowrap; 
+
+    scrollbar-width: none; 
+    -ms-overflow-style: none;  
+    &::-webkit-scrollbar {
+        display: none; 
+    }
+
+    @media (max-width: 350px) {
+        gap: 5px; 
+    }
+`;
 const Iconos = ({tecnologias}) =>{
     
     return(
         <ContenedorIconos >
-            {tecnologias.map(tecnologia =>(
-                <Icono tecnologia={tecnologia}  />
-            ))}
+            <ContenedorInternoIconos>
+                {tecnologias.map(tecnologia =>(
+                    <Icono tecnologia={tecnologia}  />
+                ))}
+            </ContenedorInternoIconos>
         </ContenedorIconos>
     )
 }
@@ -139,7 +178,7 @@ export const CardProyecto = ({
             </ContenedorSeccionProyecto>
 
             <SegundoContenedorSeccionProyecto>
-                <TxtPrincipal txt={titulo} bold aling='left' txtProyectos />
+                <TxtPrincipalCard >{titulo}</TxtPrincipalCard>
                 <TxtGenerico txt={descripcionCorta}  aling='left' size='24px' txtProyectos />
                 <Iconos tecnologias={tecnologias} />
             </SegundoContenedorSeccionProyecto>
