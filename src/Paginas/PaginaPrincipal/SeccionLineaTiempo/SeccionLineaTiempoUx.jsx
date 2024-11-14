@@ -44,7 +44,7 @@ const Btn = styled.button`
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   color: white;
   font-weight: bold;
-
+  flex-shrink: 0;
   cursor: pointer;
 `;
 const BtnInicialFinal = styled(Btn)`
@@ -66,6 +66,8 @@ const ContenedorItemLineaDeTiempoStyled = styled.div`
 
   @media (max-width : 400px) {
       width: 200px;
+      height: 280px;
+      margin-top: ${props => props.side ? '-260px' : '-18px'};
   }
   
 `
@@ -104,6 +106,13 @@ const ContenedorDescripcion = styled.div`
       padding: 0 10px; 
       font-size: 16px;
   }
+  transition: height .2s;
+  &:hover {
+    height: 70px;
+    transition: height .2s;
+  }
+
+
 `
 
 const ItemLineaTiempo = ({numero, titulo, descripcion, img, imgWebp = "" , side, id, listaData}) =>{
@@ -111,26 +120,18 @@ const ItemLineaTiempo = ({numero, titulo, descripcion, img, imgWebp = "" , side,
   const {setBoolSlider, Datos,setPosicionTimeline, posicionTimeline} = useContext(ContextoGeneral);
 
   const handleClick = ()=> {
-    console.log(informacionModal);
+    
     setInformacionModal({img: img, descripcion:descripcion, titulo: titulo});
     setEstadoModal(true);
     setBoolSlider(false);
-    console.log(informacionModal);
+  
   }
 
   const handleClickBtn = () =>{
     const element = document.getElementById(id);
     const elementPadre = document.getElementById('timeline');
 
-    if (element && (id === 'punto1' )) {
-      setPosicionTimeline(listaData.indexOf(id));
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-       
-      });
-    }
-    else if (element && (id !== 'punto0' )) {
+if (element && (id !== 'punto0' )) {
       setPosicionTimeline(listaData.indexOf(id));
       element.scrollIntoView({
         behavior: 'smooth',
@@ -201,9 +202,9 @@ const BtnControlStyled = styled.button`
   align-items: center;
 ` 
 
-const BtnControl = ({fn, icono, listaData, name}) =>{
-  const {posicionTimeline, setPosicionTimeline} = useContext(ContextoGeneral);
-  
+const BtnControl = ({ fn, icono, listaData, name }) => {
+  const { posicionTimeline, setPosicionTimeline } = useContext(ContextoGeneral);
+
   const handleClick = () => {
     console.log(posicionTimeline);
     let nuevaPosicion = posicionTimeline;
@@ -221,31 +222,40 @@ const BtnControl = ({fn, icono, listaData, name}) =>{
     const elementPadre = document.getElementById('timeline');
     const posicion = listaData[nuevaPosicion];
     const element = document.getElementById(posicion);
-    if (element) {
+
+    if (element && elementPadre) {
       if (nuevaPosicion <= 0) {
+        // Desplazarse al inicio
         elementPadre.scrollTo({
-          left:0,
-          behavior: 'smooth',
-          block: 'nearest'
-           
+          left: 0,
+          behavior: 'smooth'
         });
-      }else if (nuevaPosicion == 1){
-        
-          element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      
       } else {
-        element.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        // Calcular la posición para centrar sin salirse del contenedor
+        const offsetLeft = element.offsetLeft;
+        const elementWidth = element.clientWidth;
+        const padreWidth = elementPadre.clientWidth;
+
+        const scrollPosition = offsetLeft - (padreWidth / 2) + (elementWidth / 2);
+
+        // Limitar el desplazamiento para no salirse del contenedor
+        elementPadre.scrollTo({
+          left: Math.max(0, Math.min(scrollPosition, elementPadre.scrollWidth - padreWidth)),
+          behavior: 'smooth'
+        });
       }
     }
 
     console.log(nuevaPosicion);
   };
-  return(
+
+  return (
     <BtnControlStyled name={name} listaData={listaData} onClick={() => handleClick()}>
-        {icono}
+      {icono}
     </BtnControlStyled>
-  )
-}
+  );
+};
+
 const ContenedorNumeroControl = styled.div`
   height: 100%;
   width: 100%;
@@ -270,9 +280,7 @@ const Control = ({listaData}) =>{
 }
 export const SeccionLineaDeTiempoUx = ({boolSlider}) => {
   const {setBoolSlider, Datos, posicionTimeline, setPosicionTimeline} = useContext(ContextoGeneral);
-  const listaData = Datos.map((item, index) => {
-    return `punto${index}`;
-  });
+  const listaData = ['punto0', ...Datos.map((_, index) => `punto${index+1}`), `punto${Datos.length+1}`];
   const handleClick = () => {
     const element = document.getElementById('main');
     if (element) {
@@ -283,13 +291,13 @@ export const SeccionLineaDeTiempoUx = ({boolSlider}) => {
 }
   return (
     <ContenedorLineaTiempo>
-      <Line>
+      <Line id={'punto0'}>
         <BtnInicialFinal onClick={handleClick}><FaAngleLeft size={'32px'} /></BtnInicialFinal>
         {Datos.map((data, index) => (
-          <ItemLineaTiempo listaData={listaData} id={listaData[index]} key={index} side = {(index % 2 == 0)} numero={index} titulo ={data.titulo} descripcion={data.descripcion} img={data.img} imgWebp={data.imgWebp}  setPosicionTimeline={setPosicionTimeline}>{data}</ItemLineaTiempo>
+          <ItemLineaTiempo listaData={listaData[index+1]} id={listaData[index+1]} key={index} side = {(index % 2 == 0)} numero={index+1} titulo ={data.titulo} descripcion={data.descripcion} img={data.img} imgWebp={data.imgWebp}  setPosicionTimeline={setPosicionTimeline}>{data}</ItemLineaTiempo>
         ))}
 
-        <BtnInicialFinal final>Final</BtnInicialFinal>
+        <BtnInicialFinal id={'punto8'} final>Final</BtnInicialFinal>
       </Line>
       <Control  boolSlider={boolSlider} listaData={listaData}/>
     </ContenedorLineaTiempo>
