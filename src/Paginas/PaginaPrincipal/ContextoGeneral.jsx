@@ -44,7 +44,7 @@ const ContextoProviderGeneral = ({ children }) => {
     {
       titulo: "Universidad",
       fecha: "2021",
-      descripcion: "En 2021 comencé mis estudios universitarios en UAdeO Cursé la preparatoria en José Vasconcelos, donde elegí Informática como optativa y Físico-Matemático como área disciplinar. En esta etapa de mi vida, desarrollé gran parte de mi personalidad y ese gusto que tenía por la informática se convirtió en una pasión por la programación. Aunque no adquirí habilidades muy avanzadas de desarrollo, me formé con bases sólidas en lógica, lo que me permitió desarrollar mis habilidades de forma autodidacta.",
+      descripcion: "En 2021 comencé mis estudios universitarios en UAdeO como Ingeniero de Software",
       img: imgUniversidad,
       imgWebp: imgUniversidadWebp
     },
