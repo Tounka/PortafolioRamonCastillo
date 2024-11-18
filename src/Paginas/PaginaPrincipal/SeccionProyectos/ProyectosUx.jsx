@@ -78,10 +78,12 @@ export const SeccionProyectosUx = () =>{
       const windowWidth = useWindowWidth();
       const imgToUse = windowWidth < 450 ? 'img2' : 'img';
       const imgToUseWebp = windowWidth < 450 ? 'img2Webp' : 'imgWebp';
+      console.log(Data)
     return(
         <ContenedorProyectosUx>
             <ContenedorInferiorBtn />
             {Data.map((pagina, index) => (
+                
             <CardProyecto
                 key={index} // Usa una clave única para cada elemento renderizado
                 titulo={pagina.nombre}
