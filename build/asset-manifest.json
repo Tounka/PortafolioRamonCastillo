@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.7c15ba90.css",
-    "main.js": "/static/js/main.83691c9d.js",
+    "main.js": "/static/js/main.d1fddb1d.js",
     "static/media/imgUniversidad.jpg": "/static/media/imgUniversidad.7637fd5d73174dba6990.jpg",
     "static/media/PgNogano_img2.png": "/static/media/PgNogano_img2.6cf7d34774cf448145eb.png",
     "static/media/PgLRopa_img2.png": "/static/media/PgLRopa_img2.f5b842edb033c1fb826e.png",
@@ -30,18 +30,22 @@
     "static/media/PgMascotas_Img2.png": "/static/media/PgMascotas_Img2.ea49d038d2b2322e73f5.png",
     "static/media/PgMc_img2.png": "/static/media/PgMc_img2.9dd214881055a3008544.png",
     "static/media/PgMascotas_Img2.webp": "/static/media/PgMascotas_Img2.c4fe0912112b45f97ac9.webp",
+    "static/media/PgBoda_img1.jpeg": "/static/media/PgBoda_img1.149ab477cfedc8d09c9d.jpeg",
     "static/media/imgPreparatoria.png": "/static/media/imgPreparatoria.0b3a567c776e689941b8.png",
     "static/media/imgUniversidad.webp": "/static/media/imgUniversidad.1baead57797008c3cf01.webp",
     "static/media/bgPrincipal.webp": "/static/media/bgPrincipal.ab98773794cdb2020905.webp",
     "static/media/PgTarjetas_img2.png": "/static/media/PgTarjetas_img2.97b60fcc06117cc4af80.png",
+    "static/media/PgBoda_img2.jpeg": "/static/media/PgBoda_img2.f87100ee8a1fcc45837b.jpeg",
     "static/media/PgTarjetas_img1.png": "/static/media/PgTarjetas_img1.2d586fbbfa9af28ac515.png",
     "static/media/PgMazatlanTuristas_img2.png": "/static/media/PgMazatlanTuristas_img2.00e006ca2ced9ddf77f4.png",
     "static/media/PgNogano_img2.webp": "/static/media/PgNogano_img2.e6fa406f9fb245e4db78.webp",
     "static/media/PgCasaItalia_img2.png": "/static/media/PgCasaItalia_img2.26a8b799256d71892cd0.png",
     "static/media/PgMc_img1.png": "/static/media/PgMc_img1.9ad442c0e03de44b5b7b.png",
+    "static/media/PgBoda_img1.webp": "/static/media/PgBoda_img1.e3717a0e58ece1570042.webp",
     "static/media/PgLRopa_img2.webp": "/static/media/PgLRopa_img2.cc48af6825770395ab90.webp",
     "static/media/PgLRopa_img1.webp": "/static/media/PgLRopa_img1.9818c9a16b5fb2f0cd4f.webp",
     "static/media/PgNogano_img1.webp": "/static/media/PgNogano_img1.9ad7bd24196c7b1c7fb5.webp",
+    "static/media/PgBoda_img2.webp": "/static/media/PgBoda_img2.6dcf697b6b2e9229a45f.webp",
     "static/media/PgBlog_img1.webp": "/static/media/PgBlog_img1.3f8897985b4cd3e44c08.webp",
     "static/media/PgUadeo_img2.png": "/static/media/PgUadeo_img2.95b672289ddd5e3f79a3.png",
     "static/media/imgPreparatoria.webp": "/static/media/imgPreparatoria.8de77b6a245f21ce6c92.webp",
@@ -63,10 +67,10 @@
     "static/media/PgUadeo_img1.webp": "/static/media/PgUadeo_img1.554cbe182fe79320df5e.webp",
     "index.html": "/index.html",
     "main.7c15ba90.css.map": "/static/css/main.7c15ba90.css.map",
-    "main.83691c9d.js.map": "/static/js/main.83691c9d.js.map"
+    "main.d1fddb1d.js.map": "/static/js/main.d1fddb1d.js.map"
   },
   "entrypoints": [
     "static/css/main.7c15ba90.css",
-    "static/js/main.83691c9d.js"
+    "static/js/main.d1fddb1d.js"
   ]
 }
