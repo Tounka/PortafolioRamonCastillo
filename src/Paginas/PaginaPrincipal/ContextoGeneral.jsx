@@ -14,6 +14,7 @@ import imgSabatinoWebp from "../../Img/TimeLine/imgSabatino.webp";
 import imgGerente from "../../Img/TimeLine/imgGerente.jpg";
 import imgGerenteWebp from "../../Img/TimeLine/imgGerente.webp";
 
+
 const ContextoGeneral = createContext();
 
 const ContextoProviderGeneral = ({ children }) => {

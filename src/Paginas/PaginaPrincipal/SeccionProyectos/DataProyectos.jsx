@@ -18,6 +18,8 @@ import MazatlanTuristasImg1 from '../../../Img/Pages/PgMazatlanTuristas_img1.png
 import MazatlanTuristasImg2 from '../../../Img/Pages/PgMazatlanTuristas_img2.png'
 import MascotasImg1 from '../../../Img/Pages/PgMascotas_Img1.png'
 import MascotasImg2 from '../../../Img/Pages/PgMascotas_Img2.png'
+import BodaImg1 from '../../../Img/Pages/PgBoda_img1.jpeg'
+import BodaImg2 from '../../../Img/Pages/PgBoda_img2.jpeg'
 
 import BageliaImg1webp from '../../../Img/Pages/PgBagelia_img1.webp';
 import BageliaImg2webp from '../../../Img/Pages/PgBagelia_img2.webp';
@@ -39,8 +41,20 @@ import MazatlanTuristasImg1Webp from '../../../Img/Pages/PgMazatlanTuristas_img1
 import MazatlanTuristasImg2Webp from '../../../Img/Pages/PgMazatlanTuristas_img2.webp'
 import MascotasImg1Webp from '../../../Img/Pages/PgMascotas_Img1.webp'
 import MascotasImg2Webp from '../../../Img/Pages/PgMascotas_Img2.webp'
+import BodaImg1Webp from '../../../Img/Pages/PgBoda_img1.webp'
+import BodaImg2Webp from '../../../Img/Pages/PgBoda_img2.webp'
 
 export const Data = [
+    { 
+        nombre: 'Invitación de Boda',
+        descripcion: 'Invitación responsiva para bodas u otros eventos',
+        img: BodaImg1,
+        img2: BodaImg2,
+        imgWebp: BodaImg1Webp,
+        img2Webp: BodaImg2Webp,
+        tecnologias: ['html', 'css', 'js', 'react'],
+        url: 'https://te-invito-a-mi-evento.netlify.app/'
+    },
     { 
         nombre: 'Guía turistas',
         descripcion: 'Sitio para promocionar servicio de guía de turistas.',
