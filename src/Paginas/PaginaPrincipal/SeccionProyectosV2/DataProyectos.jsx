@@ -20,6 +20,8 @@ import MascotasImg1 from '../../../Img/Pages/PgMascotas_Img1.png'
 import MascotasImg2 from '../../../Img/Pages/PgMascotas_Img2.png'
 import BodaImg1 from '../../../Img/Pages/PgBoda_img1.jpeg'
 import BodaImg2 from '../../../Img/Pages/PgBoda_img2.jpeg'
+import PosWebImg1 from '../../../Img/Pages/PgPosWeb_img1.png'
+import PosWebImg2 from '../../../Img/Pages/PgPosWeb_img2.png'
 
 import BageliaImg1webp from '../../../Img/Pages/PgBagelia_img1.webp';
 import BageliaImg2webp from '../../../Img/Pages/PgBagelia_img2.webp';
@@ -43,9 +45,10 @@ import MascotasImg1Webp from '../../../Img/Pages/PgMascotas_Img1.webp'
 import MascotasImg2Webp from '../../../Img/Pages/PgMascotas_Img2.webp'
 import BodaImg1Webp from '../../../Img/Pages/PgBoda_img1.webp'
 import BodaImg2Webp from '../../../Img/Pages/PgBoda_img2.webp'
-
+import PosWebImg1Webp from '../../../Img/Pages/PgPosWeb_img1.webp'
+import PosWebImg2Webp from '../../../Img/Pages/PgPosWeb_img2.webp'
 export const Data = [
-    { 
+    {
         nombre: 'Invitación de Boda',
         descripcion: 'Invitación responsiva para bodas u otros eventos',
         img: BodaImg1,
@@ -55,7 +58,7 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react'],
         url: 'https://te-invito-a-mi-evento.netlify.app/'
     },
-    { 
+    {
         nombre: 'Guía turistas',
         descripcion: 'Sitio para promocionar servicio de guía de turistas.',
         img: MazatlanTuristasImg1,
@@ -65,7 +68,17 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react'],
         url: 'https://recorridosmazatlan.netlify.app/'
     },
-    { 
+    {
+        nombre: 'Pos Web',
+        descripcion: 'Pos Web.',
+        img: PosWebImg1,
+        img2: PosWebImg2,
+        imgWebp: PosWebImg1Webp,
+        img2Webp: PosWebImg2Webp,
+        tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
+        url: 'https://dancing-concha-db7909.netlify.app/'
+    },
+    {
         nombre: 'Mascotas',
         descripcion: 'Red social similar a Instagram para mascotas.',
         img: MascotasImg1,
@@ -75,7 +88,7 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
         url: 'https://mimascotajs.netlify.app/'
     },
-    { 
+    {
         nombre: 'Registros UAdeO',
         descripcion: 'Sitio para manejar entradas en aula de computo.',
         img: UadeoImg1,
@@ -84,8 +97,9 @@ export const Data = [
         img2Webp: UadeoImg2webp,
         tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
         url: 'https://laboratoriouadeo.netlify.app/'
-    },
-    { 
+    }, 
+
+    {
         nombre: 'Tarjetas',
         descripcion: 'Sitio para administrar varios créditos.',
         img: TarjetasImg1,
@@ -95,7 +109,7 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react', 'postgresql'],
         url: 'https://targety.netlify.app/'
     },
-    { 
+    {
         nombre: 'Mc Donald\'s',
         descripcion: 'Herramientas para hacer mas eficientes ciertas tareas.',
         img: McImg1,
@@ -105,7 +119,7 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
         url: 'https://inventariodetalladomc.netlify.app/'
     },
-    { 
+    {
         nombre: 'Bagelia',
         descripcion: 'Sitio para promocionar tienda de bolsas.',
         img: BageliaImg1,
@@ -115,7 +129,7 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react'],
         url: 'https://bagelia.netlify.app/'
     },
-    { 
+    {
         nombre: 'Blog',
         descripcion: 'Se trata de un blog en donde los usuarios pueden subir post.',
         img: BlogImg1,
@@ -125,7 +139,7 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
         url: 'https://towblog.netlify.app/'
     },
-    { 
+    {
         nombre: 'Casa Italia',
         descripcion: 'Sistema de comandas web para una pizzeria.',
         img: CasaItaliaImg1,
@@ -135,7 +149,7 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react'],
         url: 'https://casaitalia.netlify.app/'
     },
-    { 
+    {
         nombre: 'Nogano',
         descripcion: 'Sitio web para un restaurante.',
         img: NoganoImg1,
@@ -145,7 +159,7 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react', 'styledcomponents'],
         url: 'https://nogano.netlify.app/'
     },
-    { 
+    {
         nombre: 'Tienda de Ropa',
         descripcion: 'Sitio sobre venta de ropa, lo realice para experimentar con animaciones.',
         img: LRopaImg1,

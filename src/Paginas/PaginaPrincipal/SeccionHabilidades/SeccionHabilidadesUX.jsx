@@ -99,12 +99,24 @@ const CardIconoStyled = styled.div`
  
 
 `;
+const ContenedorCard = styled.div`
+    display: flex;
+    flex-direction: column;
 
-const CardStyled = ({bgColor, icon, caso }) => {
+    color: white;
+    text-align: center;
+    gap: 5px;
+`
+
+const CardStyled = ({bgColor, icon, caso, nombreTecnologia ="Nombre" }) => {
     return(
+        <ContenedorCard>
+
         <CardIconoStyled bgColor={bgColor} caso={caso}>
             {icon}
         </CardIconoStyled>
+            {nombreTecnologia}
+        </ContenedorCard>
     )   
 }
 
@@ -160,35 +172,32 @@ export const SeccionHabilidadesUx = () => {
             <TxtPrincipal color='white' txt='FrontEnd' />
 
             <ContenedorCardStyled>
-             <CardStyled bgColor={'#FC490B'} icon={<FaHtml5 />} />
-             <CardStyled bgColor={'#264DE4'} icon={<FaCss3Alt />} />
-             <CardStyled bgColor={'#F0DB4F'} caso='js' icon={<IoLogoJavascript />} />
-             <CardStyled bgColor={'#262626'} caso='react' icon={<FaReact />} />
-             <CardStyled bgColor={'#ffffff'} caso='bootstrap' icon={<FaBootstrap />} />
-             <CardStyled bgColor={'#5b5b5b'} icon={<SiStyledcomponents />} />
+                <CardStyled bgColor={'#FC490B'} icon={<FaHtml5 />} nombreTecnologia="HTML5" />
+                <CardStyled bgColor={'#264DE4'} icon={<FaCss3Alt />} nombreTecnologia="CSS3" />
+                <CardStyled bgColor={'#F0DB4F'} caso='js' icon={<IoLogoJavascript />} nombreTecnologia="JavaScript" />
+                <CardStyled bgColor={'#262626'} caso='react' icon={<FaReact />} nombreTecnologia="React" />
+                <CardStyled bgColor={'#ffffff'} caso='bootstrap' icon={<FaBootstrap />} nombreTecnologia="Bootstrap" />
+                <CardStyled bgColor={'#5b5b5b'} icon={<SiStyledcomponents />} nombreTecnologia="Styled Components" />
             </ContenedorCardStyled>
 
             <TxtPrincipal color='white' txt='BackEnd' />
 
-                <ContenedorCardStyled>
-
-                <CardStyled bgColor={'#4F5B93'} icon={<FaPhp />} />
-                <CardStyled bgColor={'#366693'} icon={<BiLogoPostgresql />} />
-                <CardStyled bgColor={'#F58917'}  icon={<RiFirebaseFill />} />
-                <CardStyled bgColor={'#3ECF8E'}  icon={<RiSupabaseFill />} />
-
-                </ContenedorCardStyled>
+            <ContenedorCardStyled>
+                <CardStyled bgColor={'#4F5B93'} icon={<FaPhp />} nombreTecnologia="PHP" />
+                <CardStyled bgColor={'#366693'} icon={<BiLogoPostgresql />} nombreTecnologia="PostgreSQL" />
+                <CardStyled bgColor={'#F58917'} icon={<RiFirebaseFill />} nombreTecnologia="Firebase" />
+                <CardStyled bgColor={'#3ECF8E'} icon={<RiSupabaseFill />} nombreTecnologia="Supabase" />
+            </ContenedorCardStyled>
 
             <TxtPrincipal color='white' txt='Otro' />
 
-                <ContenedorCardStyled>
-                <CardStyled bgColor={'#4F5B93'} icon={<FaGithub />} />
-             
+            <ContenedorCardStyled>
+                <CardStyled bgColor={'#4F5B93'} icon={<FaGithub />} nombreTecnologia="GitHub" />
+            </ContenedorCardStyled>
 
-                </ContenedorCardStyled>
-                <ContenedorInferiorBtn />
+            <ContenedorInferiorBtn />
         </ContenedorSeccionStyled>
-
     </>
     )
 }
+

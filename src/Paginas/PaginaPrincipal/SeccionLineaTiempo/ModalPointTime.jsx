@@ -53,7 +53,7 @@ const ContenedorImg = styled.div`
         height: 400px;
     }
     position: relative;
-
+    object-fit: contain;
     display: flex;
     justify-content:center;
     align-items:center;
@@ -91,26 +91,26 @@ const InteriorModal = styled.div`
     gap: 20px;
 `
 
-export const Modal = () =>{
-        const { estadoModal, setEstadoModal, informacionModal } = useContext(ModalContext);
-        const {setBoolSlider} = useContext(ContextoGeneral);
-        return estadoModal ? (
-          <ContenedorModal>
+export const Modal = () => {
+    const { estadoModal, setEstadoModal, informacionModal } = useContext(ModalContext);
+    const { setBoolSlider } = useContext(ContextoGeneral);
+    return estadoModal ? (
+        <ContenedorModal>
             <InteriorModal>
 
                 <ContenedorImg>
-                <ImgPicture bg src={informacionModal.img} alt={`Imagen principal del modal ${informacionModal.titulo}`} />
-                <TxtTitulo>{informacionModal.titulo}</TxtTitulo>
+                    <ImgPicture bg src={informacionModal.img} alt={`Imagen principal del modal ${informacionModal.titulo}`} />
+                    <TxtTitulo>{informacionModal.titulo}</TxtTitulo>
                 </ContenedorImg>
                 <ContenedorSegundaSeccion>
                     <div>
                         <TxtDescripcionFecha>{informacionModal.fecha}</TxtDescripcionFecha>
                         <TxtDescripcion>{informacionModal.descripcion}</TxtDescripcion>
                     </div>
-            
-                    <ContenedorBtn > <BtnCerrarModal onClick={() => {setEstadoModal(false); setBoolSlider(true);}}> Cerrar </BtnCerrarModal> </ContenedorBtn>
+
+                    <ContenedorBtn > <BtnCerrarModal onClick={() => { setEstadoModal(false); setBoolSlider(true); }}> Cerrar </BtnCerrarModal> </ContenedorBtn>
                 </ContenedorSegundaSeccion>
             </InteriorModal>
-          </ContenedorModal>
-        ) : null;
-      };
+        </ContenedorModal>
+    ) : null;
+};
