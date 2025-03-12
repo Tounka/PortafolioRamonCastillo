@@ -132,22 +132,28 @@ const ItemLineaTiempo = ({numero, titulo, descripcion, img, imgWebp = "" , side,
   const handleClickBtn = () =>{
     const element = document.getElementById(id);
     const elementPadre = document.getElementById('timeline');
+    setPosicionTimeline(numero);
+    if (element && elementPadre) {
+      if (numero <= 0) {
+        // Desplazarse al inicio
+        elementPadre.scrollTo({
+          left: 0,
+          behavior: 'smooth'
+        });
+      } else {
+        // Calcular la posición para centrar sin salirse del contenedor
+        const offsetLeft = element.offsetLeft;
+        const elementWidth = element.clientWidth;
+        const padreWidth = elementPadre.clientWidth;
 
-if (element && (id !== 'punto0' )) {
-      setPosicionTimeline(listaData.indexOf(id));
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center'
-      });
-    } else if (elementPadre && (id === 'punto0' )) {
-      setPosicionTimeline(listaData.indexOf(id));
-      elementPadre.scrollTo({
-        left: 0,
-        behavior: 'smooth',
-        
-      });
-      
+        const scrollPosition = offsetLeft - (padreWidth / 2) + (elementWidth / 2);
+
+        // Limitar el desplazamiento para no salirse del contenedor
+        elementPadre.scrollTo({
+          left: Math.max(0, Math.min(scrollPosition, elementPadre.scrollWidth - padreWidth)),
+          behavior: 'smooth'
+        });
+      }
     }
   }
   return(
