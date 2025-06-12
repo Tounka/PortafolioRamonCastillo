@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { TxtPrincipal } from "../../../ComponentesGenerales/TxtPrincipal"
 
-import { FaCss3Alt, FaHtml5,FaReact ,FaGithub, FaBootstrap, FaAngleRight} from "react-icons/fa";
+import { FaCss3Alt, FaHtml5, FaReact, FaGithub, FaBootstrap, FaAngleRight } from "react-icons/fa";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { IoLogoJavascript } from "react-icons/io";
 import { FaPhp } from "react-icons/fa";
@@ -29,10 +29,11 @@ const ContenedorCardStyled = styled.div`
     width: 100%;
     
     gap: 30px;
-
+    
     @media (max-width: 400px){
         grid-template-columns: repeat(2, 1fr);
         width: 300px;
+        gap: 10px;
     }
 
 `
@@ -99,25 +100,49 @@ const CardIconoStyled = styled.div`
  
 
 `;
-const ContenedorCard = styled.div`
-    display: flex;
-    flex-direction: column;
 
+const ContenedorPadreIcono = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`
+const ContenedorCard = styled.div`
+    display: grid;
+    grid-template-rows: 150px 60px;
+    @media (max-width: 550px){
+        grid-template-rows: 100px 30px;
+    }
+
+    gap: 10px;
+    align-items: center;
     color: white;
+    
+    gap: 10px;
+`
+const TextoCard = styled.p`
+    width: 100%;
+    margin: 0;
     text-align: center;
-    gap: 5px;
+    line-height: 1.1;
+    font-size: 18px;
+    @media (max-width: 420px) {
+        font-size: 12px;
+    }
 `
 
-const CardStyled = ({bgColor, icon, caso, nombreTecnologia ="Nombre" }) => {
-    return(
+const CardStyled = ({ bgColor, icon, caso, nombreTecnologia = "Nombre" }) => {
+    return (
         <ContenedorCard>
+            <ContenedorPadreIcono>
+                <CardIconoStyled bgColor={bgColor} caso={caso}>
+                    {icon}
+                </CardIconoStyled>
+            </ContenedorPadreIcono>
 
-        <CardIconoStyled bgColor={bgColor} caso={caso}>
-            {icon}
-        </CardIconoStyled>
-            {nombreTecnologia}
+            <TextoCard>{nombreTecnologia}</TextoCard>
+
         </ContenedorCard>
-    )   
+    )
 }
 
 const ContenedorInferiorBtnStyled = styled.button`
@@ -147,57 +172,57 @@ const ContenedoroIcono = styled.div`
     }
 
 `
-const ContenedorInferiorBtn = () =>{
+const ContenedorInferiorBtn = () => {
     const handleClick = () => {
         const element = document.getElementById('main');
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
         }
     }
-    return(
+    return (
         <ContenedorInferiorBtnStyled onClick={handleClick}>
             <ContenedoroIcono>
                 <FaAngleRight />
             </ContenedoroIcono>
-            
+
         </ContenedorInferiorBtnStyled>
-     
+
     )
 }
 
 export const SeccionHabilidadesUx = () => {
-    return(
-    <>
-        <ContenedorSeccionStyled>
-            <TxtPrincipal color='white' txt='FrontEnd' />
+    return (
+        <>
+            <ContenedorSeccionStyled>
+                <TxtPrincipal color='white' txt='FrontEnd' />
 
-            <ContenedorCardStyled>
-                <CardStyled bgColor={'#FC490B'} icon={<FaHtml5 />} nombreTecnologia="HTML5" />
-                <CardStyled bgColor={'#264DE4'} icon={<FaCss3Alt />} nombreTecnologia="CSS3" />
-                <CardStyled bgColor={'#F0DB4F'} caso='js' icon={<IoLogoJavascript />} nombreTecnologia="JavaScript" />
-                <CardStyled bgColor={'#262626'} caso='react' icon={<FaReact />} nombreTecnologia="React" />
-                <CardStyled bgColor={'#ffffff'} caso='bootstrap' icon={<FaBootstrap />} nombreTecnologia="Bootstrap" />
-                <CardStyled bgColor={'#5b5b5b'} icon={<SiStyledcomponents />} nombreTecnologia="Styled Components" />
-            </ContenedorCardStyled>
+                <ContenedorCardStyled>
+                    <CardStyled bgColor={'#FC490B'} icon={<FaHtml5 />} nombreTecnologia="HTML5" />
+                    <CardStyled bgColor={'#264DE4'} icon={<FaCss3Alt />} nombreTecnologia="CSS3" />
+                    <CardStyled bgColor={'#F0DB4F'} caso='js' icon={<IoLogoJavascript />} nombreTecnologia="JavaScript" />
+                    <CardStyled bgColor={'#262626'} caso='react' icon={<FaReact />} nombreTecnologia="React" />
+                    <CardStyled bgColor={'#ffffff'} caso='bootstrap' icon={<FaBootstrap />} nombreTecnologia="Bootstrap" />
+                    <CardStyled bgColor={'#5b5b5b'} icon={<SiStyledcomponents />} nombreTecnologia="Styled Components" />
+                </ContenedorCardStyled>
 
-            <TxtPrincipal color='white' txt='BackEnd' />
+                <TxtPrincipal color='white' txt='BackEnd' />
 
-            <ContenedorCardStyled>
-                <CardStyled bgColor={'#4F5B93'} icon={<FaPhp />} nombreTecnologia="PHP" />
-                <CardStyled bgColor={'#366693'} icon={<BiLogoPostgresql />} nombreTecnologia="PostgreSQL" />
-                <CardStyled bgColor={'#F58917'} icon={<RiFirebaseFill />} nombreTecnologia="Firebase" />
-                <CardStyled bgColor={'#3ECF8E'} icon={<RiSupabaseFill />} nombreTecnologia="Supabase" />
-            </ContenedorCardStyled>
+                <ContenedorCardStyled>
+                    <CardStyled bgColor={'#4F5B93'} icon={<FaPhp />} nombreTecnologia="PHP" />
+                    <CardStyled bgColor={'#366693'} icon={<BiLogoPostgresql />} nombreTecnologia="PostgreSQL" />
+                    <CardStyled bgColor={'#F58917'} icon={<RiFirebaseFill />} nombreTecnologia="Firebase" />
+                    <CardStyled bgColor={'#3ECF8E'} icon={<RiSupabaseFill />} nombreTecnologia="Supabase" />
+                </ContenedorCardStyled>
 
-            <TxtPrincipal color='white' txt='Otro' />
+                <TxtPrincipal color='white' txt='Otro' />
 
-            <ContenedorCardStyled>
-                <CardStyled bgColor={'#4F5B93'} icon={<FaGithub />} nombreTecnologia="GitHub" />
-            </ContenedorCardStyled>
+                <ContenedorCardStyled>
+                    <CardStyled bgColor={'#4F5B93'} icon={<FaGithub />} nombreTecnologia="GitHub" />
+                </ContenedorCardStyled>
 
-            <ContenedorInferiorBtn />
-        </ContenedorSeccionStyled>
-    </>
+                <ContenedorInferiorBtn />
+            </ContenedorSeccionStyled>
+        </>
     )
 }
 

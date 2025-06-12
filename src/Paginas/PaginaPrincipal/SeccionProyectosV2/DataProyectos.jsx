@@ -76,7 +76,7 @@ export const Data = [
         imgWebp: PosWebImg1Webp,
         img2Webp: PosWebImg2Webp,
         tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
-        url: 'https://dancing-concha-db7909.netlify.app/'
+        url: 'https://mazapanpa.netlify.app/'
     },
     {
         nombre: 'Mascotas',
