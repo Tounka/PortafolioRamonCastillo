@@ -326,7 +326,7 @@ const ContenedorDerecho = () =>{
             <ContenedorInfoContacto>
                 <InfoContacto tipo='Correo:' txt='Luisarraca@hotmail.com' />
                 <InfoContacto tipo='Teléfono:' txt='6691382961' />
-                <InfoContacto tipo='Localidad:' txt='Mazatlan, Sinaloa' />
+                <InfoContacto tipo='Localidad:' txt='Guadalajara, Jalisco' />
 
             </ContenedorInfoContacto>
     

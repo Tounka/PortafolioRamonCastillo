@@ -26,61 +26,48 @@ const ContextoProviderGeneral = ({ children }) => {
     {
       titulo: "Nacimiento",
       fecha: "07/07/2003",
-      descripcion: "Nací el 7 de julio de 2003 en Mazatlán, Sinaloa.",
+      descripcion: "Nací el 7 de julio de 2003 en Mazatlán, Sinaloa y actualmente radico en Guadalajara, Jalisco. Durante la preparatoria descubrí mi interés por la programación, lo que marcó el inicio de mi camino en el mundo del desarrollo.",
       img: imgGatito,
       imgWebp: imgGatitoWebp
     },
     {
-      titulo: "Secundaria",
-      fecha: "2014",
-      descripcion: "Tras graduarme del colegio Begsu, ingresé a la Multiversidad Latinoamericana. Fue una etapa donde no solo aprendí, sino que también construí amistades que valoro hasta el día de hoy.",
-      img: imgSecundaria,
-      imgWebp: imgSecundariaWebp
-    },
-    {
-      titulo: "Preparatoria",
-      fecha: "2017",
-      descripcion: "Estudié la preparatoria en José Vasconcelos, eligiendo Informática como optativa y Físico-Matemático como área disciplinar. Aquí fue donde mi interés por la informática se transformó en una pasión por la programación. Aunque no adquirí habilidades avanzadas en ese momento, me impulsó a desarrollar mis habilidades de forma autodidacta.",
-      img: imgPreparatoria,
-      imgWebp: imgPreparatoriaWebp
-    },
-    {
       titulo: "Universidad",
       fecha: "2021",
-      descripcion: "En 2021 comencé mi carrera en Ingeniería de Software en la UAdeO. Esta etapa ha sido clave para fortalecer mis conocimientos y seguir creciendo profesionalmente.",
+      descripcion: "En 2021 inicié la carrera de Ingeniería de Software en la UAdeO. Esta etapa ha sido fundamental para fortalecer mis conocimientos técnicos y crecer como profesional.",
       img: imgUniversidad,
       imgWebp: imgUniversidadWebp
     },
     {
       titulo: "McDonald's",
       fecha: "2022",
-      descripcion: "Durante las vacaciones del tercer semestre, busqué una experiencia laboral y terminé trabajando en McDonald's. Me ofrecieron un ascenso a entrenador con un horario flexible, lo que me permitió combinar el trabajo con mis estudios. Fue una experiencia que me enseñó mucho sobre responsabilidad y trabajo en equipo.",
+      descripcion: "Durante las vacaciones del tercer semestre, busqué adquirir experiencia laboral y comencé a trabajar en McDonald's. Fui promovido a entrenador gracias a mi desempeño, lo que me permitió combinar el trabajo con mis estudios y desarrollar habilidades como la responsabilidad y el trabajo en equipo.",
       img: imgMcondalds,
       imgWebp: imgMcondaldsWebp
     },
     {
-      titulo: "Sabatino",
+      titulo: "Modalidad Sabatina",
       fecha: "2023",
-      descripcion: "En quinto semestre decidí cambiar mi modalidad de estudios a sabatina, ya que sentía que la universidad no se alineaba con mis intereses en programación. Esto me permitió dedicar más tiempo al aprendizaje autodidacta, una decisión que considero acertada en mi desarrollo como programador.",
+      descripcion: "En quinto semestre opté por cambiar mi modalidad de estudios a sabatina, lo cual me brindó más tiempo para enfocarme en el aprendizaje autodidacta. Esta decisión fue clave para desarrollar mis habilidades en programación de manera independiente.",
       img: imgSabatino,
       imgWebp: imgSabatinoWebp
     },
     {
       titulo: "Gerencia",
       fecha: "2023",
-      descripcion: "En 2023 tuve la oportunidad de asumir un puesto gerencial en la empresa. Fue un reto que me ayudó a crecer tanto profesional como personalmente. En 2025 decidí cerrar ese ciclo y finalizar mi etapa laboral en la empresa, llevándome muchos aprendizajes.",
+      descripcion: "Ese mismo año, asumí el reto de un puesto gerencial. Esta experiencia me ayudó a crecer en liderazgo y gestión. En 2025 decidí cerrar ese ciclo profesional para enfocarme completamente en el área tecnológica.",
       img: imgGerente,
       imgWebp: imgGerenteWebp
     },
     {
-      titulo: "Practicas",
+      titulo: "Prácticas Profesionales",
       fecha: "2025",
-      descripcion: "En enero de 2025 comencé mi periodo de prácticas profesionales en Guadalajara. Esto me llevó a tomar la decisión de renunciar a McDonald's en Mazatlán. Actualmente, realizo mis prácticas en iNNCi, donde participo en el desarrollo de diferentes proyectos internos utilizando múltiples tecnologías.",
+      descripcion: "En enero de 2025 comencé mis prácticas profesionales en Guadalajara, lo que implicó dejar mi trabajo anterior para enfocarme en nuevos desafíos. Actualmente colaboro en iNNCi, participando en el desarrollo de proyectos internos con diversas tecnologías.",
       img: imgPracticas,
       imgWebp: imgPracticasWebp
-    },
+    }
   ];
-  
+
+
   const [posicionTimeline, setPosicionTimeline] = useState(1);
   return (
     <ContextoGeneral.Provider value={{ boolSlider, setBoolSlider, Datos, posicionTimeline, setPosicionTimeline }}>
