@@ -31,7 +31,7 @@ const ContextoProviderGeneral = ({ children }) => {
       imgWebp: imgGatitoWebp
     },
     {
-      titulo: "Universidad",
+      titulo: "UAdeO",
       fecha: "2021",
       descripcion: "En 2021 inicié la carrera de Ingeniería de Software en la UAdeO. Esta etapa ha sido fundamental para fortalecer mis conocimientos técnicos y crecer como profesional.",
       img: imgUniversidad,
