@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PortafolioRamonCastillo/static/css/main.84ce768d.css",
-    "main.js": "/PortafolioRamonCastillo/static/js/main.fe667d13.js",
+    "main.js": "/PortafolioRamonCastillo/static/js/main.7bc17e92.js",
     "static/media/imgUniversidad.jpg": "/PortafolioRamonCastillo/static/media/imgUniversidad.7637fd5d73174dba6990.jpg",
     "static/media/PgNogano_img2.png": "/PortafolioRamonCastillo/static/media/PgNogano_img2.6cf7d34774cf448145eb.png",
     "static/media/PgLRopa_img2.png": "/PortafolioRamonCastillo/static/media/PgLRopa_img2.f5b842edb033c1fb826e.png",
@@ -32,6 +32,7 @@
     "static/media/PgMc_img2.png": "/PortafolioRamonCastillo/static/media/PgMc_img2.9dd214881055a3008544.png",
     "static/media/PgMascotas_Img2.webp": "/PortafolioRamonCastillo/static/media/PgMascotas_Img2.c4fe0912112b45f97ac9.webp",
     "static/media/PgBoda_img1.jpeg": "/PortafolioRamonCastillo/static/media/PgBoda_img1.149ab477cfedc8d09c9d.jpeg",
+    "static/media/SolucionesInnciImg1.png": "/PortafolioRamonCastillo/static/media/SolucionesInnciImg1.a0757ea856be4697fb2b.png",
     "static/media/PgPosWeb_img1.webp": "/PortafolioRamonCastillo/static/media/PgPosWeb_img1.76e102f87792953b28bf.webp",
     "static/media/imgPreparatoria.png": "/PortafolioRamonCastillo/static/media/imgPreparatoria.0b3a567c776e689941b8.png",
     "static/media/PgPosWeb_img2.png": "/PortafolioRamonCastillo/static/media/PgPosWeb_img2.fc20dced7fba5ccbf001.png",
@@ -49,6 +50,7 @@
     "static/media/PgLRopa_img2.webp": "/PortafolioRamonCastillo/static/media/PgLRopa_img2.cc48af6825770395ab90.webp",
     "static/media/PgLRopa_img1.webp": "/PortafolioRamonCastillo/static/media/PgLRopa_img1.9818c9a16b5fb2f0cd4f.webp",
     "static/media/PgNogano_img1.webp": "/PortafolioRamonCastillo/static/media/PgNogano_img1.9ad7bd24196c7b1c7fb5.webp",
+    "static/media/SolucionesInnciImg2.png": "/PortafolioRamonCastillo/static/media/SolucionesInnciImg2.a700dba8439d255c8901.png",
     "static/media/PgBoda_img2.webp": "/PortafolioRamonCastillo/static/media/PgBoda_img2.6dcf697b6b2e9229a45f.webp",
     "static/media/PgBlog_img1.webp": "/PortafolioRamonCastillo/static/media/PgBlog_img1.3f8897985b4cd3e44c08.webp",
     "static/media/PgUadeo_img2.png": "/PortafolioRamonCastillo/static/media/PgUadeo_img2.95b672289ddd5e3f79a3.png",
@@ -58,6 +60,7 @@
     "static/media/PgMazatlanTuristas_img2.webp": "/PortafolioRamonCastillo/static/media/PgMazatlanTuristas_img2.8fa3f3adc96de8fef923.webp",
     "static/media/PgCasaItalia_img1.png": "/PortafolioRamonCastillo/static/media/PgCasaItalia_img1.25f967fd99a8d2714db5.png",
     "static/media/Gatito.webp": "/PortafolioRamonCastillo/static/media/Gatito.50b02dcfe01f4a196baf.webp",
+    "static/media/SolucionesInnciImg1.webp": "/PortafolioRamonCastillo/static/media/SolucionesInnciImg1.86ade6de69105f32038f.webp",
     "static/media/PgMc_img2.webp": "/PortafolioRamonCastillo/static/media/PgMc_img2.182fec646689d3d94a23.webp",
     "static/media/PgBagelia_img2.webp": "/PortafolioRamonCastillo/static/media/PgBagelia_img2.513f666b7b9b77fa508d.webp",
     "static/media/PgUadeo_img1.png": "/PortafolioRamonCastillo/static/media/PgUadeo_img1.250dcc140e4a29aed118.png",
@@ -66,6 +69,7 @@
     "static/media/PgCasaItalia_img2.webp": "/PortafolioRamonCastillo/static/media/PgCasaItalia_img2.a6b2daa3a12a872fc0bc.webp",
     "static/media/PgTarjetas_img1.webp": "/PortafolioRamonCastillo/static/media/PgTarjetas_img1.62d2af2781139359cfb0.webp",
     "static/media/imgPracticas.png": "/PortafolioRamonCastillo/static/media/imgPracticas.30db31c6756ff6eed8a1.png",
+    "static/media/SolucionesInnciImg2.webp": "/PortafolioRamonCastillo/static/media/SolucionesInnciImg2.021504f3bd02b67c85ef.webp",
     "static/media/PgMc_img1.webp": "/PortafolioRamonCastillo/static/media/PgMc_img1.bd8d813ee1c1d7ed2d2a.webp",
     "static/media/PgUadeo_img2.webp": "/PortafolioRamonCastillo/static/media/PgUadeo_img2.81fc44ea258cc8900eae.webp",
     "static/media/PgCasaItalia_img1.webp": "/PortafolioRamonCastillo/static/media/PgCasaItalia_img1.5fd46700063ae903077a.webp",
@@ -73,10 +77,10 @@
     "static/media/imgPracticas.webp": "/PortafolioRamonCastillo/static/media/imgPracticas.e4248d227eb0efe17eba.webp",
     "index.html": "/PortafolioRamonCastillo/index.html",
     "main.84ce768d.css.map": "/PortafolioRamonCastillo/static/css/main.84ce768d.css.map",
-    "main.fe667d13.js.map": "/PortafolioRamonCastillo/static/js/main.fe667d13.js.map"
+    "main.7bc17e92.js.map": "/PortafolioRamonCastillo/static/js/main.7bc17e92.js.map"
   },
   "entrypoints": [
     "static/css/main.84ce768d.css",
-    "static/js/main.fe667d13.js"
+    "static/js/main.7bc17e92.js"
   ]
 }
