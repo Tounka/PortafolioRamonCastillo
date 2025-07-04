@@ -22,6 +22,8 @@ import BodaImg1 from '../../../Img/Pages/PgBoda_img1.jpeg'
 import BodaImg2 from '../../../Img/Pages/PgBoda_img2.jpeg'
 import PosWebImg1 from '../../../Img/Pages/PgPosWeb_img1.png'
 import PosWebImg2 from '../../../Img/Pages/PgPosWeb_img2.png'
+import SolucionesInnciImg1 from '../../../Img/Pages/SolucionesInnciImg1.png'
+import SolucionesInnciImg2 from '../../../Img/Pages/SolucionesInnciImg2.png'
 
 import BageliaImg1webp from '../../../Img/Pages/PgBagelia_img1.webp';
 import BageliaImg2webp from '../../../Img/Pages/PgBagelia_img2.webp';
@@ -47,6 +49,10 @@ import BodaImg1Webp from '../../../Img/Pages/PgBoda_img1.webp'
 import BodaImg2Webp from '../../../Img/Pages/PgBoda_img2.webp'
 import PosWebImg1Webp from '../../../Img/Pages/PgPosWeb_img1.webp'
 import PosWebImg2Webp from '../../../Img/Pages/PgPosWeb_img2.webp'
+import SolucionesInnciImg1Webp from '../../../Img/Pages/SolucionesInnciImg1.webp'
+import SolucionesInnciImg2Webp from '../../../Img/Pages/SolucionesInnciImg2.webp'
+
+
 export const Data = [
     {
         nombre: 'Invitación de Boda',
@@ -59,14 +65,14 @@ export const Data = [
         url: 'https://te-invito-a-mi-evento.netlify.app/'
     },
     {
-        nombre: 'Guía turistas',
-        descripcion: 'Sitio para promocionar servicio de guía de turistas.',
-        img: MazatlanTuristasImg1,
-        img2: MazatlanTuristasImg2,
-        imgWebp: MazatlanTuristasImg1Webp,
-        img2Webp: MazatlanTuristasImg2Webp,
+        nombre: 'Portafolio iNNCi',
+        descripcion: 'Principales soluciones desarrolladas en colaboración con iNNCi.',
+        img: SolucionesInnciImg1,
+        img2: SolucionesInnciImg2,
+        imgWebp: SolucionesInnciImg1Webp,
+        img2Webp: SolucionesInnciImg2Webp,
         tecnologias: ['html', 'css', 'js', 'react'],
-        url: 'https://recorridosmazatlan.netlify.app/'
+        url: 'https://aaaaajflsksjs.my.canva.site/portafolio-innci'
     },
     {
         nombre: 'Pos Web',
@@ -77,6 +83,26 @@ export const Data = [
         img2Webp: PosWebImg2Webp,
         tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
         url: 'https://mazapanpa.netlify.app/'
+    },
+    {
+        nombre: 'Guía turistas',
+        descripcion: 'Sitio para promocionar servicio de guía de turistas.',
+        img: MazatlanTuristasImg1,
+        img2: MazatlanTuristasImg2,
+        imgWebp: MazatlanTuristasImg1Webp,
+        img2Webp: MazatlanTuristasImg2Webp,
+        tecnologias: ['html', 'css', 'js', 'react'],
+        url: 'https://recorridosmazatlan.netlify.app/'
+    },
+    {
+        nombre: 'Mc Donald\'s',
+        descripcion: 'Herramientas para hacer más eficientes ciertas tareas.',
+        img: McImg1,
+        img2: McImg2,
+        imgWebp: McImg1webp,
+        img2Webp: McImg2webp,
+        tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
+        url: 'https://inventariodetalladomc.netlify.app/'
     },
     {
         nombre: 'Mascotas',
@@ -108,16 +134,6 @@ export const Data = [
         img2Webp: TarjetasImg2webp,
         tecnologias: ['html', 'css', 'js', 'react', 'postgresql'],
         url: 'https://targety.netlify.app/'
-    },
-    {
-        nombre: 'Mc Donald\'s',
-        descripcion: 'Herramientas para hacer más eficientes ciertas tareas.',
-        img: McImg1,
-        img2: McImg2,
-        imgWebp: McImg1webp,
-        img2Webp: McImg2webp,
-        tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
-        url: 'https://inventariodetalladomc.netlify.app/'
     },
     {
         nombre: 'Bagelia',
