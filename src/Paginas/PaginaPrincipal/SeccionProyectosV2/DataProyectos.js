@@ -50,7 +50,7 @@ import PosWebImg2Webp from '../../../Img/Pages/PgPosWeb_img2.webp'
 export const Data = [
     {
         nombre: 'Invitación de Boda',
-        descripcion: 'Invitación responsiva para bodas u otros eventos',
+        descripcion: 'Invitación responsiva para bodas u otros eventos.',
         img: BodaImg1,
         img2: BodaImg2,
         imgWebp: BodaImg1Webp,
@@ -70,7 +70,7 @@ export const Data = [
     },
     {
         nombre: 'Pos Web',
-        descripcion: 'Pos Web.',
+        descripcion: 'Pos Web con generación de etiquetas.',
         img: PosWebImg1,
         img2: PosWebImg2,
         imgWebp: PosWebImg1Webp,
@@ -111,7 +111,7 @@ export const Data = [
     },
     {
         nombre: 'Mc Donald\'s',
-        descripcion: 'Herramientas para hacer mas eficientes ciertas tareas.',
+        descripcion: 'Herramientas para hacer más eficientes ciertas tareas.',
         img: McImg1,
         img2: McImg2,
         imgWebp: McImg1webp,
@@ -161,7 +161,7 @@ export const Data = [
     },
     {
         nombre: 'Tienda de Ropa',
-        descripcion: 'Sitio sobre venta de ropa, lo realice para experimentar con animaciones.',
+        descripcion: 'Sitio sobre venta de ropa, lo realicé para experimentar con animaciones.',
         img: LRopaImg1,
         img2: LRopaImg2,
         imgWebp: LRopaImg1webp,

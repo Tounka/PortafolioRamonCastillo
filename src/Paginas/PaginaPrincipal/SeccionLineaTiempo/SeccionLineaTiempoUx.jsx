@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { FaAngleLeft, FaAngleRight  } from "react-icons/fa";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import { ImgPicture } from "../../Img";
 import { TxtPrincipalStyled } from "../../../ComponentesGenerales/TxtPrincipal";
 import { useContext } from "react";
@@ -51,7 +51,7 @@ const BtnInicialFinal = styled(Btn)`
   margin-top: -38px;
   width: 80px;
   height: 80px;
-  margin-right: ${props => props.final ?'' : '30px'};
+  margin-right: ${props => props.final ? '' : '30px'};
   cursor: pointer;
 `
 const ContenedorItemLineaDeTiempoStyled = styled.div`
@@ -117,19 +117,19 @@ const ContenedorDescripcion = styled.div`
 
 `
 
-const ItemLineaTiempo = ({numero, titulo, descripcion, img, imgWebp = "" , side, id, listaData, key}) =>{
-  const {setEstadoModal, setInformacionModal, informacionModal} = useContext(ModalContext);
-  const {setBoolSlider, Datos,setPosicionTimeline, posicionTimeline} = useContext(ContextoGeneral);
+const ItemLineaTiempo = ({ numero, titulo, descripcion, img, imgWebp = "", side, id, listaData, key }) => {
+  const { setEstadoModal, setInformacionModal, informacionModal } = useContext(ModalContext);
+  const { setBoolSlider, Datos, setPosicionTimeline, posicionTimeline } = useContext(ContextoGeneral);
 
-  const handleClick = ()=> {
-    
-    setInformacionModal({img: img, descripcion:descripcion, titulo: titulo});
+  const handleClick = () => {
+
+    setInformacionModal({ img: img, descripcion: descripcion, titulo: titulo });
     setEstadoModal(true);
     setBoolSlider(false);
-  
+
   }
 
-  const handleClickBtn = () =>{
+  const handleClickBtn = () => {
     const element = document.getElementById(id);
     const elementPadre = document.getElementById('timeline');
     setPosicionTimeline(numero);
@@ -156,12 +156,12 @@ const ItemLineaTiempo = ({numero, titulo, descripcion, img, imgWebp = "" , side,
       }
     }
   }
-  return(
+  return (
     <ContenedorItemLineaDeTiempoStyled key={key} id={id} side={side} >
-        <Btn name={'Boton mover a item numero ' + numero} onClick={() => handleClickBtn()}> {numero} </Btn>
-        <TxtItemLineaTiempo>{titulo}</TxtItemLineaTiempo>
-        <ContenedorImg onClick={() => handleClick()} > <ImgPicture bg  alt={'Img ' + titulo} src={img} srcWebp = {imgWebp}  zIndex = {1}/> <ContenedorDescripcion side={side}>{descripcion}</ContenedorDescripcion>  </ContenedorImg>
-       
+      <Btn name={'Boton mover a item numero ' + numero} onClick={() => handleClickBtn()}> {numero} </Btn>
+      <TxtItemLineaTiempo>{titulo}</TxtItemLineaTiempo>
+      <ContenedorImg onClick={() => handleClick()} > <ImgPicture bg alt={'Img ' + titulo} src={img} srcWebp={imgWebp} zIndex={1} /> <ContenedorDescripcion side={side}>{descripcion}</ContenedorDescripcion>  </ContenedorImg>
+
     </ContenedorItemLineaDeTiempoStyled>
   )
 }
@@ -173,6 +173,7 @@ const ContenedorControl = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr 2fr;
   width: ${props => props.boolSlider ? '100px' : '0'};
+  min-width: ${props => props.boolSlider ? '100px' : '0'};
   
   
 
@@ -180,10 +181,7 @@ const ContenedorControl = styled.div`
   border-radius: 30px;
 
   background-color: var(--AmarilloEspecial);
-  position: fixed;
-  z-index: 2000;
-  bottom: 20px;
-  left: calc(50% - 50px);
+  
   overflow: hidden;
 
   transition: width .3s ;
@@ -208,13 +206,13 @@ const BtnControlStyled = styled.button`
   display: flex;
   justify-content:center;
   align-items: center;
-` 
+`
 
 const BtnControl = ({ fn, icono, listaData, name }) => {
   const { posicionTimeline, setPosicionTimeline } = useContext(ContextoGeneral);
 
   const handleClick = () => {
-    console.log(posicionTimeline);
+   
     let nuevaPosicion = posicionTimeline;
 
     if (fn === 1 && posicionTimeline > 0) {
@@ -273,41 +271,74 @@ const ContenedorNumeroControl = styled.div`
   align-items: center;
   color: white;
 `
-const Control = ({listaData}) =>{
+const ContenedorTexto = styled.p`
+  font-size: 10px;
   
-  const {boolSlider, posicionTimeline} = useContext(ContextoGeneral);
-  return(
-    <ContenedorControl boolSlider={boolSlider}>
-      <BtnControl name={'Control linea de tiempo anterior'} listaData={listaData} fn={1} icono={<FaAngleLeft />}/>
-      <ContenedorNumeroControl> {posicionTimeline} </ContenedorNumeroControl>
-      <BtnControl name={'Control linea de tiempo siguiente'} listaData={listaData} fn={2} icono={<FaAngleRight />}/>
+  text-align: center;
+  align-items: center;
+  position: absolute;
+  color: var(--AmarilloEspecial);
+  top: -35px;
+  flex: 0 0 1;
+  left: calc(50% - 75px);
+  width: ${props => props.boolSlider ? '150px' : '150px'};
+  opacity: ${props => props.boolSlider ? '1' : '0'};
+  overflow: hidden;
+  user-select: none;
+   transition: opacity .3s ;
+     transition: .6s;
+  transition-delay: 1s;
+`
+const ContenedorControlPadre = styled.div`
+  position: fixed;
+  z-index: 2000;
+  bottom: 20px;
+  width: auto;
+  height: auto;
+  left: calc(50% - 50px);
+   
+  `
+const Control = ({ listaData }) => {
 
-  
-    </ContenedorControl>
+  const { boolSlider, posicionTimeline } = useContext(ContextoGeneral);
+  return (
+    <ContenedorControlPadre>
+
+      <ContenedorTexto boolSlider={boolSlider}> (Da click en cada imagen) </ContenedorTexto>
+      <ContenedorControl boolSlider={boolSlider}>
+        <BtnControl name={'Control linea de tiempo anterior'} listaData={listaData} fn={1} icono={<FaAngleLeft />} />
+        <ContenedorNumeroControl> {posicionTimeline} </ContenedorNumeroControl>
+        <BtnControl name={'Control linea de tiempo siguiente'} listaData={listaData} fn={2} icono={<FaAngleRight />} />
+
+
+      </ContenedorControl>
+    </ContenedorControlPadre>
   )
 }
-export const SeccionLineaDeTiempoUx = ({boolSlider}) => {
-  const {setBoolSlider, Datos, posicionTimeline, setPosicionTimeline} = useContext(ContextoGeneral);
-  const listaData = ['punto0', ...Datos.map((_, index) => `punto${index+1}`), `punto${Datos.length+1}`];
+
+export const SeccionLineaDeTiempoUx = ({ boolSlider }) => {
+  const { setBoolSlider, Datos, posicionTimeline, setPosicionTimeline } = useContext(ContextoGeneral);
+  const listaData = ['punto0', ...Datos.map((_, index) => `punto${index + 1}`), `punto${Datos.length + 1}`];
   const handleClick = () => {
     const element = document.getElementById('main');
     if (element) {
-     
-        element.scrollIntoView({ behavior: 'smooth' });
-        setBoolSlider(false);
+
+      element.scrollIntoView({ behavior: 'smooth' });
+      setBoolSlider(false);
     }
-}
+  }
   return (
     <ContenedorLineaTiempo>
+
       <Line id={'punto0'}>
         <BtnInicialFinal onClick={handleClick}><FaAngleLeft size={'32px'} /></BtnInicialFinal>
         {Datos.map((data, index) => (
-          <ItemLineaTiempo listaData={listaData[index+1]} id={listaData[index+1]} key={index} side = {(index % 2 == 0)} numero={index+1} titulo ={data.titulo} descripcion={data.descripcion} img={data.img} imgWebp={data.imgWebp}  setPosicionTimeline={setPosicionTimeline}>{data}</ItemLineaTiempo>
+          <ItemLineaTiempo listaData={listaData[index + 1]} id={listaData[index + 1]} key={index} side={(index % 2 == 0)} numero={index + 1} titulo={data.titulo} descripcion={data.descripcion} img={data.img} imgWebp={data.imgWebp} setPosicionTimeline={setPosicionTimeline}>{data}</ItemLineaTiempo>
         ))}
 
         <BtnInicialFinal id={'punto9'} final>Final</BtnInicialFinal>
       </Line>
-      <Control  boolSlider={boolSlider} listaData={listaData}/>
+      <Control boolSlider={boolSlider} listaData={listaData} />
     </ContenedorLineaTiempo>
   );
 };

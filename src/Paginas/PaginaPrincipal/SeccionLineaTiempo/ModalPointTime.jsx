@@ -28,9 +28,9 @@ const TxtTitulo = styled(TxtPrincipalStyled)`
     color: var(--AmarilloEspecial);
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
     padding: 10px;
-    backdrop-filter: blur(2px) ;
-    border-radius: 5px;
-
+    background-color: #000000e4;
+    border-radius: 0 10px  0 0;
+    
 `
 const TxtDescripcion = styled.p`
     margin: 0;
@@ -55,8 +55,8 @@ const ContenedorImg = styled.div`
     position: relative;
     object-fit: contain;
     display: flex;
-    justify-content:center;
-    align-items:center;
+    justify-content:start;
+    align-items:end;
 `
 const ContenedorBtn = styled.div`
     width: 100%;

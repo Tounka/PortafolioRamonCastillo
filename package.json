@@ -1,8 +1,8 @@
 {
   "name": "portafolio_v2_react",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
-  "homepage": "https://tounka.github.io/PortafolioRamonCastillo/build",
+  "homepage": "https://tounka.github.io/PortafolioRamonCastillo",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
