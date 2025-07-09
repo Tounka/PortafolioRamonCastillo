@@ -4,8 +4,6 @@ import BlogImg1 from '../../../Img/Pages/PgBlog_img1.png';
 import BlogImg2 from '../../../Img/Pages/PgBlog_img2.png';
 import CasaItaliaImg1 from '../../../Img/Pages/PgCasaItalia_img1.png';
 import CasaItaliaImg2 from '../../../Img/Pages/PgCasaItalia_img2.png';
-import LRopaImg1 from '../../../Img/Pages/PgLRopa_img1.png';
-import LRopaImg2 from '../../../Img/Pages/PgLRopa_img2.png';
 import McImg1 from '../../../Img/Pages/PgMc_img1.png';
 import McImg2 from '../../../Img/Pages/PgMc_img2.png';
 import NoganoImg1 from '../../../Img/Pages/PgNogano_img1.png';
@@ -24,6 +22,8 @@ import PosWebImg1 from '../../../Img/Pages/PgPosWeb_img1.png'
 import PosWebImg2 from '../../../Img/Pages/PgPosWeb_img2.png'
 import SolucionesInnciImg1 from '../../../Img/Pages/SolucionesInnciImg1.png'
 import SolucionesInnciImg2 from '../../../Img/Pages/SolucionesInnciImg2.png'
+import ZaldoImg1 from '../../../Img/Pages/PgZaldoImg.jpg'
+import ZaldoImg2 from '../../../Img/Pages/PgZaldoImg2.jpg'
 
 import BageliaImg1webp from '../../../Img/Pages/PgBagelia_img1.webp';
 import BageliaImg2webp from '../../../Img/Pages/PgBagelia_img2.webp';
@@ -31,8 +31,8 @@ import BlogImg1webp from '../../../Img/Pages/PgBlog_img1.webp';
 import BlogImg2webp from '../../../Img/Pages/PgBlog_img2.webp';
 import CasaItaliaImg1webp from '../../../Img/Pages/PgCasaItalia_img1.webp';
 import CasaItaliaImg2webp from '../../../Img/Pages/PgCasaItalia_img2.webp';
-import LRopaImg1webp from '../../../Img/Pages/PgLRopa_img1.webp';
-import LRopaImg2webp from '../../../Img/Pages/PgLRopa_img2.webp';
+import ZaldoImg1webp from '../../../Img/Pages/PgZaldoImg.webp'
+import ZaldoImg2webp from '../../../Img/Pages/PgZaldoImg2.webp'
 import McImg1webp from '../../../Img/Pages/PgMc_img1.webp';
 import McImg2webp from '../../../Img/Pages/PgMc_img2.webp';
 import NoganoImg1webp from '../../../Img/Pages/PgNogano_img1.webp';
@@ -93,6 +93,16 @@ export const Data = [
         img2Webp: MazatlanTuristasImg2Webp,
         tecnologias: ['html', 'css', 'js', 'react'],
         url: 'https://recorridosmazatlan.netlify.app/'
+    },
+    {
+        nombre: 'Zaldo',
+        descripcion: 'Version actualizada de cartera virtual con BD no sql y login publico.',
+        img: ZaldoImg1,
+        img2: ZaldoImg2,
+        imgWebp: ZaldoImg1webp,
+        img2Webp: ZaldoImg2webp,
+        tecnologias: ['html', 'css', 'js', 'react', "firebase"],
+        url: 'https://zaldo-desarrollo.netlify.app/'
     },
     {
         nombre: 'Mc Donald\'s',
@@ -175,14 +185,5 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react', 'styledcomponents'],
         url: 'https://nogano.netlify.app/'
     },
-    {
-        nombre: 'Tienda de Ropa',
-        descripcion: 'Sitio sobre venta de ropa, lo realicé para experimentar con animaciones.',
-        img: LRopaImg1,
-        img2: LRopaImg2,
-        imgWebp: LRopaImg1webp,
-        img2Webp: LRopaImg2webp,
-        tecnologias: ['html', 'css', 'js', 'react'],
-        url: 'https://little-legend.netlify.app/'
-    },
+   
 ];
