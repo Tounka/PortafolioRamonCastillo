@@ -69,7 +69,7 @@ const ContenedorIzquierdo = () =>{
             <ContenedorImg>
                 <ImgPicture src={foto} srcWebp={fotoWebp} alt='Imagen de perfil'/>
             </ContenedorImg>
-            <TxtPrincipal size={'34px'} mediaDismFontSize txt={'Ramon Castillo'} subrayado/>
+            <TxtPrincipal size={'34px'} $mediaDismFontSize txt={'Ramon Castillo'} $subrayado/>
         </ContenedorIzquierdoStyled> 
     )
 } 
@@ -265,12 +265,10 @@ const InfoContacto = ({tipo = 'digita', txt='ingresa' }) => {
     const [hover, setHover] = useState(false); 
     const handleMouseOver = () => {
         setHover(true);
-        console.log(hover);
       };
     
       const handleMouseOut = () => {
         setHover(false);
-        console.log(hover);
       };
     const handleClick = () =>{
         clipboardCopy(txt)
@@ -281,14 +279,14 @@ const InfoContacto = ({tipo = 'digita', txt='ingresa' }) => {
     return(
         <ContenedorInfoContactoStyled>
 
-            <TxtInfoContactoStyled dpnone alingR bold pointer size={'28px'}
+            <TxtInfoContactoStyled $dpnone $alingR $bold $pointer size={'28px'}
             onMouseOver={handleMouseOver}
             onMouseOut={handleMouseOut}
             onClick={handleClick}
             >{tipo}</TxtInfoContactoStyled>
 
             <ContenedorTxtInfoContacto onClick={handleClick}>
-                <TxtInfoContactoBgStyled hover={hover} >{txt}</TxtInfoContactoBgStyled>
+                <TxtInfoContactoBgStyled $hover={hover} >{txt}</TxtInfoContactoBgStyled>
             </ContenedorTxtInfoContacto>
             
         </ContenedorInfoContactoStyled>
@@ -320,7 +318,7 @@ const ContenedorDerecho = () =>{
     return(
         <ContenedorDerechoStyled>
             <ContenedorTxtContacto>
-                <TxtPrincipal txt='Contacto' subrayado size='40px'/>
+                <TxtPrincipal txt='Contacto' $subrayado size='40px'/>
             </ContenedorTxtContacto>
 
             <ContenedorInfoContacto>

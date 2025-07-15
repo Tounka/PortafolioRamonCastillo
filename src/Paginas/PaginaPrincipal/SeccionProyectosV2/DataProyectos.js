@@ -96,7 +96,7 @@ export const Data = [
     },
     {
         nombre: 'Zaldo',
-        descripcion: 'Version actualizada de cartera virtual con BD no sql y login publico.',
+        descripcion: 'Versión actualizada de cartera virtual con BD no SQL y login público',
         img: ZaldoImg1,
         img2: ZaldoImg2,
         imgWebp: ZaldoImg1webp,

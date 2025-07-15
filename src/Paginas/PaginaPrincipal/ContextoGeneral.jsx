@@ -54,14 +54,14 @@ const ContextoProviderGeneral = ({ children }) => {
     {
       titulo: "Gerencia",
       fecha: "2023",
-      descripcion: "Ese mismo año, asumí el reto de un puesto gerencial. Esta experiencia me ayudó a crecer en liderazgo y gestión. En 2025 decidí cerrar ese ciclo profesional para enfocarme completamente en el área tecnológica.",
+      descripcion: "En ese mismo año asumí el reto de ocupar un puesto gerencial. Esta experiencia me ayudó a crecer en liderazgo y gestión. En 2025 decidí cerrar ese ciclo profesional para enfocarme completamente en el área tecnológica.",
       img: imgGerente,
       imgWebp: imgGerenteWebp
     },
     {
       titulo: "Prácticas Profesionales",
       fecha: "2025",
-      descripcion: "En enero de 2025 comencé mis prácticas profesionales en Guadalajara, lo que implicó dejar mi trabajo anterior para enfocarme en nuevos desafíos. Actualmente colaboro en iNNCi, participando en el desarrollo de proyectos internos con diversas tecnologías.",
+      descripcion: "En enero de 2025 comencé mis prácticas profesionales en Guadalajara. Actualmente colaboro con iNNCi, participando en el desarrollo de proyectos internos con diversas tecnologías.",
       img: imgPracticas,
       imgWebp: imgPracticasWebp
     }

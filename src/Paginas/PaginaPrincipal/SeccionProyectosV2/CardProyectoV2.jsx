@@ -81,8 +81,8 @@ const Iconos = ({tecnologias}) =>{
     return(
         <ContenedorIconos >
             <ContenedorInternoIconos>
-                {tecnologias.map(tecnologia =>(
-                    <Icono tecnologia={tecnologia}  />
+                {tecnologias.map((tecnologia, index) =>(
+                    <Icono key={`tecnologia${index}`} tecnologia={tecnologia}  />
                 ))}
             </ContenedorInternoIconos>
         </ContenedorIconos>
@@ -185,15 +185,15 @@ export const CardProyectoV2 = ({
     tecnologias = ['react', 'js', 'html', 'css'],
     url,
     srcImg = 'https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a',
-    srcImgWebp = 'https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a'}
-   
+    srcImgWebp = 'https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a'},
+    key
 
     ) =>{
         const handleClick = () => {
             window.open(url, '_blank'); // Abre el enlace en una nueva pestaña
           };
         return(
-        <CardProyectoStyled onClick={() => handleClick()}>
+        <CardProyectoStyled key={key} onClick={() => handleClick()}>
             <ContenedorImgStyled>
                 <ImgPicture src={srcImg} srcWebp={srcImgWebp} alt={'Imagen del sitio web ' + titulo} />
             </ContenedorImgStyled>

@@ -21,6 +21,7 @@ export const PaginaPrincipal = () =>{
             middleSection.scrollIntoView({ });
         }
     }, []);
+    
     return(
         <ContextoProviderGeneral>
             <DisplayPrincipal>

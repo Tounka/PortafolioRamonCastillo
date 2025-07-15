@@ -117,7 +117,7 @@ const ContenedorDescripcion = styled.div`
 
 `
 
-const ItemLineaTiempo = ({ numero, titulo, descripcion, img, imgWebp = "", side, id, listaData, key }) => {
+const ItemLineaTiempo = ({ numero, titulo, descripcion, img, imgWebp = "", side, id, listaData }) => {
   const { setEstadoModal, setInformacionModal, informacionModal } = useContext(ModalContext);
   const { setBoolSlider, Datos, setPosicionTimeline, posicionTimeline } = useContext(ContextoGeneral);
 
@@ -157,7 +157,7 @@ const ItemLineaTiempo = ({ numero, titulo, descripcion, img, imgWebp = "", side,
     }
   }
   return (
-    <ContenedorItemLineaDeTiempoStyled key={key} id={id} side={side} >
+    <ContenedorItemLineaDeTiempoStyled  id={id} side={side} >
       <Btn name={'Boton mover a item numero ' + numero} onClick={() => handleClickBtn()}> {numero} </Btn>
       <TxtItemLineaTiempo>{titulo}</TxtItemLineaTiempo>
       <ContenedorImg onClick={() => handleClick()} > <ImgPicture bg alt={'Img ' + titulo} src={img} srcWebp={imgWebp} zIndex={1} /> <ContenedorDescripcion side={side}>{descripcion}</ContenedorDescripcion>  </ContenedorImg>
@@ -251,8 +251,6 @@ const BtnControl = ({ fn, icono, listaData, name }) => {
         });
       }
     }
-
-    console.log(nuevaPosicion);
   };
 
   return (
@@ -333,7 +331,7 @@ export const SeccionLineaDeTiempoUx = ({ boolSlider }) => {
       <Line id={'punto0'}>
         <BtnInicialFinal onClick={handleClick}><FaAngleLeft size={'32px'} /></BtnInicialFinal>
         {Datos.map((data, index) => (
-          <ItemLineaTiempo listaData={listaData[index + 1]} id={listaData[index + 1]} key={index} side={(index % 2 == 0)} numero={index + 1} titulo={data.titulo} descripcion={data.descripcion} img={data.img} imgWebp={data.imgWebp} setPosicionTimeline={setPosicionTimeline}>{data}</ItemLineaTiempo>
+          <ItemLineaTiempo  listaData={listaData[index + 1]} id={listaData[index + 1]} key={index} side={(index % 2 == 0)} numero={index + 1} titulo={data.titulo} descripcion={data.descripcion} img={data.img} imgWebp={data.imgWebp} setPosicionTimeline={setPosicionTimeline}>{data}</ItemLineaTiempo>
         ))}
 
         <BtnInicialFinal id={'punto9'} final>Final</BtnInicialFinal>
