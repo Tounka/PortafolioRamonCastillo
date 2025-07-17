@@ -1,16 +1,10 @@
 import React, { createContext, useState } from 'react';
 import imgGatito from "../../Img/TimeLine/Gatito.jpg";
 import imgGatitoWebp from "../../Img/TimeLine/Gatito.webp";
-import imgPreparatoria from "../../Img/TimeLine/imgPreparatoria.png";
-import imgPreparatoriaWebp from "../../Img/TimeLine/imgPreparatoria.webp";
-import imgSecundaria from "../../Img/TimeLine/imgSecundaria.png";
-import imgSecundariaWebp from "../../Img/TimeLine/imgSecundaria.webp";
 import imgUniversidad from "../../Img/TimeLine/imgUniversidad.jpg";
 import imgUniversidadWebp from "../../Img/TimeLine/imgUniversidad.webp";
-import imgMcondalds from "../../Img/TimeLine/imgMcDonalds.jpg";
+import imgMcondalds from "../../Img/TimeLine/imgMcDonalds.jpeg";
 import imgMcondaldsWebp from "../../Img/TimeLine/imgMcDonalds.webp";
-import imgSabatino from "../../Img/TimeLine/imgSabatino.jpg";
-import imgSabatinoWebp from "../../Img/TimeLine/imgSabatino.webp";
 import imgGerente from "../../Img/TimeLine/imgGerente.jpg";
 import imgGerenteWebp from "../../Img/TimeLine/imgGerente.webp";
 import imgPracticas from "../../Img/TimeLine/imgPracticas.png";
@@ -45,16 +39,9 @@ const ContextoProviderGeneral = ({ children }) => {
       imgWebp: imgMcondaldsWebp
     },
     {
-      titulo: "Modalidad Sabatina",
-      fecha: "2023",
-      descripcion: "En quinto semestre opté por cambiar mi modalidad de estudios a sabatina, lo cual me brindó más tiempo para enfocarme en el aprendizaje autodidacta. Esta decisión fue clave para desarrollar mis habilidades en programación de manera independiente.",
-      img: imgSabatino,
-      imgWebp: imgSabatinoWebp
-    },
-    {
       titulo: "Gerencia",
       fecha: "2023",
-      descripcion: "En ese mismo año asumí el reto de ocupar un puesto gerencial. Esta experiencia me ayudó a crecer en liderazgo y gestión. En 2025 decidí cerrar ese ciclo profesional para enfocarme completamente en el área tecnológica.",
+      descripcion: "Un año después asumí el reto de ocupar un puesto gerencial. Esta experiencia me ayudó a crecer en liderazgo y gestión. En 2025 decidí cerrar ese ciclo profesional para enfocarme completamente en el área tecnológica.",
       img: imgGerente,
       imgWebp: imgGerenteWebp
     },

@@ -276,7 +276,7 @@ const ContenedorTexto = styled.p`
   align-items: center;
   position: absolute;
   color: var(--AmarilloEspecial);
-  top: -35px;
+  top: -20px;
   flex: 0 0 1;
   left: calc(50% - 75px);
   width: ${props => props.boolSlider ? '150px' : '150px'};
@@ -286,6 +286,7 @@ const ContenedorTexto = styled.p`
    transition: opacity .3s ;
      transition: .6s;
   transition-delay: 1s;
+  margin: 0;
 `
 const ContenedorControlPadre = styled.div`
   position: fixed;

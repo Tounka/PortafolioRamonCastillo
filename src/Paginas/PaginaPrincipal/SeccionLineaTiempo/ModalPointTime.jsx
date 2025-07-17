@@ -20,7 +20,7 @@ const ContenedorModal = styled.div`
     position: fixed;
     top:0;
     left: 0;
-    background-color: #0000009d;
+
     backdrop-filter: blur(2px);
 
 `
@@ -31,6 +31,10 @@ const TxtTitulo = styled(TxtPrincipalStyled)`
     background-color: #000000e4;
     border-radius: 0 10px  0 0;
     
+
+    @media (max-width: 600px) {
+        font-size: 14px;
+    }   
 `
 const TxtDescripcion = styled.p`
     margin: 0;
@@ -81,6 +85,9 @@ const ContenedorSegundaSeccion = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-color: #000000e4;
+    border-radius: 0 0 20px 20px;
+    padding: 10px;
 `
 const InteriorModal = styled.div`
     max-width: 800px;
@@ -88,7 +95,6 @@ const InteriorModal = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
 `
 
 export const Modal = () => {
