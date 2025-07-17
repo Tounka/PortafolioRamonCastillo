@@ -71,7 +71,7 @@ export const Data = [
         img2: SolucionesInnciImg2,
         imgWebp: SolucionesInnciImg1Webp,
         img2Webp: SolucionesInnciImg2Webp,
-        tecnologias: ['html', 'css', 'js', 'react'],
+        tecnologias: ['html', 'css', 'js', 'react', 'wordpress'],
         url: 'https://aaaaajflsksjs.my.canva.site/portafolio-innci'
     },
     {

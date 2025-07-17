@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ImgPicture } from "../../Img";
 import { TxtPrincipal, TxtGenerico } from "../../../ComponentesGenerales/TxtPrincipal";
-import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaPhp, FaGithub } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaPhp, FaGithub, FaWordpress } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io';
 import { SiStyledcomponents } from 'react-icons/si';
 import { BiLogoPostgresql } from 'react-icons/bi';
@@ -14,6 +14,7 @@ const tecnologiaMap = {
     js: { icon: <IoLogoJavascript />, bgColor: '#F0DB4F' },
     react: { icon: <FaReact />, bgColor: '#262626', color: '#02DCFF' },
     bootstrap: { icon: <FaBootstrap />, bgColor: '#ffffff', color: '#8411F6' },
+    wordpress: { icon: <FaWordpress />, bgColor: '#ffffff', color: '#00749A' },
     styledcomponents: { icon: <SiStyledcomponents />, bgColor: '#5b5b5b' },
     php: { icon: <FaPhp />, bgColor: '#4F5B93' },
     postgresql: { icon: <BiLogoPostgresql />, bgColor: '#366693' },

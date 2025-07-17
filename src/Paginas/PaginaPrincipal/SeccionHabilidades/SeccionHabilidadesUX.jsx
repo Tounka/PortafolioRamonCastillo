@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { TxtPrincipal } from "../../../ComponentesGenerales/TxtPrincipal"
 
-import { FaCss3Alt, FaHtml5, FaReact, FaGithub, FaBootstrap, FaAngleRight, FaPython } from "react-icons/fa";
+import { FaCss3Alt, FaHtml5, FaReact, FaGithub, FaBootstrap, FaAngleRight, FaPython, FaWordpress } from "react-icons/fa";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { IoLogoJavascript } from "react-icons/io";
 import { FaPhp } from "react-icons/fa";
@@ -202,6 +202,7 @@ export const SeccionHabilidadesUx = () => {
                     <CardStyled bgColor={'#F0DB4F'} caso='js' icon={<IoLogoJavascript />} nombreTecnologia="JavaScript" />
                     <CardStyled bgColor={'#262626'} caso='react' icon={<FaReact />} nombreTecnologia="React" />
                     <CardStyled bgColor={'#ffffff'} caso='bootstrap' icon={<FaBootstrap />} nombreTecnologia="Bootstrap" />
+                    <CardStyled bgColor={'#00749A'} caso='wordpress' icon={<FaWordpress />} nombreTecnologia="WordPress" />
                     <CardStyled bgColor={'#5b5b5b'} icon={<SiStyledcomponents />} nombreTecnologia="Styled Components" />
                 </ContenedorCardStyled>
 
