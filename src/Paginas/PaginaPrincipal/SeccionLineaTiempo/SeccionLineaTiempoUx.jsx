@@ -308,8 +308,6 @@ const Control = ({ listaData }) => {
         <BtnControl name={'Control linea de tiempo anterior'} listaData={listaData} fn={1} icono={<FaAngleLeft />} />
         <ContenedorNumeroControl> {posicionTimeline} </ContenedorNumeroControl>
         <BtnControl name={'Control linea de tiempo siguiente'} listaData={listaData} fn={2} icono={<FaAngleRight />} />
-
-
       </ContenedorControl>
     </ContenedorControlPadre>
   )
