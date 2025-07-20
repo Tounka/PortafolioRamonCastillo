@@ -133,7 +133,7 @@ export const Data = [
         img2Webp: UadeoImg2webp,
         tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
         url: 'https://laboratoriouadeo.netlify.app/'
-    }, 
+    },
 
     {
         nombre: 'Tarjetas',
@@ -185,5 +185,5 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react', 'styledcomponents'],
         url: 'https://nogano.netlify.app/'
     },
-   
+
 ];

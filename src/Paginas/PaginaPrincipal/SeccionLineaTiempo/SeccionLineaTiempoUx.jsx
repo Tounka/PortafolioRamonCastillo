@@ -271,23 +271,24 @@ const ContenedorNumeroControl = styled.div`
 `
 const ContenedorTexto = styled.p`
   font-size: 10px;
-  
   text-align: center;
-  align-items: center;
   position: absolute;
-  color: var(--AmarilloEspecial);
   top: -20px;
-  flex: 0 0 1;
   left: calc(50% - 75px);
-  width: ${props => props.boolSlider ? '150px' : '150px'};
-  opacity: ${props => props.boolSlider ? '1' : '0'};
-  overflow: hidden;
+  width: 150px;
+  color: var(--AmarilloEspecial);
   user-select: none;
-   transition: opacity .3s ;
-     transition: .6s;
-  transition-delay: 1s;
   margin: 0;
-`
+
+  opacity: ${props => (props.boolSlider ? '1' : '0')};
+  transform: ${props => (props.boolSlider ? 'translateX(0)' : 'translateX(-30px)')};
+  pointer-events: ${props => (props.boolSlider ? 'auto' : 'none')};
+
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition-delay: .8s;
+`;
+
+
 const ContenedorControlPadre = styled.div`
   position: fixed;
   z-index: 2000;
@@ -295,13 +296,15 @@ const ContenedorControlPadre = styled.div`
   width: auto;
   height: auto;
   left: calc(50% - 50px);
+
+
    
   `
 const Control = ({ listaData }) => {
 
   const { boolSlider, posicionTimeline } = useContext(ContextoGeneral);
   return (
-    <ContenedorControlPadre>
+    <ContenedorControlPadre boolSlider={boolSlider}>
 
       <ContenedorTexto boolSlider={boolSlider}> (Da click en cada imagen) </ContenedorTexto>
       <ContenedorControl boolSlider={boolSlider}>
