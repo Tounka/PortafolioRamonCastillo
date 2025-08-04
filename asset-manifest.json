@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PortafolioRamonCastillo/static/css/main.a469032e.css",
-    "main.js": "/PortafolioRamonCastillo/static/js/main.9e9d1b1c.js",
+    "main.js": "/PortafolioRamonCastillo/static/js/main.9dfac831.js",
     "static/media/imgUniversidad.jpg": "/PortafolioRamonCastillo/static/media/imgUniversidad.7637fd5d73174dba6990.jpg",
     "static/media/PgNogano_img2.png": "/PortafolioRamonCastillo/static/media/PgNogano_img2.6cf7d34774cf448145eb.png",
     "static/media/PgNogano_img1.png": "/PortafolioRamonCastillo/static/media/PgNogano_img1.d072a836a0369f1b6a27.png",
@@ -71,10 +71,10 @@
     "static/media/imgPracticas.webp": "/PortafolioRamonCastillo/static/media/imgPracticas.e4248d227eb0efe17eba.webp",
     "index.html": "/PortafolioRamonCastillo/index.html",
     "main.a469032e.css.map": "/PortafolioRamonCastillo/static/css/main.a469032e.css.map",
-    "main.9e9d1b1c.js.map": "/PortafolioRamonCastillo/static/js/main.9e9d1b1c.js.map"
+    "main.9dfac831.js.map": "/PortafolioRamonCastillo/static/js/main.9dfac831.js.map"
   },
   "entrypoints": [
     "static/css/main.a469032e.css",
-    "static/js/main.9e9d1b1c.js"
+    "static/js/main.9dfac831.js"
   ]
 }
