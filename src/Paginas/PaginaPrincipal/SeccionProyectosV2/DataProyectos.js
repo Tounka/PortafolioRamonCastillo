@@ -86,16 +86,6 @@ export const Data = [
         url: 'https://aaaaajflsksjs.my.canva.site/proyecto'
     },
     {
-        nombre: 'Guía turistas',
-        descripcion: 'Sitio para promocionar servicio de guía de turistas.',
-        img: MazatlanTuristasImg1,
-        img2: MazatlanTuristasImg2,
-        imgWebp: MazatlanTuristasImg1Webp,
-        img2Webp: MazatlanTuristasImg2Webp,
-        tecnologias: ['html', 'css', 'js', 'react'],
-        url: 'https://recorridosmazatlan.netlify.app/'
-    },
-    {
         nombre: 'Invitación de Boda',
         descripcion: 'Invitación responsiva para bodas u otros eventos.',
         img: BodaImg1,
@@ -105,7 +95,16 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react'],
         url: 'https://te-invito-a-mi-evento.netlify.app/'
     },
-
+    {
+        nombre: 'Guía turistas',
+        descripcion: 'Sitio para promocionar servicio de guía de turistas.',
+        img: MazatlanTuristasImg1,
+        img2: MazatlanTuristasImg2,
+        imgWebp: MazatlanTuristasImg1Webp,
+        img2Webp: MazatlanTuristasImg2Webp,
+        tecnologias: ['html', 'css', 'js', 'react'],
+        url: 'https://recorridosmazatlan.netlify.app/'
+    },
 
 
     {
@@ -117,16 +116,6 @@ export const Data = [
         img2Webp: McImg2webp,
         tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
         url: 'https://inventariodetalladomc.netlify.app/'
-    },
-    {
-        nombre: 'Mascotas',
-        descripcion: 'Red social similar a Instagram para mascotas.',
-        img: MascotasImg1,
-        img2: MascotasImg2,
-        imgWebp: MascotasImg1Webp,
-        img2Webp: MascotasImg2Webp,
-        tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
-        url: 'https://mimascotajs.netlify.app/'
     },
     {
         nombre: 'Registros UAdeO',
@@ -159,16 +148,7 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react'],
         url: 'https://bagelia.netlify.app/'
     },
-    {
-        nombre: 'Blog',
-        descripcion: 'Se trata de un blog en donde los usuarios pueden subir post.',
-        img: BlogImg1,
-        img2: BlogImg2,
-        imgWebp: BlogImg1webp,
-        img2Webp: BlogImg2webp,
-        tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
-        url: 'https://towblog.netlify.app/'
-    },
+
     {
         nombre: 'Casa Italia',
         descripcion: 'Sistema de comandas web para una pizzeria.',
