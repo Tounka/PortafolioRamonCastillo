@@ -55,15 +55,16 @@ import SolucionesInnciImg2Webp from '../../../Img/Pages/SolucionesInnciImg2.webp
 
 export const Data = [
     {
-        nombre: 'Invitación de Boda',
-        descripcion: 'Invitación responsiva para bodas u otros eventos.',
-        img: BodaImg1,
-        img2: BodaImg2,
-        imgWebp: BodaImg1Webp,
-        img2Webp: BodaImg2Webp,
-        tecnologias: ['html', 'css', 'js', 'react'],
-        url: 'https://te-invito-a-mi-evento.netlify.app/'
+        nombre: 'Zaldo',
+        descripcion: 'Versión actualizada de cartera virtual con BD no SQL y login público',
+        img: ZaldoImg1,
+        img2: ZaldoImg2,
+        imgWebp: ZaldoImg1webp,
+        img2Webp: ZaldoImg2webp,
+        tecnologias: ['html', 'css', 'js', 'react', "firebase"],
+        url: 'https://zaldo-desarrollo.netlify.app/'
     },
+
     {
         nombre: 'Portafolio iNNCi',
         descripcion: 'Principales soluciones desarrolladas en colaboración con iNNCi.',
@@ -82,7 +83,7 @@ export const Data = [
         imgWebp: PosWebImg1Webp,
         img2Webp: PosWebImg2Webp,
         tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
-        url: 'https://mazapanpa.netlify.app/'
+        url: 'https://aaaaajflsksjs.my.canva.site/proyecto'
     },
     {
         nombre: 'Guía turistas',
@@ -95,15 +96,18 @@ export const Data = [
         url: 'https://recorridosmazatlan.netlify.app/'
     },
     {
-        nombre: 'Zaldo',
-        descripcion: 'Versión actualizada de cartera virtual con BD no SQL y login público',
-        img: ZaldoImg1,
-        img2: ZaldoImg2,
-        imgWebp: ZaldoImg1webp,
-        img2Webp: ZaldoImg2webp,
-        tecnologias: ['html', 'css', 'js', 'react', "firebase"],
-        url: 'https://zaldo-desarrollo.netlify.app/'
+        nombre: 'Invitación de Boda',
+        descripcion: 'Invitación responsiva para bodas u otros eventos.',
+        img: BodaImg1,
+        img2: BodaImg2,
+        imgWebp: BodaImg1Webp,
+        img2Webp: BodaImg2Webp,
+        tecnologias: ['html', 'css', 'js', 'react'],
+        url: 'https://te-invito-a-mi-evento.netlify.app/'
     },
+
+
+
     {
         nombre: 'Mc Donald\'s',
         descripcion: 'Herramientas para hacer más eficientes ciertas tareas.',
@@ -175,15 +179,6 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react'],
         url: 'https://casaitalia.netlify.app/'
     },
-    {
-        nombre: 'Nogano',
-        descripcion: 'Sitio web para un restaurante.',
-        img: NoganoImg1,
-        img2: NoganoImg2,
-        imgWebp: NoganoImg1webp,
-        img2Webp: NoganoImg2webp,
-        tecnologias: ['html', 'css', 'js', 'react', 'styledcomponents'],
-        url: 'https://nogano.netlify.app/'
-    },
+
 
 ];
