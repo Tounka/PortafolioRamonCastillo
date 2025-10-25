@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { TxtPrincipal } from "../../../ComponentesGenerales/TxtPrincipal"
 
-import { FaCss3Alt, FaHtml5, FaReact, FaGithub, FaBootstrap, FaAngleRight, FaPython, FaWordpress } from "react-icons/fa";
+import { FaCss3Alt, FaHtml5, FaReact, FaGithub, FaBootstrap, FaAngleRight, FaPython, FaWordpress, FaNode } from "react-icons/fa";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { IoLogoJavascript } from "react-icons/io";
 import { FaPhp } from "react-icons/fa";
@@ -209,6 +209,7 @@ export const SeccionHabilidadesUx = () => {
                 <TxtPrincipal color='white' txt='BackEnd' />
 
                 <ContenedorCardStyled>
+                    <CardStyled bgColor={'#90C53F'} icon={<FaNode  />} nombreTecnologia="Node" />
                     <CardStyled bgColor={'#4F5B93'} icon={<FaPhp />} nombreTecnologia="PHP" />
                     <CardStyled bgColor={'#05325B'} icon={<FaPython />} nombreTecnologia="Python" />
                     <CardStyled bgColor={'#366693'} icon={<BiLogoPostgresql />} nombreTecnologia="PostgreSQL" />

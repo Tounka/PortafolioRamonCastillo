@@ -35,7 +35,7 @@ export const PaginaPrincipal = () =>{
                 </ContenedorHorizontal>
 
                 <SeccionProyectosV2 />
-
+                
             </DisplayPrincipal>
         </ContextoProviderGeneral>
 

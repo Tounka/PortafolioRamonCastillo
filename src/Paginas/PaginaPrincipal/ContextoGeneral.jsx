@@ -9,7 +9,8 @@ import imgGerente from "../../Img/TimeLine/imgGerente.jpg";
 import imgGerenteWebp from "../../Img/TimeLine/imgGerente.webp";
 import imgPracticas from "../../Img/TimeLine/imgPracticas.png";
 import imgPracticasWebp from "../../Img/TimeLine/imgPracticas.webp";
-
+import imgSitioRandom from  "../../Img/TimeLine/sitioRandom.jpg";
+import imgSitioRandomWebp from  "../../Img/TimeLine/sitioRandom.webp";
 
 const ContextoGeneral = createContext();
 
@@ -48,10 +49,17 @@ const ContextoProviderGeneral = ({ children }) => {
     {
       titulo: "iNNCi Lab",
       fecha: "2025",
-      descripcion: "En enero de 2025 inicié mi colaboración con iNNCi Lab, participando en el desarrollo de diversas soluciones web dirigidas tanto a clientes como a colaboradores de la compañía. Disfruto especialmente enfrentar nuevos retos técnicos y apoyar a mis compañeros resolviendo dudas y mejorando procesos, lo que me ha permitido crecer profesionalmente y aportar valor al equipo.",
-      img: imgPracticas,
-      imgWebp: imgPracticasWebp
-    }
+            img: imgPracticas,
+      imgWebp: imgPracticasWebp,
+      descripcion: "(Enero 2025 / Actualidad)  Inicié mi colaboración con iNNCi Lab como prestador de servicios, participando en el desarrollo de soluciones web para clientes y colaboradores de la compañía. Disfruto enfrentar nuevos retos técnicos y apoyar a mis compañeros resolviendo dudas y optimizando procesos, lo que me ha permitido crecer profesionalmente y aportar mayor valor al equipo.",
+    },
+    {
+      titulo: "Sitio Random",
+      fecha: "2025",
+      descripcion:"(Agosto 2025 / Actualidad) Me desempeño como desarrollador Full Stack en Sitio Random, donde diseño y desarrollo soluciones web escalables utilizando Next.js, contribuyendo a la creación de aplicaciones modernas, eficientes y orientadas al crecimiento del negocio.",
+      img: imgSitioRandom,
+      imgWebp: imgSitioRandomWebp
+    },
   ];
 
 
