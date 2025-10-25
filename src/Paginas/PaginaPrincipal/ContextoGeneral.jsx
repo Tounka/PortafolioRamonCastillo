@@ -61,11 +61,11 @@ const ContextoProviderGeneral = ({ children }) => {
       imgWebp: imgSitioRandomWebp
     },
   ];
-
+  const [seccionSeleccionada, setSeccionSeleccionada] = useState("main");
 
   const [posicionTimeline, setPosicionTimeline] = useState(1);
   return (
-    <ContextoGeneral.Provider value={{ boolSlider, setBoolSlider, Datos, posicionTimeline, setPosicionTimeline }}>
+    <ContextoGeneral.Provider value={{ boolSlider, setBoolSlider, Datos, posicionTimeline, setPosicionTimeline,seccionSeleccionada, setSeccionSeleccionada }}>
       {children}
     </ContextoGeneral.Provider>
   );

@@ -8,6 +8,8 @@ import { FaPhp } from "react-icons/fa";
 import { RiSupabaseFill } from "react-icons/ri";
 import { RiFirebaseFill } from "react-icons/ri";
 import { SiStyledcomponents } from "react-icons/si";
+import { ContextoGeneral } from "../ContextoGeneral";
+import { useContext } from "react";
 
 
 
@@ -173,8 +175,11 @@ const ContenedoroIcono = styled.div`
 
 `
 const ContenedorInferiorBtn = () => {
+      const { setSeccionSeleccionada } = useContext(ContextoGeneral);
     const handleClick = () => {
+        
         const element = document.getElementById('main');
+        setSeccionSeleccionada("main")
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
         }

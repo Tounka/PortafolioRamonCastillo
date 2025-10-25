@@ -97,9 +97,10 @@ position: relative;
 
 
 export const CuadradoContenedor = () => {
-    const {setBoolSlider} = useContext(ContextoGeneral);
+    const {setBoolSlider, setSeccionSeleccionada} = useContext(ContextoGeneral);
     const handleClick = (url) =>{
         const element = document.getElementById(url);
+        setSeccionSeleccionada(url)
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
         }

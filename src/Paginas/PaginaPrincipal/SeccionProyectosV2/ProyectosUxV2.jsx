@@ -1,9 +1,10 @@
 import { CardProyectoV2 } from "./CardProyectoV2";
 import styled from "styled-components";
 import { FaAngleUp } from "react-icons/fa";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Data } from "./DataProyectos";
 import { TxtGenerico } from "../../../ComponentesGenerales/TxtPrincipal";
+import { ContextoGeneral } from "../ContextoGeneral";
 
 const ContenedorInferiorBtnStyled = styled.button`
     border: none;
@@ -29,8 +30,10 @@ const ContenedoroIcono = styled.div`
 `;
 
 const ContenedorInferiorBtn = () => {
+     const { setSeccionSeleccionada } = useContext(ContextoGeneral)
     const handleClick = () => {
         const element = document.getElementById('main');
+        setSeccionSeleccionada("main")
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
         }

@@ -317,10 +317,12 @@ const Control = ({ listaData }) => {
 }
 
 export const SeccionLineaDeTiempoUx = ({ boolSlider }) => {
-  const { setBoolSlider, Datos, posicionTimeline, setPosicionTimeline } = useContext(ContextoGeneral);
+  const { setBoolSlider, Datos, posicionTimeline, setPosicionTimeline,setSeccionSeleccionada } = useContext(ContextoGeneral);
   const listaData = ['punto0', ...Datos.map((_, index) => `punto${index + 1}`), `punto${Datos.length + 1}`];
   const handleClick = () => {
+
     const element = document.getElementById('main');
+     setSeccionSeleccionada("main")
     if (element) {
 
       element.scrollIntoView({ behavior: 'smooth' });

@@ -5,8 +5,9 @@ import fotoWebp from '../../../Img/RamonCastillo.webp'
 import { TxtPrincipal } from "../../../ComponentesGenerales/TxtPrincipal"
 import { FaInstagram, FaFacebookF, FaWhatsapp, FaAngleDown   } from "react-icons/fa";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import clipboardCopy from 'clipboard-copy';
+import { ContextoGeneral } from "../ContextoGeneral"
 
 const CardContacto = styled.div`
     height: 600px;
@@ -230,8 +231,10 @@ const ContenedoroIcono = styled.div`
 
 `
 const ContenedorInferiorBtn = () =>{
+    const { setSeccionSeleccionada } = useContext(ContextoGeneral);
     const handleClick = () => {
         const element = document.getElementById('main');
+        setSeccionSeleccionada("main")
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
         }
