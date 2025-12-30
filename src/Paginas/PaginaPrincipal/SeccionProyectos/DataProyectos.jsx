@@ -56,16 +56,6 @@ export const Data = [
         url: 'https://te-invito-a-mi-evento.netlify.app/'
     },
     { 
-        nombre: 'Guía turistas',
-        descripcion: 'Sitio para promocionar servicio de guía de turistas.',
-        img: MazatlanTuristasImg1,
-        img2: MazatlanTuristasImg2,
-        imgWebp: MazatlanTuristasImg1Webp,
-        img2Webp: MazatlanTuristasImg2Webp,
-        tecnologias: ['html', 'css', 'js', 'react'],
-        url: 'https://recorridosmazatlan.netlify.app/'
-    },
-    { 
         nombre: 'Mascotas',
         descripcion: 'Red social similar a Instagram para mascotas.',
         img: MascotasImg1,

@@ -161,6 +161,7 @@ const ContenedorInternoTxt = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
+    padding:10px;
 `
 const TxtPrincipalCard = styled.p`
     margin: 0;

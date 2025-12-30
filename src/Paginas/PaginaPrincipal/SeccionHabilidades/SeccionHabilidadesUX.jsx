@@ -1,13 +1,13 @@
 import styled from "styled-components"
 import { TxtPrincipal } from "../../../ComponentesGenerales/TxtPrincipal"
 
-import { FaCss3Alt, FaHtml5, FaReact, FaGithub, FaBootstrap, FaAngleRight, FaPython, FaWordpress, FaNode } from "react-icons/fa";
+import { FaCss3Alt, FaHtml5, FaReact, FaGithub, FaBootstrap, FaAngleRight, FaPython, FaWordpress, FaNode, FaStripe } from "react-icons/fa";
 import { BiLogoPostgresql } from "react-icons/bi";
 import { IoLogoJavascript } from "react-icons/io";
 import { FaPhp } from "react-icons/fa";
 import { RiSupabaseFill } from "react-icons/ri";
 import { RiFirebaseFill } from "react-icons/ri";
-import { SiStyledcomponents } from "react-icons/si";
+import { SiGooglecloud, SiNextdotjs, SiStyledcomponents } from "react-icons/si";
 import { ContextoGeneral } from "../ContextoGeneral";
 import { useContext } from "react";
 
@@ -199,22 +199,22 @@ export const SeccionHabilidadesUx = () => {
     return (
         <>
             <ContenedorSeccionStyled>
-                <TxtPrincipal color='white' txt='FrontEnd' />
+                <TxtPrincipal color='white' txt='Frontend' />
 
                 <ContenedorCardStyled>
                     <CardStyled bgColor={'#FC490B'} icon={<FaHtml5 />} nombreTecnologia="HTML5" />
                     <CardStyled bgColor={'#264DE4'} icon={<FaCss3Alt />} nombreTecnologia="CSS3" />
                     <CardStyled bgColor={'#F0DB4F'} caso='js' icon={<IoLogoJavascript />} nombreTecnologia="JavaScript" />
                     <CardStyled bgColor={'#262626'} caso='react' icon={<FaReact />} nombreTecnologia="React" />
-                    <CardStyled bgColor={'#ffffff'} caso='bootstrap' icon={<FaBootstrap />} nombreTecnologia="Bootstrap" />
                     <CardStyled bgColor={'#00749A'} caso='wordpress' icon={<FaWordpress />} nombreTecnologia="WordPress" />
                     <CardStyled bgColor={'#5b5b5b'} icon={<SiStyledcomponents />} nombreTecnologia="Styled Components" />
                 </ContenedorCardStyled>
 
-                <TxtPrincipal color='white' txt='BackEnd' />
+                <TxtPrincipal color='white' txt='Backend' />
 
                 <ContenedorCardStyled>
                     <CardStyled bgColor={'#90C53F'} icon={<FaNode  />} nombreTecnologia="Node" />
+                    <CardStyled bgColor={'black'} icon={<SiNextdotjs   />} nombreTecnologia="Next" />
                     <CardStyled bgColor={'#4F5B93'} icon={<FaPhp />} nombreTecnologia="PHP" />
                     <CardStyled bgColor={'#05325B'} icon={<FaPython />} nombreTecnologia="Python" />
                     <CardStyled bgColor={'#366693'} icon={<BiLogoPostgresql />} nombreTecnologia="PostgreSQL" />
@@ -226,6 +226,8 @@ export const SeccionHabilidadesUx = () => {
 
                 <ContenedorCardStyled>
                     <CardStyled bgColor={'#4F5B93'} icon={<FaGithub />} nombreTecnologia="GitHub" />
+                    <CardStyled bgColor={'#F3B605'} icon={<SiGooglecloud  />} nombreTecnologia="GitHub" />
+                    <CardStyled bgColor={'#635BFF'} icon={<FaStripe  />} nombreTecnologia="Stripe" />
                 </ContenedorCardStyled>
 
                 <ContenedorInferiorBtn />
