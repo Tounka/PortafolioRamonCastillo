@@ -95,26 +95,8 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
         url: 'https://inventariodetalladomc.netlify.app/'
     },
-    { 
-        nombre: 'Bagelia',
-        descripcion: 'Sitio para promocionar tienda de bolsas.',
-        img: BageliaImg1,
-        img2: BageliaImg2,
-        imgWebp: BageliaImg1webp,
-        img2Webp: BageliaImg2webp,
-        tecnologias: ['html', 'css', 'js', 'react'],
-        url: 'https://bagelia.netlify.app/'
-    },
-    { 
-        nombre: 'Blog',
-        descripcion: 'Se trata de un blog en donde los usuarios pueden subir post.',
-        img: BlogImg1,
-        img2: BlogImg2,
-        imgWebp: BlogImg1webp,
-        img2Webp: BlogImg2webp,
-        tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
-        url: 'https://towblog.netlify.app/'
-    },
+   
+    
     { 
         nombre: 'Casa Italia',
         descripcion: 'Sistema de comandas web para una pizzeria.',
