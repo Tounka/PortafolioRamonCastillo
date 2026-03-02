@@ -13,7 +13,7 @@ import { useContext } from "react";
 
 
 
-const ContenedorSeccionStyled = styled.div`
+const ContenedorSeccionStyled = styled.section`
     height: auto;
     display: flex;
     flex-direction: column;
@@ -24,13 +24,15 @@ const ContenedorSeccionStyled = styled.div`
     gap: 20px;
     
 `
-const ContenedorCardStyled = styled.div`
+const ContenedorCardStyled = styled.ul`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     place-items: center;
     width: 100%;
     
     gap: 30px;
+    padding: 0;
+    margin: 0;
     
     @media (max-width: 400px){
         grid-template-columns: repeat(2, 1fr);
@@ -108,7 +110,7 @@ const ContenedorPadreIcono = styled.div`
     display: flex;
     justify-content: center;
 `
-const ContenedorCard = styled.div`
+const ContenedorCard = styled.li`
     display: grid;
     grid-template-rows: 150px 60px;
     @media (max-width: 550px){
@@ -120,6 +122,7 @@ const ContenedorCard = styled.div`
     color: white;
     
     gap: 10px;
+    list-style: none;
 `
 const TextoCard = styled.p`
     width: 100%;
@@ -175,9 +178,9 @@ const ContenedoroIcono = styled.div`
 
 `
 const ContenedorInferiorBtn = () => {
-      const { setSeccionSeleccionada } = useContext(ContextoGeneral);
+    const { setSeccionSeleccionada } = useContext(ContextoGeneral);
     const handleClick = () => {
-        
+
         const element = document.getElementById('main');
         setSeccionSeleccionada("main")
         if (element) {
@@ -213,8 +216,8 @@ export const SeccionHabilidadesUx = () => {
                 <TxtPrincipal color='white' txt='Backend' />
 
                 <ContenedorCardStyled>
-                    <CardStyled bgColor={'#90C53F'} icon={<FaNode  />} nombreTecnologia="Node" />
-                    <CardStyled bgColor={'black'} icon={<SiNextdotjs   />} nombreTecnologia="Next" />
+                    <CardStyled bgColor={'#90C53F'} icon={<FaNode />} nombreTecnologia="Node" />
+                    <CardStyled bgColor={'black'} icon={<SiNextdotjs />} nombreTecnologia="Next" />
                     <CardStyled bgColor={'#4F5B93'} icon={<FaPhp />} nombreTecnologia="PHP" />
                     <CardStyled bgColor={'#05325B'} icon={<FaPython />} nombreTecnologia="Python" />
                     <CardStyled bgColor={'#366693'} icon={<BiLogoPostgresql />} nombreTecnologia="PostgreSQL" />
@@ -226,8 +229,8 @@ export const SeccionHabilidadesUx = () => {
 
                 <ContenedorCardStyled>
                     <CardStyled bgColor={'#4F5B93'} icon={<FaGithub />} nombreTecnologia="GitHub" />
-                    <CardStyled bgColor={'#F3B605'} icon={<SiGooglecloud  />} nombreTecnologia="GitHub" />
-                    <CardStyled bgColor={'#635BFF'} icon={<FaStripe  />} nombreTecnologia="Stripe" />
+                    <CardStyled bgColor={'#F3B605'} icon={<SiGooglecloud />} nombreTecnologia="GCP" />
+                    <CardStyled bgColor={'#635BFF'} icon={<FaStripe />} nombreTecnologia="Stripe" />
                 </ContenedorCardStyled>
 
                 <ContenedorInferiorBtn />

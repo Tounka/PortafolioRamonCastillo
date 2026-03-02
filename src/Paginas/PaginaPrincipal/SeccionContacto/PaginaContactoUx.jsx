@@ -3,13 +3,13 @@ import { ImgPicture } from "../../Img"
 import foto from '../../../Img/RamonCastillo.jpg'
 import fotoWebp from '../../../Img/RamonCastillo.webp'
 import { TxtPrincipal } from "../../../ComponentesGenerales/TxtPrincipal"
-import { FaInstagram, FaFacebookF, FaWhatsapp, FaAngleDown   } from "react-icons/fa";
+import { FaInstagram, FaFacebookF, FaWhatsapp, FaAngleDown } from "react-icons/fa";
 
 import { useContext, useState } from "react";
 import clipboardCopy from 'clipboard-copy';
 import { ContextoGeneral } from "../ContextoGeneral"
 
-const CardContacto = styled.div`
+const CardContacto = styled.section`
     height: 600px;
     width: 800px;
     width: 90%;
@@ -64,16 +64,16 @@ const ContenedorImg = styled.div`
         width: 250px;
    }
 `
-const ContenedorIzquierdo = () =>{
-    return(
+const ContenedorIzquierdo = () => {
+    return (
         <ContenedorIzquierdoStyled>
             <ContenedorImg>
-                <ImgPicture src={foto} srcWebp={fotoWebp} alt='Imagen de perfil'/>
+                <ImgPicture src={foto} srcWebp={fotoWebp} alt='Imagen de perfil' />
             </ContenedorImg>
-            <TxtPrincipal size={'34px'} mediaDismFontSize txt={'Ramon Castillo'} subrayado/>
-        </ContenedorIzquierdoStyled> 
+            <TxtPrincipal size={'34px'} mediaDismFontSize txt={'Ramon Castillo'} subrayado />
+        </ContenedorIzquierdoStyled>
     )
-} 
+}
 const ContenedorDerechoStyled = styled.div`
     display: flex;
     flex-direction: column;
@@ -118,11 +118,11 @@ const ContenedorBtns = styled.div`
     display: flex;
     justify-content: space-evenly;
 `
-const BtnRedesSociales = ({url, icono, color}) =>{
+const BtnRedesSociales = ({ url, icono, color }) => {
     const handleClick = () => {
         window.location.href = url;
-      };
-    return(
+    };
+    return (
         <ContenedorBtnStyled color={color} onClick={() => handleClick()}>
             {icono}
         </ContenedorBtnStyled>
@@ -148,7 +148,7 @@ const ContenedorInfoContactoStyled = styled.div`
 
 `
 const TxtInfoContactoStyled = styled.p`
-    font-size: ${props => props.size ? props.size : '32px;' }; 
+    font-size: ${props => props.size ? props.size : '32px;'}; 
     color: black;
     text-align: ${props => props.alingR ? 'right !important' : 'left'};
     font-weight: ${props => props.bold ? 'bold' : ''};
@@ -230,7 +230,7 @@ const ContenedoroIcono = styled.div`
     }
 
 `
-const ContenedorInferiorBtn = () =>{
+const ContenedorInferiorBtn = () => {
     const { setSeccionSeleccionada } = useContext(ContextoGeneral);
     const handleClick = () => {
         const element = document.getElementById('main');
@@ -239,17 +239,17 @@ const ContenedorInferiorBtn = () =>{
             element.scrollIntoView({ behavior: 'smooth' });
         }
     }
-    return(
+    return (
         <ContenedorInferiorBtnStyled onClick={handleClick}>
             <ContenedoroIcono>
                 <FaAngleDown />
             </ContenedoroIcono>
-            
+
         </ContenedorInferiorBtnStyled>
-     
+
     )
 }
-const ContenedorTxtInfoContacto= styled.div`
+const ContenedorTxtInfoContacto = styled.div`
     height: 100%;
     width: 100%;
     display: flex;
@@ -264,34 +264,34 @@ const ContenedorTxtInfoContacto= styled.div`
 
     
 `
-const InfoContacto = ({tipo = 'digita', txt='ingresa' }) => {
-    const [hover, setHover] = useState(false); 
+const InfoContacto = ({ tipo = 'digita', txt = 'ingresa' }) => {
+    const [hover, setHover] = useState(false);
     const handleMouseOver = () => {
         setHover(true);
-      };
-    
-      const handleMouseOut = () => {
+    };
+
+    const handleMouseOut = () => {
         setHover(false);
-      };
-    const handleClick = () =>{
+    };
+    const handleClick = () => {
         clipboardCopy(txt)
-        .then(() => alert(`"${txt}" copiado al portapapeles`))
-        .catch(err => console.error('Error al copiar al portapapeles: ', err));
+            .then(() => alert(`"${txt}" copiado al portapapeles`))
+            .catch(err => console.error('Error al copiar al portapapeles: ', err));
     }
 
-    return(
+    return (
         <ContenedorInfoContactoStyled>
 
             <TxtInfoContactoStyled dpnone alingR bold pointer size={'28px'}
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-            onClick={handleClick}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
+                onClick={handleClick}
             >{tipo}</TxtInfoContactoStyled>
 
             <ContenedorTxtInfoContacto onClick={handleClick}>
                 <TxtInfoContactoBgStyled hover={hover} >{txt}</TxtInfoContactoBgStyled>
             </ContenedorTxtInfoContacto>
-            
+
         </ContenedorInfoContactoStyled>
     )
 }
@@ -306,7 +306,8 @@ const ContenedorTxtContacto = styled.div`
 
     }
 `
-const ContenedorInfoContacto = styled.div`
+const ContenedorInfoContacto = styled.address`
+    font-style: normal;
     display: flex;
     flex-direction: column;
     height: auto;
@@ -317,11 +318,11 @@ const ContenedorInfoContacto = styled.div`
         gap: 10px;
     }
 `
-const ContenedorDerecho = () =>{
-    return(
+const ContenedorDerecho = () => {
+    return (
         <ContenedorDerechoStyled>
             <ContenedorTxtContacto>
-                <TxtPrincipal txt='Contacto' subrayado size='40px'/>
+                <TxtPrincipal txt='Contacto' subrayado size='40px' />
             </ContenedorTxtContacto>
 
             <ContenedorInfoContacto>
@@ -330,36 +331,36 @@ const ContenedorDerecho = () =>{
                 <InfoContacto tipo='Localidad:' txt='Guadalajara, Jalisco' />
 
             </ContenedorInfoContacto>
-    
-            
+
+
 
 
             <ContenedorBtns>
-                <BtnRedesSociales 
-                url="https://www.facebook.com/luisramon.arrayalescastillo?mibextid=ZbWKwL" 
-                icono={<FaFacebookF />}
-                color='#0866FF' 
+                <BtnRedesSociales
+                    url="https://www.facebook.com/luisramon.arrayalescastillo?mibextid=ZbWKwL"
+                    icono={<FaFacebookF />}
+                    color='#0866FF'
                 />
-                <BtnRedesSociales 
-                url="https://www.instagram.com/luis_rcas?igshid=NGVhN2U2NjQ0Yg%3D%3D" 
-                icono={<FaInstagram />} 
-                color='linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)' 
-                
+                <BtnRedesSociales
+                    url="https://www.instagram.com/luis_rcas?igshid=NGVhN2U2NjQ0Yg%3D%3D"
+                    icono={<FaInstagram />}
+                    color='linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)'
+
                 />
 
-                <BtnRedesSociales 
-                url="https://api.whatsapp.com/send/?phone=526691382961&text&type=phone_number&app_absent=0" 
-                icono={<FaWhatsapp />} 
-                color='#25D366' 
+                <BtnRedesSociales
+                    url="https://api.whatsapp.com/send/?phone=526691382961&text&type=phone_number&app_absent=0"
+                    icono={<FaWhatsapp />}
+                    color='#25D366'
                 />
             </ContenedorBtns>
-       
+
         </ContenedorDerechoStyled>
     )
 }
 
-export const PaginaContactoUx = () =>{
-    return(
+export const PaginaContactoUx = () => {
+    return (
         <CardContacto>
             <ContenedorTopCardContacto>
                 <ContenedorIzquierdo />

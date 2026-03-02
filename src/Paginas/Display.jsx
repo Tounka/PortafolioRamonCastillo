@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 
-export const ContenedorPrincipal = styled.div`
+export const ContenedorPrincipal = styled.section`
     height: 100vh;
     height: 100dvh;
     width:100%;
@@ -21,7 +21,7 @@ export const ContenedorPrincipal = styled.div`
     
 `
 
-export const ContenedorGenerico = styled.div`
+export const ContenedorGenerico = styled.section`
     height: 100vh;
     height: 100dvh;
     width:100%;
