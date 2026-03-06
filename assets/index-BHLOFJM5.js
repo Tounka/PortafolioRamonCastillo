@@ -691,7 +691,7 @@ position: relative;
   display: flex;
   justify-content:center;
   align-items: center;
-`,P1=({fn:o,icono:a,listaData:s,name:c})=>{const{posicionTimeline:f,setPosicionTimeline:v}=ee.useContext(qe),S=()=>{let j=f;if(o===1&&f>1?j=f-1:o===2&&f<s.length-2&&(j=f+1),j===f)return;v(j);const C=document.getElementById("timeline"),R=s[j],U=document.getElementById(R);if(U&&C)if(j<=0)C.scrollTo({left:0,behavior:"smooth"});else{const A=U.offsetLeft,D=U.clientWidth,Q=C.clientWidth,te=A-Q/2+D/2;C.scrollTo({left:Math.max(0,Math.min(te,C.scrollWidth-Q)),behavior:"smooth"})}};return m.jsx(gm,{name:c,listaData:s,onClick:()=>S(),children:a})},vm=I.div`
+`,P1=({fn:o,icono:a,listaData:s,name:c})=>{const{posicionTimeline:f,setPosicionTimeline:v}=ee.useContext(qe),S=()=>{let j=f;if(o===1&&f>0?j=f-1:o===2&&f<s.length-2&&(j=f+1),j===f)return;v(j);const C=document.getElementById("timeline"),R=s[j],U=document.getElementById(R);if(U&&C)if(j<=0)C.scrollTo({left:0,behavior:"smooth"});else{const A=U.offsetLeft,D=U.clientWidth,Q=C.clientWidth,te=A-Q/2+D/2;C.scrollTo({left:Math.max(0,Math.min(te,C.scrollWidth-Q)),behavior:"smooth"})}};return m.jsx(gm,{name:c,listaData:s,onClick:()=>S(),children:a})},vm=I.div`
   height: 100%;
   width: 100%;
 
