@@ -234,7 +234,7 @@ const BtnControl = ({ fn, icono, listaData, name }) => {
 
     let nuevaPosicion = posicionTimeline;
 
-    if (fn === 1 && posicionTimeline > 1) {
+    if (fn === 1 && posicionTimeline > 0) {
       nuevaPosicion = posicionTimeline - 1;
     } else if (fn === 2 && posicionTimeline < listaData.length - 2) {
       nuevaPosicion = posicionTimeline + 1;
