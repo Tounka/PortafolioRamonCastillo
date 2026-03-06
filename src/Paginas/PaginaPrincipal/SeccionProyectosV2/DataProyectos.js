@@ -42,7 +42,7 @@ import SolucionesInnciImg2Webp from '../../../Img/Pages/SolucionesInnciImg2.webp
 export const Data = [
     {
         nombre: 'Zaldo',
-        descripcion: 'Versión actualizada de cartera virtual con base de datos NoSQL y acceso público. Gestión de diferentes cuentas de uso personal, con histórico de movimientos y métricas mensuales.',
+        descripcion: 'Aplicación web para gestión financiera personal. Permite administrar múltiples cuentas, visualizar el histórico de movimientos e interpretar métricas mensuales de gastos e ingresos de forma centralizada.',
         img2: ZaldoImg2,
         imgWebp: ZaldoImg1webp,
         img2Webp: ZaldoImg2webp,
@@ -52,7 +52,7 @@ export const Data = [
 
     {
         nombre: 'Portafolio iNNCi',
-        descripcion: 'Principales soluciones desarrolladas en colaboración con iNNCi. Sistemas de gestión interna y proyectos web públicos con recursos 3D y landing pages.',
+        descripcion: 'Colección de soluciones desarrolladas en colaboración con iNNCi. Incluye sistemas de gestión interna, landing pages dinámicas y proyectos web públicos enriquecidos con integración de recursos 3D.',
         img: SolucionesInnciImg1,
         img2: SolucionesInnciImg2,
         imgWebp: SolucionesInnciImg1Webp,
@@ -62,7 +62,7 @@ export const Data = [
     },
     {
         nombre: 'Pos Web',
-        descripcion: 'Punto de venta Web con generación de etiquetas, tickets y gestión de kpi.',
+        descripcion: 'Sistema integral de Punto de Venta (POS) en formato web. Incluye funcionalidades avanzadas como generación de etiquetas, impresión de tickets y un panel de control para el seguimiento de KPIs clave del negocio.',
         img: PosWebImg1,
         img2: PosWebImg2,
         imgWebp: PosWebImg1Webp,
@@ -72,7 +72,7 @@ export const Data = [
     },
     {
         nombre: 'Invitación de Boda',
-        descripcion: 'Invitación responsiva para bodas u otros eventos.',
+        descripcion: 'Plataforma de invitaciones digitales responsivas y personalizables para bodas y eventos especiales, optimizada para móviles.',
         img: BodaImg1,
         img2: BodaImg2,
         imgWebp: BodaImg1Webp,
@@ -85,7 +85,7 @@ export const Data = [
 
     {
         nombre: 'Mc Donald\'s',
-        descripcion: 'Conjunto de herramientas para la gestión interna, generación de auditorías, impresión de inventarios y la gestión de KPIs.',
+        descripcion: 'Suite de herramientas corporativas diseñada para optimizar la gestión operativa. Facilita la creación de auditorías, control automatizado de inventarios y visualización de indicadores de rendimiento.',
         img: McImg1,
         img2: McImg2,
         imgWebp: McImg1webp,
@@ -95,7 +95,7 @@ export const Data = [
     },
     {
         nombre: 'Registros UAdeO',
-        descripcion: 'Sistema de control de accesos para aula de computo en centro universitario.',
+        descripcion: 'Plataforma de control y monitorización de accesos desarrollada para las aulas de cómputo universitarias, enfocada en mejorar la seguridad y la administración de los recursos educativos.',
         img: UadeoImg1,
         img2: UadeoImg2,
         imgWebp: UadeoImg1webp,
@@ -106,7 +106,7 @@ export const Data = [
 
     {
         nombre: 'Cartera Virtual',
-        descripcion: 'Sitio para administrar varios créditos.',
+        descripcion: 'Herramienta financiera orientada a la administración eficiente de líneas de crédito, permitiendo a los usuarios llevar un control detallado de sus deudas, saldos y pagos.',
         img: TarjetasImg1,
         img2: TarjetasImg2,
         imgWebp: TarjetasImg1webp,
@@ -118,7 +118,7 @@ export const Data = [
 
     {
         nombre: 'Casa Italia',
-        descripcion: 'Sistema de comandas web para pizzeria con generación e impresión de tickets.',
+        descripcion: 'Sistema web de gestión de comandas en tiempo real, diseñado específicamente para restaurantes. Optimiza el flujo de trabajo en cocina y automatiza la impresión de tickets de pedidos.',
         img: CasaItaliaImg1,
         img2: CasaItaliaImg2,
         imgWebp: CasaItaliaImg1webp,

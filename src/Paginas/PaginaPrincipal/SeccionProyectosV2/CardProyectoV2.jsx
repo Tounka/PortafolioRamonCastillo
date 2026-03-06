@@ -1,30 +1,32 @@
 import styled from "styled-components";
 import { ImgPicture } from "../../Img";
 import { TxtPrincipal, TxtGenerico } from "../../../ComponentesGenerales/TxtPrincipal";
-import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaPhp, FaGithub, FaWordpress } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaGithub, FaWordpress, FaShopify } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io';
-import { SiStyledcomponents } from 'react-icons/si';
+import { SiStyledcomponents, SiWoocommerce } from 'react-icons/si';
 import { BiLogoPostgresql } from 'react-icons/bi';
 import { RiFirebaseFill, RiSupabaseFill } from 'react-icons/ri';
 import { TxtGenericoStyled } from "../../../ComponentesGenerales/TxtPrincipal";
+import { useState, useEffect, useRef } from 'react';
 
 const tecnologiaMap = {
-    html: { icon: <FaHtml5 />, bgColor: '#FC490B' ,color: 'white' },
-    css: { icon: <FaCss3Alt />, bgColor: '#264DE4', color: 'white'},
+    html: { icon: <FaHtml5 />, bgColor: '#FC490B', color: 'white' },
+    css: { icon: <FaCss3Alt />, bgColor: '#264DE4', color: 'white' },
     js: { icon: <IoLogoJavascript />, bgColor: '#F0DB4F' },
     react: { icon: <FaReact />, bgColor: '#262626', color: '#02DCFF' },
     bootstrap: { icon: <FaBootstrap />, bgColor: '#ffffff', color: '#8411F6' },
     wordpress: { icon: <FaWordpress />, bgColor: '#ffffff', color: '#00749A' },
     styledcomponents: { icon: <SiStyledcomponents />, bgColor: '#5b5b5b' },
-    php: { icon: <FaPhp />, bgColor: '#4F5B93' },
+    shopify: { icon: <FaShopify />, bgColor: '#95BF47', color: 'white' },
+    woocommerce: { icon: <SiWoocommerce />, bgColor: '#96588a', color: 'white' },
     postgresql: { icon: <BiLogoPostgresql />, bgColor: '#366693' },
     firebase: { icon: <RiFirebaseFill />, bgColor: '#F58917' },
     supabase: { icon: <RiSupabaseFill />, bgColor: '#3ECF8E' },
     github: { icon: <FaGithub />, bgColor: '#4F5B93' },
 };
-const Icono = ({tecnologia}) =>{
+const Icono = ({ tecnologia }) => {
     const { icon, bgColor, color } = tecnologiaMap[tecnologia] || {};
-    return(
+    return (
         <ContenedorIcono bgColor={bgColor} color={color}>
             {icon}
         </ContenedorIcono>
@@ -77,13 +79,13 @@ const ContenedorIconos = styled.div`
 `;
 
 
-const Iconos = ({tecnologias}) =>{
-    
-    return(
+const Iconos = ({ tecnologias }) => {
+
+    return (
         <ContenedorIconos >
             <ContenedorInternoIconos>
-                {tecnologias.map((tecnologia, index) =>(
-                    <Icono key={`tecnologia${index}`} tecnologia={tecnologia}  />
+                {tecnologias.map((tecnologia, index) => (
+                    <Icono key={`tecnologia${index}`} tecnologia={tecnologia} />
                 ))}
             </ContenedorInternoIconos>
         </ContenedorIconos>
@@ -98,6 +100,10 @@ const CardProyectoStyled = styled.div`
     cursor: pointer;
     overflow: hidden;
     user-select: none;
+    opacity: ${props => (props.$isVisible ? 1 : 0)};
+    transform: ${props => (props.$isVisible ? 'translateY(0)' : 'translateY(50px)')};
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    
     @media (max-width: 600px) {
         max-height: 600px;
     }
@@ -187,23 +193,43 @@ export const CardProyectoV2 = ({
     tecnologias = ['react', 'js', 'html', 'css'],
     url,
     srcImg = 'https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a',
-    srcImgWebp = 'https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a'},
+    srcImgWebp = 'https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a' },
     key
 
-    ) =>{
-        const handleClick = () => {
-            window.open(url, '_blank'); // Abre el enlace en una nueva pestaña
-          };
-        return(
-        <CardProyectoStyled key={key} onClick={() => handleClick()}>
+) => {
+    const [isVisible, setIsVisible] = useState(false);
+    const domRef = useRef();
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        if (domRef.current) {
+            observer.observe(domRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
+
+    const handleClick = () => {
+        window.open(url, '_blank'); // Abre el enlace en una nueva pestaña
+    };
+    return (
+        <CardProyectoStyled ref={domRef} $isVisible={isVisible} key={key} onClick={() => handleClick()}>
             <ContenedorImgStyled>
                 <ImgPicture src={srcImg} srcWebp={srcImgWebp} alt={'Imagen del sitio web ' + titulo} />
             </ContenedorImgStyled>
             <ContenedorTxtStyled>
                 <ContenedorInternoTxt>
                     <TxtPrincipalCard >{titulo}</TxtPrincipalCard>
-                    <TxtCardProyecto color='white' txt={descripcionCorta}  aling='left' size='20px'> {descripcionCorta} </TxtCardProyecto>
-                    
+                    <TxtCardProyecto color='white' txt={descripcionCorta} aling='left' size='20px'> {descripcionCorta} </TxtCardProyecto>
+
                 </ContenedorInternoTxt>
                 <Iconos tecnologias={tecnologias} />
             </ContenedorTxtStyled>

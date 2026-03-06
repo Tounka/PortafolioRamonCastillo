@@ -23,10 +23,8 @@ const ContenedorLineaTiempo = styled.div`
 const Line = styled.div`
   display: flex;
   justify-content: space-between;
-
+  align-items: center;
   height: 4px;
-  
-
   border-radius: 2px;
   background-color: var(--AmarilloEspecial);
   gap: 20px;
@@ -40,86 +38,103 @@ const Btn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--AmarilloEspecial);
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  color: white;
+  background-color: ${props => props.$isSelected ? 'var(--AmarilloEspecial)' : 'var(--AmarilloEspecial)'};
+  color: ${props => props.$isSelected ? 'black' : 'white'};
+  text-shadow: ${props => props.$isSelected ? 'none' : '2px 2px 5px rgba(0, 0, 0, 0.5)'};
+  border: ${props => props.$isSelected ? 'solid 1px var(--AmarilloEspecial)' : ''};
+  transform: ${props => props.$isSelected ? 'scale(1.05)' : 'scale(1)'};
   font-weight: bold;
   flex-shrink: 0;
   cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
 `;
+
 const BtnInicialFinal = styled(Btn)`
-  margin-top: -38px;
   width: 80px;
   height: 80px;
   margin-right: ${props => props.final ? '' : '30px'};
   cursor: pointer;
+  z-index: 10;
 `
 const ContenedorItemLineaDeTiempoStyled = styled.div`
   display: flex;
-  flex-direction: ${props => props.side ? 'column-reverse' : 'column'}; 
   align-items: center;
-  justify-content: space-between;
-  width: 300px;
-  height: 325px;
-  margin-top: ${props => props.side ? '-305px' : '-18px'};
-
-
-  @media (max-width : 400px) {
-      width: 200px;
-      height: 280px;
-      margin-top: ${props => props.side ? '-260px' : '-18px'};
-  }
-  
-`
-const ContenedorImg = styled.div`
-  height: 250px;
-  width: 400px;
+  justify-content: center;
   position: relative;
-  display: flex;
-  flex-direction: column;
- 
+  width: 300px;
+  height: 40px;
 
-  cursor: pointer;
   @media (max-width : 400px) {
       width: 250px;
   }
 `
-const TxtItemLineaTiempo = styled(TxtPrincipalStyled)`
-  color:white;
-  font-size: bold;
-  font-size: 24px;
- 
-`
-const ContenedorDescripcion = styled.div`
-  height: 50px;
-  width: 100%;
-  background-color: white;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-  color: black;
-  text-align:Center;
-  position: absolute;
-  bottom: ${props => props.side ? '100' : '0'};
-  z-index: 2;
-  padding: 0 20px; 
 
+const WrapContenido = styled.div`
+  position: absolute;
+  ${props => props.side ? 'bottom: 35px;' : 'top: 35px;'}
+  display: flex;
+  flex-direction: ${props => props.side ? 'column-reverse' : 'column'};
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+`
+
+const ContenedorImg = styled.div`
+  height: 250px;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
   overflow: hidden;
+  border-radius: 0px;
+  box-shadow: ${props => props.$isSelected ? '0 0 25px 5px rgba(255,215,0,0.4)' : '0 4px 15px rgba(0,0,0,0.5)'};
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px) ;
+  }
+`
+
+const TxtItemLineaTiempo = styled(TxtPrincipalStyled)`
+  color: ${props => props.$isSelected ? 'var(--AmarilloEspecial)' : 'white'};
+  font-size: 24px;
+  margin: 0;
+  transition: color 0.3s ease;
+`
+
+const ContenedorDescripcion = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 80px;
+  background-color: rgba(255, 255, 255, 0.95);
+  color: black;
+  text-align: center;
+  z-index: 2;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+  ${ContenedorImg}:hover & {
+    transform: translateY(60%);
+  }
 
   @media (max-width : 400px) {
-      padding: 0 10px; 
-      font-size: 16px;
+      font-size: 14px;
   }
-  transition: height .2s;
-  &:hover {
-    height: 70px;
-    transition: height .2s;
-  }
-
-
 `
 
 const ItemLineaTiempo = ({ numero, titulo, descripcion, img, imgWebp = "", side, id, listaData }) => {
   const { setEstadoModal, setInformacionModal, informacionModal } = useContext(ModalContext);
   const { setBoolSlider, Datos, setPosicionTimeline, posicionTimeline } = useContext(ContextoGeneral);
+
+  const isSelected = posicionTimeline === numero;
 
   const handleClick = () => {
 
@@ -157,11 +172,15 @@ const ItemLineaTiempo = ({ numero, titulo, descripcion, img, imgWebp = "", side,
     }
   }
   return (
-    <ContenedorItemLineaDeTiempoStyled  id={id} side={side} >
-      <Btn name={'Boton mover a item numero ' + numero} onClick={() => handleClickBtn()}> {numero} </Btn>
-      <TxtItemLineaTiempo>{titulo}</TxtItemLineaTiempo>
-      <ContenedorImg onClick={() => handleClick()} > <ImgPicture bg alt={'Img ' + titulo} src={img} srcWebp={imgWebp} zIndex={1} /> <ContenedorDescripcion side={side}>{descripcion}</ContenedorDescripcion>  </ContenedorImg>
-
+    <ContenedorItemLineaDeTiempoStyled id={id}>
+      <Btn $isSelected={isSelected} name={'Boton mover a item numero ' + numero} onClick={() => handleClickBtn()}> {numero} </Btn>
+      <WrapContenido side={side}>
+        <TxtItemLineaTiempo $isSelected={isSelected}>{titulo}</TxtItemLineaTiempo>
+        <ContenedorImg $isSelected={isSelected} onClick={() => handleClick()} >
+          <ImgPicture bg alt={'Img ' + titulo} src={img} srcWebp={imgWebp} zIndex={1} />
+          <ContenedorDescripcion>{descripcion}</ContenedorDescripcion>
+        </ContenedorImg>
+      </WrapContenido>
     </ContenedorItemLineaDeTiempoStyled>
   )
 }
@@ -212,12 +231,12 @@ const BtnControl = ({ fn, icono, listaData, name }) => {
   const { posicionTimeline, setPosicionTimeline } = useContext(ContextoGeneral);
 
   const handleClick = () => {
-   
+
     let nuevaPosicion = posicionTimeline;
 
-    if (fn === 1 && posicionTimeline > 0) {
+    if (fn === 1 && posicionTimeline > 1) {
       nuevaPosicion = posicionTimeline - 1;
-    } else if (fn === 2 && posicionTimeline < listaData.length - 1) {
+    } else if (fn === 2 && posicionTimeline < listaData.length - 2) {
       nuevaPosicion = posicionTimeline + 1;
     }
 
@@ -317,12 +336,12 @@ const Control = ({ listaData }) => {
 }
 
 export const SeccionLineaDeTiempoUx = ({ boolSlider }) => {
-  const { setBoolSlider, Datos, posicionTimeline, setPosicionTimeline,setSeccionSeleccionada } = useContext(ContextoGeneral);
+  const { setBoolSlider, Datos, posicionTimeline, setPosicionTimeline, setSeccionSeleccionada } = useContext(ContextoGeneral);
   const listaData = ['punto0', ...Datos.map((_, index) => `punto${index + 1}`), `punto${Datos.length + 1}`];
   const handleClick = () => {
 
     const element = document.getElementById('main');
-     setSeccionSeleccionada("main")
+    setSeccionSeleccionada("main")
     if (element) {
 
       element.scrollIntoView({ behavior: 'smooth' });
@@ -335,7 +354,7 @@ export const SeccionLineaDeTiempoUx = ({ boolSlider }) => {
       <Line id={'punto0'}>
         <BtnInicialFinal onClick={handleClick}><FaAngleLeft size={'32px'} /></BtnInicialFinal>
         {Datos.map((data, index) => (
-          <ItemLineaTiempo  listaData={listaData[index + 1]} id={listaData[index + 1]} key={index} side={(index % 2 == 0)} numero={index + 1} titulo={data.titulo} descripcion={data.descripcion} img={data.img} imgWebp={data.imgWebp} setPosicionTimeline={setPosicionTimeline}>{data}</ItemLineaTiempo>
+          <ItemLineaTiempo listaData={listaData[index + 1]} id={listaData[index + 1]} key={index} side={(index % 2 == 0)} numero={index + 1} titulo={data.titulo} descripcion={data.descripcion} img={data.img} imgWebp={data.imgWebp} setPosicionTimeline={setPosicionTimeline}>{data}</ItemLineaTiempo>
         ))}
 
         <BtnInicialFinal id={'punto9'} final>Final</BtnInicialFinal>

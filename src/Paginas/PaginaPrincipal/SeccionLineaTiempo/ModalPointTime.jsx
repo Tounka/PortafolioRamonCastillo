@@ -1,10 +1,20 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { TxtPrincipalStyled } from "../../../ComponentesGenerales/TxtPrincipal";
 import { ImgPicture } from "../../Img";
 import ReactDOM from 'react-dom';
 import { ModalContext } from "./ContextoModal";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ContextoGeneral } from "../ContextoGeneral";
+
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+`;
+
+const fadeOut = keyframes`
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(10px) scale(0.98); }
+`;
 
 const ContenedorModal = styled.div`
     height: 100%;
@@ -20,9 +30,10 @@ const ContenedorModal = styled.div`
     position: fixed;
     top:0;
     left: 0;
-
-    backdrop-filter: blur(2px);
-
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    
+    animation: ${props => props.$isVisible ? fadeIn : fadeOut} 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 `
 const TxtTitulo = styled(TxtPrincipalStyled)`
     color: var(--AmarilloEspecial);
@@ -100,8 +111,38 @@ const InteriorModal = styled.div`
 export const Modal = () => {
     const { estadoModal, setEstadoModal, informacionModal } = useContext(ModalContext);
     const { setBoolSlider } = useContext(ContextoGeneral);
-    return estadoModal ? (
-        <ContenedorModal>
+    const [render, setRender] = useState(estadoModal);
+
+    useEffect(() => {
+        if (estadoModal) setRender(true);
+    }, [estadoModal]);
+
+    const onAnimationEnd = () => {
+        if (!estadoModal) setRender(false);
+    };
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') {
+                setEstadoModal(false);
+                setBoolSlider(true);
+            }
+        };
+        if (estadoModal) {
+            window.addEventListener('keydown', handleKeyDown);
+        }
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [estadoModal, setEstadoModal, setBoolSlider]);
+
+    const handleOverlayClick = (e) => {
+        if (e.target === e.currentTarget) {
+            setEstadoModal(false);
+            setBoolSlider(true);
+        }
+    };
+
+    return render ? (
+        <ContenedorModal $isVisible={estadoModal} onClick={handleOverlayClick} onAnimationEnd={onAnimationEnd}>
             <InteriorModal>
 
                 <ContenedorImg>
