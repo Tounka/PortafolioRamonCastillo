@@ -3,11 +3,13 @@ import { ImgPicture } from "../../Img";
 import { TxtPrincipal, TxtGenerico } from "../../../ComponentesGenerales/TxtPrincipal";
 import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaGithub, FaWordpress, FaShopify } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io';
-import { SiStyledcomponents, SiWoocommerce } from 'react-icons/si';
+import { SiStyledcomponents, SiWoocommerce, SiNextdotjs } from 'react-icons/si';
 import { BiLogoPostgresql } from 'react-icons/bi';
 import { RiFirebaseFill, RiSupabaseFill } from 'react-icons/ri';
 import { TxtGenericoStyled } from "../../../ComponentesGenerales/TxtPrincipal";
 import { useState, useEffect, useRef } from 'react';
+import SitioRandomLogo from '../../../Img/SitioRandomLogo.png';
+import iNNCiLogo from '../../../Img/inncilab.webp';
 
 const tecnologiaMap = {
     html: { icon: <FaHtml5 />, bgColor: '#FC490B', color: 'white' },
@@ -23,6 +25,7 @@ const tecnologiaMap = {
     firebase: { icon: <RiFirebaseFill />, bgColor: '#F58917' },
     supabase: { icon: <RiSupabaseFill />, bgColor: '#3ECF8E' },
     github: { icon: <FaGithub />, bgColor: '#4F5B93' },
+    nextjs: { icon: <SiNextdotjs />, bgColor: '#ffffff', color: '#000000' },
 };
 const Icono = ({ tecnologia }) => {
     const { icon, bgColor, color } = tecnologiaMap[tecnologia] || {};
@@ -104,6 +107,7 @@ const CardProyectoStyled = styled.div`
     transform: ${props => (props.$isVisible ? 'translateY(0)' : 'translateY(50px)')};
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     
+    max-height: 1200px;
     @media (max-width: 600px) {
         max-height: 600px;
     }
@@ -150,6 +154,16 @@ const ContenedorTxtStyled = styled.div`
     
     background-color: #000000b2;
 `
+const LogoPropiedadStyled = styled.img`
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    height: 30px; 
+    width: auto;
+    object-fit: contain;
+    z-index: 10;
+    pointer-events: none;
+`
 
 const TxtCardProyecto = styled(TxtGenericoStyled)`
     font-size: 24px;
@@ -193,7 +207,8 @@ export const CardProyectoV2 = ({
     tecnologias = ['react', 'js', 'html', 'css'],
     url,
     srcImg = 'https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a',
-    srcImgWebp = 'https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a' },
+    srcImgWebp = 'https://assets.nintendo.com/image/upload/ar_16:9,c_lpad,w_1240/b_white/f_auto/q_auto/ncom/software/switch/70010000000964/a28a81253e919298beab2295e39a56b7a5140ef15abdb56135655e5c221b2a3a',
+    propiedadDe = '' },
     key
 
 ) => {
@@ -223,7 +238,7 @@ export const CardProyectoV2 = ({
     return (
         <CardProyectoStyled ref={domRef} $isVisible={isVisible} key={key} onClick={() => handleClick()}>
             <ContenedorImgStyled>
-                <ImgPicture src={srcImg} srcWebp={srcImgWebp} alt={'Imagen del sitio web ' + titulo} />
+                <ImgPicture obPosition={"start"} src={srcImg} srcWebp={srcImgWebp} alt={'Imagen del sitio web ' + titulo} />
             </ContenedorImgStyled>
             <ContenedorTxtStyled>
                 <ContenedorInternoTxt>
@@ -231,6 +246,12 @@ export const CardProyectoV2 = ({
                     <TxtCardProyecto color='white' txt={descripcionCorta} aling='left' size='20px'> {descripcionCorta} </TxtCardProyecto>
 
                 </ContenedorInternoTxt>
+                {propiedadDe.toLowerCase() === 'sitio random' && (
+                    <LogoPropiedadStyled src={SitioRandomLogo} alt="Logo de propiedad de Sitio Random" />
+                )}
+                {propiedadDe.toLowerCase() === 'innci' && (
+                    <LogoPropiedadStyled src={iNNCiLogo} alt="Logo de propiedad de iNNCi Lab" />
+                )}
                 <Iconos tecnologias={tecnologias} />
             </ContenedorTxtStyled>
         </CardProyectoStyled>

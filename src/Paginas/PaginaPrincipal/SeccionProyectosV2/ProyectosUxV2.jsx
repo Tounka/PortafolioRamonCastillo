@@ -30,7 +30,7 @@ const ContenedoroIcono = styled.div`
 `;
 
 const ContenedorInferiorBtn = () => {
-     const { setSeccionSeleccionada } = useContext(ContextoGeneral)
+    const { setSeccionSeleccionada } = useContext(ContextoGeneral)
     const handleClick = () => {
         const element = document.getElementById('main');
         setSeccionSeleccionada("main")
@@ -113,9 +113,9 @@ export const SeccionProyectosV2Ux = () => {
     return (
         <ContenedorProyectosUx>
             <ContenedorInferiorBtn />
-        
-            <TxtGenerico size='16px' color='var(--AmarilloEspecial)' txt='(Da click para ir cada proyecto)'/>
-   
+
+            <TxtGenerico size='16px' color='var(--AmarilloEspecial)' txt='(Da click para ir cada proyecto)' />
+
 
             <ContenedorGridProyectos>
                 <ContenedorVertical>
@@ -128,6 +128,7 @@ export const SeccionProyectosV2Ux = () => {
                             srcImgWebp={windowWidth < 701 ? pagina.imgWebp : pagina[index % 2 === 1 ? 'imgWebp' : 'img2Webp']}
                             tecnologias={pagina.tecnologias}
                             url={pagina.url}
+                            propiedadDe={pagina.propiedadDe}
                         />
                     ))}
                 </ContenedorVertical>
@@ -142,6 +143,7 @@ export const SeccionProyectosV2Ux = () => {
                             srcImgWebp={windowWidth < 701 ? pagina.imgWebp : pagina[index % 2 === 0 ? 'imgWebp' : 'img2Webp']}
                             tecnologias={pagina.tecnologias}
                             url={pagina.url}
+                            propiedadDe={pagina.propiedadDe}
                         />
                     ))}
                 </ContenedorVertical>

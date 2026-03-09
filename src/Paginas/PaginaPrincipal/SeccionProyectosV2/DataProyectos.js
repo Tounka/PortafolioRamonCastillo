@@ -1,4 +1,20 @@
 
+import AtgImg from '../../../Img/Pages/ATG.png';
+import AtgImgWebp from '../../../Img/Pages/ATG.webp';
+import AtgCelular from '../../../Img/Pages/AtgCelular.png';
+import AtgCuadrado from '../../../Img/Pages/AtgCuadrado.png';
+
+import WopImg from '../../../Img/Pages/Wop.png';
+import WopImgWebp from '../../../Img/Pages/Wop.webp';
+import WopImgCelular from '../../../Img/Pages/WopCelular.png';
+import WopCuadrado from '../../../Img/Pages/WopCuadrado.png';
+
+import FiscalizaTImg from '../../../Img/Pages/fiscalizaT.png';
+import FiscalizaTImgCelular from '../../../Img/Pages/fiscalizaTCelular.png';
+import FiscalizaTImgWebp from '../../../Img/Pages/fiscalizaT.webp';
+import FiscalizaTCuadrado from '../../../Img/Pages/fiscalizaTCuadrado.png';
+import InncilabCelular from '../../../Img/Pages/innciLabCelular.png';
+import InnciLab from '../../../Img/Pages/innciLab.png';
 import CasaItaliaImg1 from '../../../Img/Pages/PgCasaItalia_img1.png';
 import CasaItaliaImg2 from '../../../Img/Pages/PgCasaItalia_img2.png';
 import McImg1 from '../../../Img/Pages/PgMc_img1.png';
@@ -41,14 +57,39 @@ import SolucionesInnciImg2Webp from '../../../Img/Pages/SolucionesInnciImg2.webp
 
 export const Data = [
     {
-        nombre: 'Zaldo',
-        descripcion: 'Aplicación web para gestión financiera personal. Permite administrar múltiples cuentas, visualizar el histórico de movimientos e interpretar métricas mensuales de gastos e ingresos de forma centralizada.',
-        img2: ZaldoImg2,
-        imgWebp: ZaldoImg1webp,
-        img2Webp: ZaldoImg2webp,
-        tecnologias: ['html', 'css', 'js', 'react', "firebase"],
-        url: 'https://zaldo-desarrollo.netlify.app/'
+        nombre: 'ATG',
+        descripcion: 'Desarrollé el sitio web corporativo para ATG en colaboración con Sitio Random, una empresa mexicana especializada en soportería y canalización eléctrica. ',
+        img: AtgCelular,
+        img2: AtgCuadrado,
+        imgWebp: AtgCelular,
+        img2Webp: AtgCuadrado,
+        tecnologias: ['wordpress'],
+        url: 'https://atgrecubrimientos.com',
+        propiedadDe: 'sitio random'
     },
+    {
+        nombre: 'WOP',
+        descripcion: 'Desarrollé las herramientras web de WOP junto con Sitio Random, un proyecto enfocado en estación de servicios moderna que combina autolavado, cafetería y tienda de conveniencia en un mismo lugar.',
+        img: WopImgCelular,
+        img2: WopCuadrado,
+        imgWebp: WopImgCelular,
+        img2Webp: WopCuadrado,
+        tecnologias: ['nextjs', 'react', 'js'],
+        url: 'https://wopmx.com',
+        propiedadDe: 'sitio random'
+    },
+    {
+        nombre: 'FiscalizaT',
+        descripcion: 'Desarrollé las herramientras web de FiscalizaT en colaboración con Sitio Random, una plataforma digital orientada a simplificar la gestión contable y administrativa de negocios.',
+        img: FiscalizaTImgCelular,
+        img2: FiscalizaTCuadrado,
+        imgWebp: FiscalizaTImgCelular,
+        img2Webp: FiscalizaTCuadrado,
+        tecnologias: ['nextjs', 'react', 'js'],
+        url: 'https://fiscalizat.com.mx/',
+        propiedadDe: 'sitio random'
+    },
+
 
     {
         nombre: 'Portafolio iNNCi',
@@ -58,7 +99,28 @@ export const Data = [
         imgWebp: SolucionesInnciImg1Webp,
         img2Webp: SolucionesInnciImg2Webp,
         tecnologias: ['html', 'css', 'js', 'react', 'wordpress'],
+        propiedadDe: 'iNNCi',
         url: 'https://aaaaajflsksjs.my.canva.site/portafolio-innci'
+    },
+    {
+        nombre: 'iNNCi Lab',
+        descripcion: 'Landing Page iNNCiLab empresa dedicada a la inocuidad alimenticia.',
+        img: InncilabCelular,
+        img2: InnciLab,
+        imgWebp: InncilabCelular,
+        img2Webp: InnciLab,
+        tecnologias: ['wordpress'],
+        propiedadDe: 'iNNCi',
+        url: 'https://inncilab.com/'
+    },
+    {
+        nombre: 'Zaldo',
+        descripcion: 'Aplicación web para gestión financiera personal. Permite administrar múltiples cuentas, visualizar el histórico de movimientos e interpretar métricas mensuales de gastos e ingresos de forma centralizada.',
+        img2: ZaldoImg2,
+        imgWebp: ZaldoImg1webp,
+        img2Webp: ZaldoImg2webp,
+        tecnologias: ['html', 'css', 'js', 'react', "firebase"],
+        url: 'https://zaldo-desarrollo.netlify.app/'
     },
     {
         nombre: 'Pos Web',
