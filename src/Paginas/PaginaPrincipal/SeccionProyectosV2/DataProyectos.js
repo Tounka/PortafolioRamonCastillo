@@ -1,4 +1,9 @@
 
+import GrowToGoImg1 from '../../../Img/Pages/PgGrowToGo_img1.png';
+import GrowToGoImg2 from '../../../Img/Pages/PgGrowToGo_img2.png';
+import GavaImg1 from '../../../Img/Pages/PgGava_img1.png';
+import GavaImg2 from '../../../Img/Pages/PgGava_img2.png';
+
 import AtgImg from '../../../Img/Pages/ATG.png';
 import AtgImgWebp from '../../../Img/Pages/ATG.webp';
 import AtgCelular from '../../../Img/Pages/AtgCelular.png';
@@ -57,6 +62,19 @@ import SolucionesInnciImg2Webp from '../../../Img/Pages/SolucionesInnciImg2.webp
 
 export const Data = [
     {
+        nombre: 'Grow to Go',
+        descripcion: 'Desarrollo de plataforma estratégica para Grow To Go, una firma líder en efectividad empresarial. El sitio proyecta una imagen corporativa sólida y facilita la conexión con servicios de planeación, análisis y rentabilidad mediante una arquitectura web optimizada.',
+        img: GrowToGoImg1,
+        img2: GrowToGoImg2,
+        imgWebp: GrowToGoImg1,
+        img2Webp: GrowToGoImg2,
+        tecnologias: ['nextjs', 'css', 'js'],
+        url: 'https://growtogo.com.mx/',
+        propiedadDe: 'sitio random'
+    },
+
+
+    {
         nombre: 'ATG',
         descripcion: 'Desarrollé el sitio web corporativo para ATG en colaboración con Sitio Random, una empresa mexicana especializada en soportería y canalización eléctrica. ',
         img: AtgCelular,
@@ -67,6 +85,7 @@ export const Data = [
         url: 'https://atgrecubrimientos.com',
         propiedadDe: 'sitio random'
     },
+
     {
         nombre: 'WOP',
         descripcion: 'Desarrollé las herramientras web de WOP junto con Sitio Random, un proyecto enfocado en estación de servicios moderna que combina autolavado, cafetería y tienda de conveniencia en un mismo lugar.',
@@ -101,6 +120,17 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react', 'wordpress'],
         propiedadDe: 'iNNCi',
         url: 'https://aaaaajflsksjs.my.canva.site/portafolio-innci'
+    },
+    {
+        nombre: 'GAVA Logística',
+        descripcion: 'Implementación de la sección de Logística Integral para Productos GAVA, optimizando la presentación de servicios de transporte y distribución internacional. La interfaz destaca la cobertura global y la infraestructura estratégica del grupo, fortaleciendo su presencia digital en el sector industrial.',
+        img: GavaImg1,
+        img2: GavaImg2,
+        imgWebp: GavaImg1,
+        img2Webp: GavaImg2,
+        tecnologias: ['nextjs', 'css', 'js'],
+        url: 'https://productosgava.com/es/logistica_integral.html',
+        propiedadDe: 'sitio random'
     },
     {
         nombre: 'iNNCi Lab',
