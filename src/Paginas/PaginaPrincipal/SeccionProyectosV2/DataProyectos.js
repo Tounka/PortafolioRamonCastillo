@@ -208,16 +208,7 @@ export const Data = [
     },
 
 
-    {
-        nombre: 'Casa Italia',
-        descripcion: 'Sistema web de gestión de comandas en tiempo real, diseñado específicamente para restaurantes. Optimiza el flujo de trabajo en cocina y automatiza la impresión de tickets de pedidos.',
-        img: CasaItaliaImg1,
-        img2: CasaItaliaImg2,
-        imgWebp: CasaItaliaImg1webp,
-        img2Webp: CasaItaliaImg2webp,
-        tecnologias: ['html', 'css', 'js', 'react'],
-        url: 'https://casaitalia.netlify.app/'
-    },
+
 
 
 ];
