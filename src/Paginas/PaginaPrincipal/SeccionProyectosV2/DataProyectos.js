@@ -20,13 +20,11 @@ import FiscalizaTImgWebp from '../../../Img/Pages/fiscalizaT.webp';
 import FiscalizaTCuadrado from '../../../Img/Pages/fiscalizaTCuadrado.png';
 import InncilabCelular from '../../../Img/Pages/innciLabCelular.png';
 import InnciLab from '../../../Img/Pages/innciLab.png';
-import CasaItaliaImg1 from '../../../Img/Pages/PgCasaItalia_img1.png';
-import CasaItaliaImg2 from '../../../Img/Pages/PgCasaItalia_img2.png';
+
 import McImg1 from '../../../Img/Pages/PgMc_img1.png';
 import McImg2 from '../../../Img/Pages/PgMc_img2.png';
 
-import TarjetasImg1 from '../../../Img/Pages/PgTarjetas_img1.png';
-import TarjetasImg2 from '../../../Img/Pages/PgTarjetas_img2.png';
+
 import UadeoImg1 from '../../../Img/Pages/PgUadeo_img1.png';
 import UadeoImg2 from '../../../Img/Pages/PgUadeo_img2.png';
 
@@ -40,8 +38,7 @@ import ZaldoImg1 from '../../../Img/Pages/PgZaldoImg.jpg'
 import ZaldoImg2 from '../../../Img/Pages/PgZaldoImg2.jpg'
 
 
-import CasaItaliaImg1webp from '../../../Img/Pages/PgCasaItalia_img1.webp';
-import CasaItaliaImg2webp from '../../../Img/Pages/PgCasaItalia_img2.webp';
+
 import ZaldoImg1webp from '../../../Img/Pages/PgZaldoImg.webp'
 import ZaldoImg2webp from '../../../Img/Pages/PgZaldoImg2.webp'
 import McImg1webp from '../../../Img/Pages/PgMc_img1.webp';
@@ -58,6 +55,11 @@ import PosWebImg1Webp from '../../../Img/Pages/PgPosWeb_img1.webp'
 import PosWebImg2Webp from '../../../Img/Pages/PgPosWeb_img2.webp'
 import SolucionesInnciImg1Webp from '../../../Img/Pages/SolucionesInnciImg1.webp'
 import SolucionesInnciImg2Webp from '../../../Img/Pages/SolucionesInnciImg2.webp'
+import MazatlanTuristasImg1 from '../../../Img/Pages/PgMazatlanTuristas_img1.png';
+import MazatlanTuristasImg2 from '../../../Img/Pages/PgMazatlanTuristas_img2.png';
+import MazatlanTuristasImg1Webp from '../../../Img/Pages/PgMazatlanTuristas_img1.webp';
+import MazatlanTuristasImg2Webp from '../../../Img/Pages/PgMazatlanTuristas_img2.webp';
+
 
 
 export const Data = [
@@ -110,17 +112,19 @@ export const Data = [
     },
 
 
+
     {
-        nombre: 'Portafolio iNNCi',
-        descripcion: 'Colección de soluciones desarrolladas en colaboración con iNNCi. Incluye sistemas de gestión interna, landing pages dinámicas y proyectos web públicos enriquecidos con integración de recursos 3D.',
-        img: SolucionesInnciImg1,
-        img2: SolucionesInnciImg2,
-        imgWebp: SolucionesInnciImg1Webp,
-        img2Webp: SolucionesInnciImg2Webp,
-        tecnologias: ['html', 'css', 'js', 'react', 'wordpress'],
+        nombre: 'iNNCi Lab',
+        descripcion: 'Landing Page iNNCiLab empresa dedicada a la inocuidad alimenticia.',
+        img: InncilabCelular,
+        img2: InnciLab,
+        imgWebp: InncilabCelular,
+        img2Webp: InnciLab,
+        tecnologias: ['wordpress'],
         propiedadDe: 'iNNCi',
-        url: 'https://aaaaajflsksjs.my.canva.site/portafolio-innci'
+        url: 'https://inncilab.com/'
     },
+
     {
         nombre: 'GAVA Logística',
         descripcion: 'Implementación de la sección de Logística Integral para Productos GAVA, optimizando la presentación de servicios de transporte y distribución internacional. La interfaz destaca la cobertura global y la infraestructura estratégica del grupo, fortaleciendo su presencia digital en el sector industrial.',
@@ -133,15 +137,14 @@ export const Data = [
         propiedadDe: 'sitio random'
     },
     {
-        nombre: 'iNNCi Lab',
-        descripcion: 'Landing Page iNNCiLab empresa dedicada a la inocuidad alimenticia.',
-        img: InncilabCelular,
-        img2: InnciLab,
-        imgWebp: InncilabCelular,
-        img2Webp: InnciLab,
+        nombre: 'Explore Mazatlán',
+        descripcion: 'Plataforma turística integral diseñada para Explore Mazatlán (MazaTours). El sitio facilita la reserva de paquetes especiales, tours personalizados y servicios de transporte privado, ofreciendo una experiencia de usuario fluida para los visitantes que buscan explorar los puntos más emblemáticos de Mazatlán.',
+        img: MazatlanTuristasImg1,
+        img2: MazatlanTuristasImg2,
+        imgWebp: MazatlanTuristasImg1Webp,
+        img2Webp: MazatlanTuristasImg2Webp,
         tecnologias: ['wordpress'],
-        propiedadDe: 'iNNCi',
-        url: 'https://inncilab.com/'
+        url: 'https://exploremaztours.com/'
     },
     {
         nombre: 'Zaldo',
@@ -152,16 +155,9 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react', "firebase"],
         url: 'https://zaldo-desarrollo.netlify.app/'
     },
-    {
-        nombre: 'Pos Web',
-        descripcion: 'Sistema integral de Punto de Venta (POS) en formato web. Incluye funcionalidades avanzadas como generación de etiquetas, impresión de tickets y un panel de control para el seguimiento de KPIs clave del negocio.',
-        img: PosWebImg1,
-        img2: PosWebImg2,
-        imgWebp: PosWebImg1Webp,
-        img2Webp: PosWebImg2Webp,
-        tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
-        url: 'https://aaaaajflsksjs.my.canva.site/proyecto'
-    },
+
+
+
     {
         nombre: 'Invitación de Boda',
         descripcion: 'Plataforma de invitaciones digitales responsivas y personalizables para bodas y eventos especiales, optimizada para móviles.',
@@ -186,6 +182,17 @@ export const Data = [
         url: 'https://inventariodetalladomc.netlify.app/'
     },
     {
+        nombre: 'Portafolio iNNCi',
+        descripcion: 'Colección de soluciones desarrolladas en colaboración con iNNCi. Incluye sistemas de gestión interna, landing pages dinámicas y proyectos web públicos enriquecidos con integración de recursos 3D.',
+        img: SolucionesInnciImg1,
+        img2: SolucionesInnciImg2,
+        imgWebp: SolucionesInnciImg1Webp,
+        img2Webp: SolucionesInnciImg2Webp,
+        tecnologias: ['html', 'css', 'js', 'react', 'wordpress'],
+        propiedadDe: 'iNNCi',
+        url: 'https://aaaaajflsksjs.my.canva.site/portafolio-innci'
+    },
+    {
         nombre: 'Registros UAdeO',
         descripcion: 'Plataforma de control y monitorización de accesos desarrollada para las aulas de cómputo universitarias, enfocada en mejorar la seguridad y la administración de los recursos educativos.',
         img: UadeoImg1,
@@ -195,20 +202,5 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react', 'firebase'],
         url: 'https://laboratoriouadeo.netlify.app/'
     },
-
-    {
-        nombre: 'Cartera Virtual',
-        descripcion: 'Herramienta financiera orientada a la administración eficiente de líneas de crédito, permitiendo a los usuarios llevar un control detallado de sus deudas, saldos y pagos.',
-        img: TarjetasImg1,
-        img2: TarjetasImg2,
-        imgWebp: TarjetasImg1webp,
-        img2Webp: TarjetasImg2webp,
-        tecnologias: ['html', 'css', 'js', 'react', 'postgresql'],
-        url: 'https://targety.netlify.app/'
-    },
-
-
-
-
 
 ];
