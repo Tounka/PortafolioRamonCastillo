@@ -52,8 +52,7 @@ const ContenedorInternoIconos = styled.div`
 
 `;
 const ContenedorIcono = styled.div`
- 
-    font-size: 30px;
+    font-size: clamp(20px, 3vw + 10px, 30px);
     background-color: ${props => props.bgColor ? props.bgColor : ''};
     color: ${props => props.color ? props.color : ''};
     display: flex;
@@ -62,17 +61,6 @@ const ContenedorIcono = styled.div`
     border-radius: 10px;
     flex-shrink: 0;
     padding: 4px;
-
-    @media (max-width: 850px) {
-
-        font-size: 24px;
-    }
-
-    @media (max-width: 350px) {
-   
-        font-size: 20px;
-    }
-    
 `
 const ContenedorIconos = styled.div`
     width: 100%; 
@@ -166,16 +154,7 @@ const LogoPropiedadStyled = styled.img`
 `
 
 const TxtCardProyecto = styled(TxtGenericoStyled)`
-    font-size: 24px;
-    @media (max-width: 900px) {
-        font-size: 18px;
-    }
-    @media (max-width: 400px) {
-        font-size: 20px;
-    }
-    @media (max-width: 350px) {
-        font-size: 16px;
-    }
+    font-size: clamp(16px, 2.5vw + 10px, 24px);
 `
 const ContenedorInternoTxt = styled.div`
     display: flex;
@@ -186,20 +165,11 @@ const ContenedorInternoTxt = styled.div`
 const TxtPrincipalCard = styled.p`
     margin: 0;
     line-height: 1;
-    font-size: 36px;
+    font-size: clamp(20px, 5vw + 10px, 36px);
     color: var(--AmarilloEspecial);
     text-shadow: 2px 2px 30px black;
     text-align: center;
     font-weight: bold;
-    @media (max-width: 600px) {
-        font-size: 28px;
-    }
-    @media (max-width: 450px) {
-        font-size: 24px;
-    }
-    @media (max-width: 350px) {
-        font-size: 20px;
-    }
 `
 export const CardProyectoV2 = ({
     titulo = 'Soy un titulo',
@@ -243,7 +213,7 @@ export const CardProyectoV2 = ({
             <ContenedorTxtStyled>
                 <ContenedorInternoTxt>
                     <TxtPrincipalCard >{titulo}</TxtPrincipalCard>
-                    <TxtCardProyecto color='white' txt={descripcionCorta} aling='left' size='20px'> {descripcionCorta} </TxtCardProyecto>
+                    <TxtCardProyecto color='white' txt={descripcionCorta} aling='left'> {descripcionCorta} </TxtCardProyecto>
 
                 </ContenedorInternoTxt>
                 {propiedadDe.toLowerCase() === 'sitio random' && (

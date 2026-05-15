@@ -5,6 +5,8 @@ import GavaImg1 from '../../../Img/Pages/PgGava_img1.png';
 import GavaImg2 from '../../../Img/Pages/PgGava_img2.png';
 import SmileDepotImg1 from '../../../Img/Pages/PgSmileDepot_img1.png';
 import SmileDepotImg2 from '../../../Img/Pages/PgSmileDepot_img2.png';
+import SmileDepotImg1Webp from '../../../Img/Pages/PgSmileDepot_img2.webp';
+import SmileDepotImg2Webp from '../../../Img/Pages/PgSmileDepot_img1.webp';
 
 import AtgImg from '../../../Img/Pages/ATG.png';
 import AtgImgWebp from '../../../Img/Pages/ATG.webp';
@@ -153,8 +155,8 @@ export const Data = [
         descripcion: 'Desarrollo de plataforma e-commerce especializada en suministros dentales para Smile Depot, implementada sobre la infraestructura de Shopify. El sitio ofrece una experiencia de compra optimizada para profesionales del sector dental, con una gestión eficiente de categorías, productos clínicos y de laboratorio, y promociones dinámicas.',
         img: SmileDepotImg1,
         img2: SmileDepotImg2,
-        imgWebp: SmileDepotImg1,
-        img2Webp: SmileDepotImg2,
+        imgWebp: SmileDepotImg1Webp,
+        img2Webp: SmileDepotImg2Webp,
         tecnologias: ['shopify', 'css', 'js'],
         url: 'https://smiledepot.mx/'
     },
