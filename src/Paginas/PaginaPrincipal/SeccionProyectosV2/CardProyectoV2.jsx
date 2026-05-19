@@ -52,13 +52,13 @@ const ContenedorInternoIconos = styled.div`
 
 `;
 const ContenedorIcono = styled.div`
-    font-size: clamp(20px, 3vw + 10px, 30px);
+    font-size: clamp(18px, 3vw , 30px);
     background-color: ${props => props.bgColor ? props.bgColor : ''};
     color: ${props => props.color ? props.color : ''};
     display: flex;
     justify-content:center;
     align-items:center;
-    border-radius: 10px;
+    border-radius: clamp(6px, 2vw , 10px);
     flex-shrink: 0;
     padding: 4px;
 `
@@ -139,7 +139,9 @@ const ContenedorTxtStyled = styled.div`
     flex-direction: column;
     justify-content: space-between;
     padding: 10px 5px;
-    
+      @media (max-width:600px) {
+         padding:5px;
+    }
     background-color: #000000b2;
 `
 const LogoPropiedadStyled = styled.img`
@@ -154,18 +156,22 @@ const LogoPropiedadStyled = styled.img`
 `
 
 const TxtCardProyecto = styled(TxtGenericoStyled)`
-    font-size: clamp(16px, 2.5vw + 10px, 24px);
+    font-size: clamp(12px, 3vw, 24px);
 `
 const ContenedorInternoTxt = styled.div`
     display: flex;
     flex-direction: column;
     gap: 5px;
     padding:10px;
+
+    @media (max-width:600px) {
+         padding:0px;
+    }
 `
 const TxtPrincipalCard = styled.p`
     margin: 0;
     line-height: 1;
-    font-size: clamp(20px, 5vw + 10px, 36px);
+    font-size: clamp(16px, 3vw , 36px);
     color: var(--AmarilloEspecial);
     text-shadow: 2px 2px 30px black;
     text-align: center;

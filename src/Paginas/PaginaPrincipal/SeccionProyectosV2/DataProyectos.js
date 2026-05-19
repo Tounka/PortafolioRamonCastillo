@@ -119,7 +119,7 @@ export const Data = [
 
     {
         nombre: 'iNNCi Lab',
-        descripcion: 'Landing Page iNNCiLab empresa dedicada a la inocuidad alimenticia.',
+        descripcion: 'Landing Page iNNCiLab empresa dedicada a la inocuidad alimenticia, calidad e higiene industrial, facilitando el acceso a servicios de control microbiológico, análisis fisicoquímicos y asesoría especializada.',
         img: InncilabCelular,
         img2: InnciLab,
         imgWebp: InncilabCelular,
