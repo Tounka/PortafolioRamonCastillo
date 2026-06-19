@@ -63,10 +63,44 @@ import MazatlanTuristasImg1 from '../../../Img/Pages/PgMazatlanTuristas_img1.png
 import MazatlanTuristasImg2 from '../../../Img/Pages/PgMazatlanTuristas_img2.png';
 import MazatlanTuristasImg1Webp from '../../../Img/Pages/PgMazatlanTuristas_img1.webp';
 import MazatlanTuristasImg2Webp from '../../../Img/Pages/PgMazatlanTuristas_img2.webp';
+import ExnocoachImg1 from '../../../Img/Pages/PgExnocoach_img1.png';
+import ExnocoachImg2 from '../../../Img/Pages/PgExnocoach_img2.png';
+import PromedixImg1 from '../../../Img/Pages/PgPromedix_img1.png';
+import PromedixImg2 from '../../../Img/Pages/PgPromedix_img2.png';
+import TraalmaImg1 from '../../../Img/Pages/PgTraalma_img1.png';
 
 
 
 export const Data = [
+    {
+        nombre: 'Traalma',
+        descripcion: 'ERP interno para Traalma, empresa de reclutamiento y atracción de talento. El sistema centraliza la gestión de candidatos y procesos de empleo profesionales, incorporando integraciones con WhatsApp para agilizar la comunicación operativa.',
+        img: TraalmaImg1,
+        img2: TraalmaImg1,
+        imgWebp: TraalmaImg1,
+        img2Webp: TraalmaImg1,
+        tecnologias: ['nextjs', 'react', 'js']
+    },
+    {
+        nombre: 'Promedix México',
+        descripcion: 'Sitio web para Promedix México, marca enfocada en la importación y distribución de equipo médico especializado. La landing page comunica confianza, contacto rápido y acceso claro a soluciones tecnológicas para el sector salud.',
+        img: PromedixImg1,
+        img2: PromedixImg2,
+        imgWebp: PromedixImg1,
+        img2Webp: PromedixImg2,
+        tecnologias: ['wordpress'],
+        url: 'https://promedixmexico.com/'
+    },
+    {
+        nombre: 'Exnocoach',
+        descripcion: 'Sitio web para Exnocoach, escuela y consultoría orientada a empresas familiares y procesos de sucesión. El proyecto combina una experiencia visual corporativa con secciones informativas, cursos y contacto directo.',
+        img: ExnocoachImg1,
+        img2: ExnocoachImg2,
+        imgWebp: ExnocoachImg1,
+        img2Webp: ExnocoachImg2,
+        tecnologias: ['nextjs', 'html', 'css', 'js'],
+        url: 'https://escueladeherederos.mx/'
+    },
     {
         nombre: 'Grow to Go',
         descripcion: 'Desarrollo de plataforma estratégica para Grow To Go, una firma líder en efectividad empresarial. El sitio proyecta una imagen corporativa sólida y facilita la conexión con servicios de planeación, análisis y rentabilidad mediante una arquitectura web optimizada.',

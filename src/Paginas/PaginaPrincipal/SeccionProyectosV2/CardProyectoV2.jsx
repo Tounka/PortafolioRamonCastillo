@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ImgPicture } from "../../Img";
 import { TxtPrincipal, TxtGenerico } from "../../../ComponentesGenerales/TxtPrincipal";
-import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaGithub, FaWordpress, FaShopify } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaGithub, FaWordpress, FaShopify, FaElementor } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io';
 import { SiStyledcomponents, SiWoocommerce, SiNextdotjs } from 'react-icons/si';
 import { BiLogoPostgresql } from 'react-icons/bi';
@@ -18,6 +18,7 @@ const tecnologiaMap = {
     react: { icon: <FaReact />, bgColor: '#262626', color: '#02DCFF' },
     bootstrap: { icon: <FaBootstrap />, bgColor: '#ffffff', color: '#8411F6' },
     wordpress: { icon: <FaWordpress />, bgColor: '#ffffff', color: '#00749A' },
+    elementor: { icon: <FaElementor />, bgColor: '#92003B', color: 'white' },
     styledcomponents: { icon: <SiStyledcomponents />, bgColor: '#5b5b5b' },
     shopify: { icon: <FaShopify />, bgColor: '#95BF47', color: 'white' },
     woocommerce: { icon: <SiWoocommerce />, bgColor: '#96588a', color: 'white' },
@@ -88,7 +89,7 @@ const CardProyectoStyled = styled.div`
     width: 100%;
     height: auto;
     position: relative;
-    cursor: pointer;
+    cursor: ${props => props.$hasUrl ? 'pointer' : 'default'};
     overflow: hidden;
     user-select: none;
     opacity: ${props => (props.$isVisible ? 1 : 0)};
@@ -105,6 +106,7 @@ const ContenedorImgStyled = styled.div`
         width: 100%;
         height: 100%;
         transition: transform .3s;
+
         :hover{
             transition: transform .3s;
             img{
@@ -113,7 +115,7 @@ const ContenedorImgStyled = styled.div`
             }
             
         }
-       
+        
         img{
             object-fit: center;
             width: 100%;
@@ -209,10 +211,11 @@ export const CardProyectoV2 = ({
     }, []);
 
     const handleClick = () => {
+        if (!url) return;
         window.open(url, '_blank'); // Abre el enlace en una nueva pestaña
     };
     return (
-        <CardProyectoStyled ref={domRef} $isVisible={isVisible} key={key} onClick={() => handleClick()}>
+        <CardProyectoStyled ref={domRef} $isVisible={isVisible} $hasUrl={Boolean(url)} key={key} onClick={() => handleClick()}>
             <ContenedorImgStyled>
                 <ImgPicture obPosition={"start"} src={srcImg} srcWebp={srcImgWebp} alt={'Imagen del sitio web ' + titulo} />
             </ContenedorImgStyled>
