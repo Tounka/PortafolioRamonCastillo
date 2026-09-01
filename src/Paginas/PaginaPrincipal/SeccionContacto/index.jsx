@@ -22,7 +22,7 @@ export const SeccionContacto = () => {
     return (
         <ContenedorContacto
             id="Contacto"
-            activa={seccionSeleccionada === "Contacto"}
+            activa={["Contacto", "contacto"].includes(seccionSeleccionada)}
         >
             <PaginaContactoUx />
         </ContenedorContacto>

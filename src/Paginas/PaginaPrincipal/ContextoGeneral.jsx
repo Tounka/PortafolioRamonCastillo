@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useCallback, useState } from 'react';
 import imgGatito from "../../Img/TimeLine/Gatito.jpg";
 import imgGatitoWebp from "../../Img/TimeLine/Gatito.webp";
 import imgUniversidad from "../../Img/TimeLine/imgUniversidad.jpg";
@@ -25,13 +25,13 @@ const ContextoProviderGeneral = ({ children }) => {
       img: imgUniversidad,
       imgWebp: imgUniversidadWebp
     },
-    {
-      titulo: "McDonald's",
-      fecha: "2022",
-      descripcion: "Durante las vacaciones del tercer semestre, busqué adquirir experiencia laboral y comencé a trabajar en McDonald's. Gracias a mi desempeño, fui promovido a entrenador, lo que me permitió combinar trabajo y estudios, desarrollando habilidades de responsabilidad y trabajo en equipo.",
-      img: imgMcondalds,
-      imgWebp: imgMcondaldsWebp
-    },
+    // {
+    //   titulo: "McDonald's",
+    //   fecha: "2022",
+    //   descripcion: "Durante las vacaciones del tercer semestre, busqué adquirir experiencia laboral y comencé a trabajar en McDonald's. Gracias a mi desempeño, fui promovido a entrenador, lo que me permitió combinar trabajo y estudios, desarrollando habilidades de responsabilidad y trabajo en equipo.",
+    //   img: imgMcondalds,
+    //   imgWebp: imgMcondaldsWebp
+    // },
     {
       titulo: "Gerencia",
       fecha: "2023",
@@ -49,16 +49,21 @@ const ContextoProviderGeneral = ({ children }) => {
     {
       titulo: "Sitio Random",
       fecha: "2025",
-      descripcion: "(Agosto 2025 / Actualidad) Me desempeño como desarrollador Full Stack en Sitio Random, donde diseño y desarrollo soluciones web escalables utilizando Next.js, contribuyendo a la creación de aplicaciones modernas, eficientes y orientadas al crecimiento del negocio.",
+      descripcion: "(Agosto 2025 / Agosto 2026) Me desempeño como desarrollador Full Stack en Sitio Random, donde diseño y desarrollo soluciones web escalables utilizando Next.js, contribuyendo a la creación de aplicaciones modernas, eficientes y orientadas al crecimiento del negocio.",
       img: imgSitioRandom,
       imgWebp: imgSitioRandomWebp
     },
   ];
+  const [navegarASeccion, setNavegarASeccion] = useState(null)
+  const registrarNavegacion = useCallback((navegacion) => {
+    setNavegarASeccion(() => navegacion);
+  }, []);
+
   const [seccionSeleccionada, setSeccionSeleccionada] = useState("main");
 
   const [posicionTimeline, setPosicionTimeline] = useState(1);
   return (
-    <ContextoGeneral.Provider value={{ boolSlider, setBoolSlider, Datos, posicionTimeline, setPosicionTimeline, seccionSeleccionada, setSeccionSeleccionada }}>
+    <ContextoGeneral.Provider value={{ boolSlider, setBoolSlider, Datos, posicionTimeline, setPosicionTimeline, seccionSeleccionada, setSeccionSeleccionada, registrarNavegacion, navegarASeccion }}>
       {children}
     </ContextoGeneral.Provider>
   );

@@ -1,0 +1,74 @@
+[
+  {
+    "direccion": "https://eugroofing.com/",
+    "titulo": "EUG Roofing",
+    "descripcion": "Servicios residenciales y comerciales de roofing, reparaciones y reemplazos con materiales certificados, experiencia combinada y soluciones duraderas para propiedades californianas.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://rivasedgeconstruction.com/",
+    "titulo": "Rivas Edge Construction",
+    "descripcion": "Contratista familiar en Los Ángeles para remodelaciones, pintura, techado, drywall, estuco y construcción general, con experiencia y atención personalizada.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://magicmarbleandtile.com/",
+    "titulo": "Magic Marble & Tile",
+    "descripcion": "Empresa familiar de segunda generación especializada en mármol, granito, azulejo y encimeras, combinando artesanía detallista con mantenimiento y reparación.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://emgeneralcontractor.com/",
+    "titulo": "EM General Contractor",
+    "descripcion": "Contratista residencial y comercial de San Diego que ofrece remodelaciones, renovaciones, trabajo estructural y mejoras exteriores con precisión, calidad y confiabilidad.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://rainytimeroofinginc.com/",
+    "titulo": "Rainy Time Roofing Inc.",
+    "descripcion": "Empresa de roofing en Redlands enfocada en reparaciones, reemplazos y revisiones claras, con servicio confiable para proteger hogares y mantenerlos seguros.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://promexaspainting.com/",
+    "titulo": "Pro-Mexas Painting Corp.",
+    "descripcion": "Pintura residencial y comercial en San Diego County, con preparación cuidadosa, acabados duraderos, comunicación clara y atención respetuosa en cada proyecto.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://guzmanpaintinginc.com/",
+    "titulo": "Guzman Painting Inc.",
+    "descripcion": "Pintura interior y exterior, reparaciones y recubrimientos para hogares y negocios del Inland Empire, con preparación profesional, materiales de calidad y acabados duraderos.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://burritotileandstone.com/",
+    "titulo": "Burrito Tile & Stone",
+    "descripcion": "Instalación profesional de azulejo, piedra natural, mármol y granito en Anaheim, respaldada por veinte años de experiencia, precisión y acabados duraderos.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://procoatdrywallinc.com/",
+    "titulo": "Procoat Drywall Inc.",
+    "descripcion": "Especialistas licenciados en drywall para hogares, ADUs y comercios del sur de California, con instalación, encintado, texturas y acabados de precisión.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://lightseagreen-gerbil-425464.hostingersite.com/",
+    "titulo": "Avellaneda Construction Inc.",
+    "descripcion": "Contratista general con más de treinta años en California, especializado en construcción residencial y comercial, estructura, carpintería, instalaciones y remodelación.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://irahetaprimeconstruction.com/",
+    "titulo": "Iraheta Prime Construction",
+    "descripcion": "Construcción personalizada, remodelaciones integrales, ADUs y emergencias 24/7 para South Bay y Greater Los Angeles, con gestión profesional y acabados elegantes.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://mslandscapepros.com/",
+    "titulo": "MS Landscaping",
+    "descripcion": "Paisajismo y hardscape residencial o comercial en Carson y Torrance, con césped sintético, concreto, adoquines, mantenimiento y más de veinte años de experiencia.",
+    "tecnologias": ["wordpress", "elementor"]
+  }
+]

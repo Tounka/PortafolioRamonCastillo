@@ -1,0 +1,74 @@
+[
+  {
+    "direccion": "https://eugroofing.com",
+    "titulo": "EUG Roofing",
+    "descripcion": "Sitio para empresa de techado residencial y comercial en el sur de California, con servicios de reemplazo, reparación y mantenimiento de techos.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://rivasedgeconstruction.com",
+    "titulo": "Rivas Edge Construction",
+    "descripcion": "Empresa familiar de Los Ángeles dedicada a remodelación de cocinas y baños, pintura, techado, drywall y construcción general residencial.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://magicmarbleandtile.com",
+    "titulo": "Magic Marble & Tile",
+    "descripcion": "Negocio familiar de segunda generación especializado en fabricación de mármol y piedra para cocinas y baños con acabados de alta calidad.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://emgeneralcontractor.com",
+    "titulo": "EM General Contractor",
+    "descripcion": "Contratista general en San Diego con más de 10 años de experiencia en construcción residencial y comercial de precisión y calidad.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://rainytimeroofinginc.com",
+    "titulo": "Rainy Time Roofing",
+    "descripcion": "Empresa de techado confiable en Redlands, California, enfocada en comunicación honesta, trabajo de calidad y soluciones duraderas.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://promexaspainting.com",
+    "titulo": "Pro-Mexas Painting Corp",
+    "descripcion": "Empresa familiar de pintura residencial y comercial en el condado de San Diego, con preparación cuidadosa y acabados duraderos garantizados.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://guzmanpaintinginc.com",
+    "titulo": "Guzman Painting Inc.",
+    "descripcion": "Empresa familiar de pintura y recubrimiento de paredes en el Inland Empire desde 2003, con servicio personalizado y trabajo de calidad.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://burritotileandstone.com",
+    "titulo": "Burrito Tile & Stone",
+    "descripcion": "Contratistas profesionales de piso y piedra en Anaheim, California, especializados en instalaciones de azulejo, mármol y acabados de calidad.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://procoatdrywallinc.com",
+    "titulo": "Procoat Drywall Inc.",
+    "descripcion": "Instalación, acabado, remodelación y reparación profesional de drywall para hogares y negocios en Santee y el condado de San Diego.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://lightseagreen-gerbil-425464.hostingersite.com",
+    "titulo": "Avellaneda Construction",
+    "descripcion": "Contratista general con más de 30 años de experiencia construyendo proyectos residenciales y comerciales en el norte y sur de California.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://irahetaprimeconstruction.com",
+    "titulo": "Iraheta Prime Pro Construction",
+    "descripcion": "Constructora licenciada y asegurada en el condado de Los Ángeles, especializada en construcción nueva, remodelaciones y proyectos a la medida.",
+    "tecnologias": ["wordpress", "elementor"]
+  },
+  {
+    "direccion": "https://mslandscapepros.com",
+    "titulo": "MS Landscaping",
+    "descripcion": "Empresa de paisajismo y hardscape con más de 20 años de experiencia en Torrance, Palos Verdes y Redondo Beach, California.",
+    "tecnologias": ["wordpress", "elementor"]
+  }
+]

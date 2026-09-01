@@ -8,6 +8,25 @@ import { ModalContext } from "./ContextoModal";
 import { ContextoGeneral } from "../ContextoGeneral";
 
 
+import { useEffect, useLayoutEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+
+const limitar = (valor, minimo, maximo) => Math.min(Math.max(valor, minimo), maximo);
+
+const animarScrollHorizontal = (contenedor, destino) => {
+  if (!contenedor) return;
+
+  const maximo = Math.max(0, contenedor.scrollWidth - contenedor.clientWidth);
+  const movimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  gsap.to(contenedor, {
+    scrollLeft: limitar(destino, 0, maximo),
+    duration: movimientoReducido ? 0 : 0.65,
+    ease: 'power3.out',
+    overwrite: 'auto',
+  });
+};
+
 const ContenedorLineaTiempo = styled.div`
   position: relative;
   height: 100dvh;
@@ -16,7 +35,10 @@ const ContenedorLineaTiempo = styled.div`
   
   align-items:center;
  
-  padding: 0 20px; /* Agrega padding a ambos lados */
+  padding: 0 clamp(22px, 5vw, 80px);
+  overflow: hidden;
+  isolation: isolate;
+  background: radial-gradient(circle at center, rgba(252, 183, 28, .06), transparent 45%), linear-gradient(180deg, #090b10 0%, #030407 100%);
 
 `;
 
@@ -26,7 +48,8 @@ const Line = styled.div`
   align-items: center;
   height: 4px;
   border-radius: 2px;
-  background-color: var(--AmarilloEspecial);
+  background: linear-gradient(90deg, rgba(252, 183, 28, .74), #ffe08a 50%, rgba(252, 183, 28, .74));
+  box-shadow: 0 0 12px rgba(252, 183, 28, .22);
   gap: 20px;
 `;
 
@@ -88,12 +111,14 @@ const ContenedorImg = styled.div`
   flex-direction: column;
   cursor: pointer;
   overflow: hidden;
-  border-radius: 0px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 250, 240, .12);
   box-shadow: ${props => props.$isSelected ? '0 0 25px 5px rgba(255,215,0,0.4)' : '0 4px 15px rgba(0,0,0,0.5)'};
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
   
   &:hover {
-    transform: translateY(-5px) ;
+    transform: translateY(-7px);
+    border-color: rgba(252, 183, 28, .6);
   }
 `
 
@@ -151,10 +176,7 @@ const ItemLineaTiempo = ({ numero, titulo, descripcion, img, imgWebp = "", side,
     if (element && elementPadre) {
       if (numero <= 0) {
         // Desplazarse al inicio
-        elementPadre.scrollTo({
-          left: 0,
-          behavior: 'smooth'
-        });
+        animarScrollHorizontal(elementPadre, 0);
       } else {
         // Calcular la posición para centrar sin salirse del contenedor
         const offsetLeft = element.offsetLeft;
@@ -164,21 +186,18 @@ const ItemLineaTiempo = ({ numero, titulo, descripcion, img, imgWebp = "", side,
         const scrollPosition = offsetLeft - (padreWidth / 2) + (elementWidth / 2);
 
         // Limitar el desplazamiento para no salirse del contenedor
-        elementPadre.scrollTo({
-          left: Math.max(0, Math.min(scrollPosition, elementPadre.scrollWidth - padreWidth)),
-          behavior: 'smooth'
-        });
+        animarScrollHorizontal(elementPadre, scrollPosition);
       }
     }
   }
   return (
-    <ContenedorItemLineaDeTiempoStyled id={id}>
-      <Btn $isSelected={isSelected} name={'Boton mover a item numero ' + numero} onClick={() => handleClickBtn()}> {numero} </Btn>
-      <WrapContenido side={side}>
-        <TxtItemLineaTiempo $isSelected={isSelected}>{titulo}</TxtItemLineaTiempo>
-        <ContenedorImg $isSelected={isSelected} onClick={() => handleClick()} >
+    <ContenedorItemLineaDeTiempoStyled id={id} data-timeline-index={numero}>
+      <Btn data-timeline-dot $isSelected={isSelected} name={'Boton mover a item numero ' + numero} onClick={() => handleClickBtn()}> {numero} </Btn>
+      <WrapContenido data-timeline-content side={side}>
+        <TxtItemLineaTiempo className="timeline-title" data-timeline-title $isSelected={isSelected}>{titulo}</TxtItemLineaTiempo>
+        <ContenedorImg className="timeline-card" data-timeline-card $isSelected={isSelected} onClick={() => handleClick()} >
           <ImgPicture bg alt={'Img ' + titulo} src={img} srcWebp={imgWebp} zIndex={1} />
-          <ContenedorDescripcion>{descripcion}</ContenedorDescripcion>
+          <ContenedorDescripcion data-timeline-description>{descripcion}</ContenedorDescripcion>
         </ContenedorImg>
       </WrapContenido>
     </ContenedorItemLineaDeTiempoStyled>
@@ -251,10 +270,7 @@ const BtnControl = ({ fn, icono, listaData, name }) => {
     if (element && elementPadre) {
       if (nuevaPosicion <= 0) {
         // Desplazarse al inicio
-        elementPadre.scrollTo({
-          left: 0,
-          behavior: 'smooth'
-        });
+        animarScrollHorizontal(elementPadre, 0);
       } else {
         // Calcular la posición para centrar sin salirse del contenedor
         const offsetLeft = element.offsetLeft;
@@ -264,10 +280,7 @@ const BtnControl = ({ fn, icono, listaData, name }) => {
         const scrollPosition = offsetLeft - (padreWidth / 2) + (elementWidth / 2);
 
         // Limitar el desplazamiento para no salirse del contenedor
-        elementPadre.scrollTo({
-          left: Math.max(0, Math.min(scrollPosition, elementPadre.scrollWidth - padreWidth)),
-          behavior: 'smooth'
-        });
+        animarScrollHorizontal(elementPadre, scrollPosition);
       }
     }
   };
@@ -336,8 +349,201 @@ const Control = ({ listaData }) => {
 }
 
 export const SeccionLineaDeTiempoUx = ({ boolSlider }) => {
-  const { setBoolSlider, Datos, posicionTimeline, setPosicionTimeline, setSeccionSeleccionada } = useContext(ContextoGeneral);
+  const { setBoolSlider, Datos, posicionTimeline, setPosicionTimeline, seccionSeleccionada, setSeccionSeleccionada } = useContext(ContextoGeneral);
+  const carrilRef = useRef(null);
+  const destinoScrollRef = useRef(0);
   const listaData = ['punto0', ...Datos.map((_, index) => `punto${index + 1}`), `punto${Datos.length + 1}`];
+
+  useLayoutEffect(() => {
+    const carril = carrilRef.current;
+    const timeline = carril?.closest('#timeline');
+    if (!carril || !timeline || seccionSeleccionada !== 'timeline') return undefined;
+
+    const puntos = gsap.utils.toArray('[data-timeline-index]', carril);
+    const circulos = puntos.map((punto) => punto.querySelector('[data-timeline-dot]'));
+    const contenidos = puntos.map((punto) => punto.querySelector('[data-timeline-content]'));
+    const linea = carril.querySelector('[data-timeline-line]');
+    const movimientoReducido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const animados = new Set();
+
+    gsap.set(circulos, {
+      autoAlpha: 0,
+      scale: movimientoReducido ? 1 : 0,
+      rotate: movimientoReducido ? .28 : -135,
+      transformOrigin: 'center center',
+    });
+
+    const titulos = contenidos.map((contenido) => contenido.querySelector('[data-timeline-title]'));
+    const tarjetas = contenidos.map((contenido) => contenido.querySelector('[data-timeline-card]'));
+    const imagenes = tarjetas.map((tarjeta) => tarjeta?.querySelector('img')).filter(Boolean);
+
+    gsap.set(contenidos, {
+      autoAlpha: 0,
+      y: (indice) => movimientoReducido ? .28 : indice % 2 === 0 ? -55 : 55,
+    });
+
+    gsap.set(titulos, {
+      autoAlpha: 0,
+      y: movimientoReducido ? .28 : 16,
+    });
+
+    gsap.set(tarjetas, {
+      autoAlpha: 0,
+      y: movimientoReducido ? .28 : 18,
+      scale: movimientoReducido ? 1 : .9,
+      transformOrigin: 'center center',
+    });
+
+    gsap.set(imagenes, {
+      scale: movimientoReducido ? 1 : 1.12,
+      transformOrigin: 'center center',
+    });
+
+    gsap.fromTo(
+      linea,
+      { scaleX: 0, transformOrigin: 'left center' },
+      {
+        scaleX: 1,
+        duration: movimientoReducido ? .28 : 1.1,
+        delay: movimientoReducido ? .28 : 0.2,
+        ease: 'power3.out',
+      },
+    );
+
+    const lineaPulso = gsap.to(linea, {
+      boxShadow: '0 0 22px rgba(252, 183, 28, .42)',
+      duration: 1.8,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut',
+      paused: movimientoReducido,
+    });
+
+    const observador = new IntersectionObserver((entradas) => {
+      const visibles = entradas
+        .filter((entrada) => entrada.isIntersecting && !animados.has(entrada.target))
+        .map((entrada) => entrada.target)
+        .sort(
+          (puntoA, puntoB) =>
+            Number(puntoA.dataset.timelineIndex) - Number(puntoB.dataset.timelineIndex),
+        );
+
+      if (!visibles.length) return;
+
+      visibles.forEach((punto, indice) => {
+        animados.add(punto);
+        observador.unobserve(punto);
+
+        const circulo = punto.querySelector('[data-timeline-dot]');
+        const contenido = punto.querySelector('[data-timeline-content]');
+        const titulo = contenido?.querySelector('[data-timeline-title]');
+        const tarjeta = contenido?.querySelector('[data-timeline-card]');
+        const imagen = tarjeta?.querySelector('img');
+        const secuencia = gsap.timeline({
+          delay: movimientoReducido ? .28 : indice * 0.13,
+          defaults: { overwrite: 'auto' },
+        });
+
+        secuencia
+          .to(circulo, {
+            autoAlpha: 1,
+            scale: 1,
+            rotate: 0,
+            duration: movimientoReducido ? .28 : 0.65,
+            ease: 'back.out(2)',
+          })
+          .to(contenido, {
+            autoAlpha: 1,
+            y: 0,
+            duration: movimientoReducido ? .28 : 0.65,
+            ease: 'power3.out',
+          }, movimientoReducido ? .28 : '-=0.38')
+          .to(titulo, {
+            autoAlpha: 1,
+            y: 0,
+            duration: movimientoReducido ? .28 : 0.38,
+            ease: 'power2.out',
+          }, movimientoReducido ? .28 : '-=0.42')
+          .to(tarjeta, {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            duration: movimientoReducido ? .28 : 0.62,
+            ease: 'back.out(1.18)',
+          }, movimientoReducido ? .28 : '-=0.28')
+          .to(imagen, {
+            scale: 1,
+            duration: movimientoReducido ? .28 : 1.15,
+            ease: 'power2.out',
+          }, movimientoReducido ? .28 : '-=0.5');
+      });
+    }, {
+      root: timeline,
+      threshold: 0.18,
+    });
+
+    puntos.forEach((punto) => observador.observe(punto));
+
+    return () => {
+      observador.disconnect();
+      lineaPulso.kill();
+      gsap.killTweensOf([linea, ...circulos, ...contenidos, ...titulos, ...tarjetas, ...imagenes]);
+      gsap.set([linea, ...circulos, ...contenidos, ...titulos, ...tarjetas, ...imagenes], { clearProps: 'all' });
+    };
+  }, [seccionSeleccionada]);
+
+  useEffect(() => {
+    const timeline = carrilRef.current?.closest('#timeline');
+    if (!timeline) return undefined;
+
+    destinoScrollRef.current = timeline.scrollLeft;
+
+    const seleccionarPuntoMasCercano = (destino) => {
+      const centro = destino + timeline.clientWidth / 2;
+      const puntos = Array.from(timeline.querySelectorAll('[data-timeline-index]'));
+      if (!puntos.length) return;
+
+      const puntoCercano = puntos.reduce((cercano, punto) => {
+        const distancia = Math.abs(punto.offsetLeft + punto.clientWidth / 2 - centro);
+        return distancia < cercano.distancia
+          ? { indice: Number(punto.dataset.timelineIndex), distancia }
+          : cercano;
+      }, { indice: 1, distancia: Number.POSITIVE_INFINITY });
+
+      setPosicionTimeline(puntoCercano.indice);
+    };
+
+    const manejarRueda = (evento) => {
+      if (evento.ctrlKey) return;
+
+      const delta = Math.abs(evento.deltaY) >= Math.abs(evento.deltaX)
+        ? evento.deltaY
+        : evento.deltaX;
+      if (Math.abs(delta) < 2) return;
+
+      const maximo = Math.max(0, timeline.scrollWidth - timeline.clientWidth);
+      const origen = gsap.isTweening(timeline)
+        ? destinoScrollRef.current
+        : timeline.scrollLeft;
+      const destino = limitar(origen + delta * 1.35, 0, maximo);
+
+      if (Math.abs(destino - timeline.scrollLeft) < 1) return;
+
+      evento.preventDefault();
+      evento.stopPropagation();
+      destinoScrollRef.current = destino;
+      seleccionarPuntoMasCercano(destino);
+      animarScrollHorizontal(timeline, destino);
+    };
+
+    timeline.addEventListener('wheel', manejarRueda, { passive: false });
+
+    return () => {
+      timeline.removeEventListener('wheel', manejarRueda);
+      gsap.killTweensOf(timeline);
+    };
+  }, [setPosicionTimeline]);
+
   const handleClick = () => {
 
     const element = document.getElementById('main');
@@ -349,15 +555,15 @@ export const SeccionLineaDeTiempoUx = ({ boolSlider }) => {
     }
   }
   return (
-    <ContenedorLineaTiempo>
+    <ContenedorLineaTiempo ref={carrilRef} data-scroll-interno>
 
-      <Line id={'punto0'}>
+      <Line id={'punto0'} data-timeline-line>
         <BtnInicialFinal onClick={handleClick}><FaAngleLeft size={'32px'} /></BtnInicialFinal>
         {Datos.map((data, index) => (
           <ItemLineaTiempo listaData={listaData[index + 1]} id={listaData[index + 1]} key={index} side={(index % 2 == 0)} numero={index + 1} titulo={data.titulo} descripcion={data.descripcion} img={data.img} imgWebp={data.imgWebp} setPosicionTimeline={setPosicionTimeline}>{data}</ItemLineaTiempo>
         ))}
 
-        <BtnInicialFinal id={'punto9'} final>Final</BtnInicialFinal>
+        <BtnInicialFinal id={`punto${Datos.length + 1}`} final>Final</BtnInicialFinal>
       </Line>
       <Control boolSlider={boolSlider} listaData={listaData} />
     </ContenedorLineaTiempo>

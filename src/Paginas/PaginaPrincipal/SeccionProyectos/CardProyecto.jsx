@@ -24,6 +24,7 @@ const CardProyectoStyled = styled.div`
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
+    border-radius: 4px;
 `
 const ContenedorSeccionProyecto = styled.div`
     width: 100%;

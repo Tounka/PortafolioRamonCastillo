@@ -10,6 +10,7 @@ import { TxtGenericoStyled } from "../../../ComponentesGenerales/TxtPrincipal";
 import { useState, useEffect, useRef } from 'react';
 import SitioRandomLogo from '../../../Img/SitioRandomLogo.png';
 import iNNCiLogo from '../../../Img/inncilab.webp';
+import CSLPSalesLogo from '../../../nuevos-proyectos/pimages v2/cslp-sales-logo.png';
 
 const tecnologiaMap = {
     html: { icon: <FaHtml5 />, bgColor: '#FC490B', color: 'white' },
@@ -87,42 +88,44 @@ const Iconos = ({ tecnologias }) => {
 
 const CardProyectoStyled = styled.div`
     width: 100%;
-    height: auto;
     position: relative;
+    display: inline-block;
+    vertical-align: top;
     cursor: ${props => props.$hasUrl ? 'pointer' : 'default'};
     overflow: hidden;
+    border-radius: 4px;
     user-select: none;
+    break-inside: avoid;
     opacity: ${props => (props.$isVisible ? 1 : 0)};
     transform: ${props => (props.$isVisible ? 'translateY(0)' : 'translateY(50px)')};
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    
-    max-height: 1200px;
-    @media (max-width: 600px) {
-        max-height: 600px;
-    }
-    
-`
+`;
+
 const ContenedorImgStyled = styled.div`
+    width: 100%;
+    height: auto;
+    line-height: 0;
+
+    > div {
         width: 100%;
-        height: 100%;
-        transition: transform .3s;
+        height: auto;
+    }
 
-        :hover{
-            transition: transform .3s;
-            img{
-                transform: scale(1.05);
-             
-            }
-            
-        }
-        
-        img{
-            object-fit: center;
-            width: 100%;
-            height: 100%;
+    > div > picture {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
 
-        }
-`
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        transform: none;
+    }
+`;
 const ContenedorTxtStyled = styled.div`
     opacity: 0;
     transition: .2s;
@@ -150,7 +153,7 @@ const LogoPropiedadStyled = styled.img`
     position: absolute;
     bottom: 10px;
     right: 10px;
-    height: 30px; 
+    height: 42px; 
     width: auto;
     object-fit: contain;
     z-index: 10;
@@ -158,22 +161,53 @@ const LogoPropiedadStyled = styled.img`
 `
 
 const TxtCardProyecto = styled(TxtGenericoStyled)`
-    font-size: clamp(12px, 3vw, 24px);
+    font-size: clamp(11px, 1.05vw, 16px);
+    line-height: 1.2;
+    text-align: center;
 `
 const ContenedorInternoTxt = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    padding:10px;
+    gap: 8px;
+    height: calc(100% - 54px);
+    max-height: calc(100% - 54px);
+    min-height: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding: 10px;
 
     @media (max-width:600px) {
-         padding:0px;
+         padding: 5px;
+         height: calc(100% - 42px);
+         max-height: calc(100% - 42px);
     }
-`
+`;
+
+const ContenedorDescripcion = styled.div`
+    flex: 1 1 auto;
+    min-height: 0;
+    max-height: 100%;
+    overflow-y: auto;
+    overscroll-behavior-y: auto;
+    overscroll-behavior-x: contain;
+    touch-action: pan-y;
+    padding-right: 6px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--AmarilloEspecial) transparent;
+
+    &::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: var(--AmarilloEspecial);
+        border-radius: 999px;
+    }
+`;
 const TxtPrincipalCard = styled.p`
     margin: 0;
-    line-height: 1;
-    font-size: clamp(16px, 3vw , 36px);
+    line-height: 1.2;
+    font-size: clamp(14px, 1.6vw, 24px);
     color: var(--AmarilloEspecial);
     text-shadow: 2px 2px 30px black;
     text-align: center;
@@ -222,9 +256,14 @@ export const CardProyectoV2 = ({
             <ContenedorTxtStyled>
                 <ContenedorInternoTxt>
                     <TxtPrincipalCard >{titulo}</TxtPrincipalCard>
-                    <TxtCardProyecto color='white' txt={descripcionCorta} aling='left'> {descripcionCorta} </TxtCardProyecto>
+                    <ContenedorDescripcion>
+                        <TxtCardProyecto color='white' txt={descripcionCorta} aling='center'> {descripcionCorta} </TxtCardProyecto>
+                    </ContenedorDescripcion>
 
                 </ContenedorInternoTxt>
+                {propiedadDe.toLowerCase() === 'cslp' && (
+                    <LogoPropiedadStyled src={CSLPSalesLogo} alt="Logo de CSLP Sales" />
+                )}
                 {propiedadDe.toLowerCase() === 'sitio random' && (
                     <LogoPropiedadStyled src={SitioRandomLogo} alt="Logo de propiedad de Sitio Random" />
                 )}

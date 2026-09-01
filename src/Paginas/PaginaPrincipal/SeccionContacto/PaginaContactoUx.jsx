@@ -15,6 +15,8 @@ const CardContacto = styled.section`
     width: 90%;
     max-width: 1200px;
     background-color: white;
+    border-radius: 4px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 

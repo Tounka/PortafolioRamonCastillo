@@ -1,8 +1,9 @@
 import { CardProyectoV2 } from "./CardProyectoV2";
 import styled from "styled-components";
 import { FaAngleUp } from "react-icons/fa";
-import { useState, useEffect, useContext } from 'react';
-import { Data } from "./DataProyectos";
+import { useContext } from 'react';
+import { Data as DataProyectosAnteriores } from "./DataProyectos";
+import { DataProyectosV2 as DataProyectosNuevos } from "../../../nuevos-proyectos/DataProyectosV2";
 import { TxtGenerico } from "../../../ComponentesGenerales/TxtPrincipal";
 import { ContextoGeneral } from "../ContextoGeneral";
 
@@ -52,62 +53,52 @@ const ContenedorProyectosUx = styled.div`
     flex-direction: column;
     width: 90%;
     max-width: 1200px;
-    margin: 0 auto; /* Centrar el contenedor */
+    margin: 0 auto;
     gap: 20px;
 `;
 
 const ContenedorGridProyectos = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+    gap: 16px;
     width: 100%;
     height: auto;
 
+    @media (max-width: 900px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     @media (max-width: 700px) {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 `;
 
-const ContenedorVertical = styled.div`
-    width: 100%;
+const ContenedorColumna = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 10px;
-`;
-const ContenedorMiniTxt = styled.div`
-    max-width: 400px; ;
-
+    gap: 16px;
+    min-width: 0;
 `;
 
 export const SeccionProyectosV2Ux = () => {
-    const useWindowWidth = () => {
-        const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-        useEffect(() => {
-            const handleResize = () => {
-                setWindowWidth(window.innerWidth);
-            };
-
-            window.addEventListener('resize', handleResize);
-            return () => {
-                window.removeEventListener('resize', handleResize);
-            };
-        }, []);
-
-        return windowWidth;
-    };
-
-    const windowWidth = useWindowWidth();
-
-    const contenedor1 = [];
-    const contenedor2 = [];
+    const proyectosAnteriores = DataProyectosAnteriores.filter((pagina) => ![
+        'Registros UAdeO',
+        'Mc Donald\'s',
+        'Invitación de Boda',
+    ].includes(pagina.nombre));
+    const invitacion = DataProyectosAnteriores.find(
+        (pagina) => pagina.nombre === 'Invitación de Boda'
+    );
+    const Data = [
+        ...proyectosAnteriores,
+        ...DataProyectosNuevos,
+        ...(invitacion ? [invitacion] : []),
+    ];
+    const columnas = [[], [], []];
 
     Data.forEach((pagina, index) => {
-        if (index % 2 === 0) {
-            contenedor1.push(pagina);
-        } else {
-            contenedor2.push(pagina);
-        }
+        columnas[index % 3].push(pagina);
     });
 
     return (
@@ -116,37 +107,23 @@ export const SeccionProyectosV2Ux = () => {
 
             <TxtGenerico size='16px' color='var(--AmarilloEspecial)' txt='(Da click para ir cada proyecto)' />
 
-
             <ContenedorGridProyectos>
-                <ContenedorVertical>
-                    {contenedor1.map((pagina, index) => (
-                        <CardProyectoV2
-                            key={index}
-                            titulo={pagina.nombre}
-                            descripcionCorta={pagina.descripcion}
-                            srcImg={windowWidth < 701 ? pagina.img : pagina[index % 2 === 1 ? 'img' : 'img2']}
-                            srcImgWebp={windowWidth < 701 ? pagina.imgWebp : pagina[index % 2 === 1 ? 'imgWebp' : 'img2Webp']}
-                            tecnologias={pagina.tecnologias}
-                            url={pagina.url}
-                            propiedadDe={pagina.propiedadDe}
-                        />
-                    ))}
-                </ContenedorVertical>
-
-                <ContenedorVertical>
-                    {contenedor2.map((pagina, index) => (
-                        <CardProyectoV2
-                            key={index}
-                            titulo={pagina.nombre}
-                            descripcionCorta={pagina.descripcion}
-                            srcImg={windowWidth < 701 ? pagina.img : pagina[index % 2 === 0 ? 'img' : 'img2']}
-                            srcImgWebp={windowWidth < 701 ? pagina.imgWebp : pagina[index % 2 === 0 ? 'imgWebp' : 'img2Webp']}
-                            tecnologias={pagina.tecnologias}
-                            url={pagina.url}
-                            propiedadDe={pagina.propiedadDe}
-                        />
-                    ))}
-                </ContenedorVertical>
+                {columnas.map((columna, columnaIndex) => (
+                    <ContenedorColumna key={`columna-${columnaIndex}`}>
+                        {columna.map((pagina, index) => (
+                            <CardProyectoV2
+                                key={`${pagina.nombre}-${columnaIndex}-${index}`}
+                                titulo={pagina.nombre}
+                                descripcionCorta={pagina.descripcion}
+                                srcImg={pagina.img || pagina.img2}
+                                srcImgWebp={pagina.imgWebp || pagina.img2Webp}
+                                tecnologias={pagina.tecnologias}
+                                url={pagina.url}
+                                propiedadDe={pagina.propiedadDe}
+                            />
+                        ))}
+                    </ContenedorColumna>
+                ))}
             </ContenedorGridProyectos>
         </ContenedorProyectosUx>
     );

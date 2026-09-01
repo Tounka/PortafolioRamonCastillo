@@ -7,10 +7,16 @@ import { ContextoGeneral } from "../ContextoGeneral"
 const ContenedorSeccionProyectos = styled(ContenedorPrincipal)`
     margin-left: 100%;
     justify-content: start;
+    box-sizing: border-box;
     padding: 30px 0;
     background-color: black;
-    overflow: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
+    overscroll-behavior-y: contain;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+    scrollbar-gutter: stable;
+    min-height: 0;
 
       opacity: ${props => (props.activa ? 1 : 0)};
     pointer-events: ${props => (props.activa ? "auto" : "none")};

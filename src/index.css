@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Paytone+One&display=swap");
+
 html, #root, body, .App{
   height: 100%;
   width: 100%;
@@ -10,7 +12,6 @@ html, #root, body, .App{
 @font-face {
   font-family: 'Poppins';
   src: url('./Fuentes/Poppins-Medium.ttf') ;
-
 }
 
 :root{
