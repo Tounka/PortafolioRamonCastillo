@@ -11,7 +11,8 @@ html, #root, body, .App{
 
 @font-face {
   font-family: 'Poppins';
-  src: url('./Fuentes/Poppins-Medium.ttf') ;
+  src: url('./Fuentes/Poppins-Medium.ttf') format('truetype');
+  font-display: swap;
 }
 
 :root{

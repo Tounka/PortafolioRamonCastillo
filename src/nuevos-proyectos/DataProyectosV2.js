@@ -1,7 +1,7 @@
 import proyectos from './proyectos.json';
 
 // La asociación real se define por la carpeta donde coloques cada imagen.
-const imageModules = import.meta.glob('./pimages v2/**/*.{png,jpg,jpeg,webp}', {
+const imageModules = import.meta.glob('./pimages v2/contratistas/*/principal/*.{webp,jpg,jpeg}', {
     eager: true,
     import: 'default',
     query: '?url',

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ImgPicture } from "../../Img";
 import { TxtPrincipal, TxtGenerico } from "../../../ComponentesGenerales/TxtPrincipal";
-import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaGithub, FaWordpress, FaShopify, FaElementor } from 'react-icons/fa';
+import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaGithub, FaWordpress, FaShopify, FaElementor, FaEye } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io';
 import { SiStyledcomponents, SiWoocommerce, SiNextdotjs } from 'react-icons/si';
 import { BiLogoPostgresql } from 'react-icons/bi';
@@ -153,11 +153,36 @@ const LogoPropiedadStyled = styled.img`
     position: absolute;
     bottom: 10px;
     right: 10px;
-    height: 42px; 
+    height: 42px;
     width: auto;
     object-fit: contain;
     z-index: 10;
     pointer-events: none;
+`
+const BotonIrStyled = styled.div`
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    width: clamp(22px, 4vw, 32px);
+    height: clamp(22px, 4vw, 32px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(10px, 1.8vw, 14px);
+    color: #fff;
+    background-color: var(--AmarilloEspecial);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-sizing: border-box;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+    z-index: 20;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+
+    ${CardProyectoStyled}:hover & {
+        opacity: 0;
+    }
 `
 
 const TxtCardProyecto = styled(TxtGenericoStyled)`
@@ -272,6 +297,11 @@ export const CardProyectoV2 = ({
                 )}
                 <Iconos tecnologias={tecnologias} />
             </ContenedorTxtStyled>
+            {Boolean(url) && (
+                <BotonIrStyled title="Ver proyecto" aria-label="Ver proyecto">
+                    <FaEye />
+                </BotonIrStyled>
+            )}
         </CardProyectoStyled>
     )
 }

@@ -21,3 +21,7 @@ package-lock.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# respaldo local, no forma parte del repo
+/.respaldo-pre-git-2026-08-28
+/cambios-locales.patch

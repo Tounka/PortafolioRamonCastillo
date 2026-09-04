@@ -123,33 +123,9 @@ export const Data = [
         img2Webp: AtgCuadrado,
         tecnologias: ['wordpress'],
         url: 'https://atgrecubrimientos.com',
-        propiedadDe: 'sitio random'
+        propiedadDe: 'sitio random',
+        esVertical: true
     },
-
-    {
-        nombre: 'WOP',
-        descripcion: 'Desarrollé las herramientras web de WOP junto con Sitio Random, un proyecto enfocado en estación de servicios moderna que combina autolavado, cafetería y tienda de conveniencia en un mismo lugar.',
-        img: WopImgCelular,
-        img2: WopCuadrado,
-        imgWebp: WopImgCelular,
-        img2Webp: WopCuadrado,
-        tecnologias: ['nextjs', 'react', 'js'],
-        url: 'https://wopmx.com',
-        propiedadDe: 'sitio random'
-    },
-    {
-        nombre: 'FiscalizaT',
-        descripcion: 'Desarrollé las herramientras web de FiscalizaT en colaboración con Sitio Random, una plataforma digital orientada a simplificar la gestión contable y administrativa de negocios.',
-        img: FiscalizaTImgCelular,
-        img2: FiscalizaTCuadrado,
-        imgWebp: FiscalizaTImgCelular,
-        img2Webp: FiscalizaTCuadrado,
-        tecnologias: ['nextjs', 'react', 'js'],
-        url: 'https://fiscalizat.com.mx/',
-        propiedadDe: 'sitio random'
-    },
-
-
 
     {
         nombre: 'iNNCi Lab',
@@ -160,7 +136,35 @@ export const Data = [
         img2Webp: InnciLab,
         tecnologias: ['wordpress'],
         propiedadDe: 'iNNCi',
-        url: 'https://inncilab.com/'
+        url: 'https://inncilab.com/',
+        esVertical: true
+    },
+    {
+        nombre: 'FiscalizaT',
+        descripcion: 'Desarrollé las herramientras web de FiscalizaT en colaboración con Sitio Random, una plataforma digital orientada a simplificar la gestión contable y administrativa de negocios.',
+        img: FiscalizaTImgCelular,
+        img2: FiscalizaTCuadrado,
+        imgWebp: FiscalizaTImgCelular,
+        img2Webp: FiscalizaTCuadrado,
+        tecnologias: ['nextjs', 'react', 'js'],
+        url: 'https://fiscalizat.com.mx/',
+        propiedadDe: 'sitio random',
+        esVertical: true
+    },
+
+
+
+    {
+        nombre: 'WOP',
+        descripcion: 'Desarrollé las herramientras web de WOP junto con Sitio Random, un proyecto enfocado en estación de servicios moderna que combina autolavado, cafetería y tienda de conveniencia en un mismo lugar.',
+        img: WopImgCelular,
+        img2: WopCuadrado,
+        imgWebp: WopImgCelular,
+        img2Webp: WopCuadrado,
+        tecnologias: ['nextjs', 'react', 'js'],
+        url: 'https://wopmx.com',
+        propiedadDe: 'sitio random',
+        esVertical: true
     },
 
     {

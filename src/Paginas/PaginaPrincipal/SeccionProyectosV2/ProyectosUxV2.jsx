@@ -1,10 +1,10 @@
 import { CardProyectoV2 } from "./CardProyectoV2";
 import styled from "styled-components";
-import { FaAngleUp } from "react-icons/fa";
+import { FaAngleUp, FaEye } from "react-icons/fa";
 import { useContext } from 'react';
 import { Data as DataProyectosAnteriores } from "./DataProyectos";
 import { DataProyectosV2 as DataProyectosNuevos } from "../../../nuevos-proyectos/DataProyectosV2";
-import { TxtGenerico } from "../../../ComponentesGenerales/TxtPrincipal";
+import { TxtGenericoStyled } from "../../../ComponentesGenerales/TxtPrincipal";
 import { ContextoGeneral } from "../ContextoGeneral";
 
 const ContenedorInferiorBtnStyled = styled.button`
@@ -81,6 +81,26 @@ const ContenedorColumna = styled.div`
     min-width: 0;
 `;
 
+const IconoInlineInstruccion = styled.span`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    margin: 0 4px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+    font-size: 10px;
+    line-height: 1;
+    color: #fff;
+    background-color: var(--AmarilloEspecial);
+    border: 2px solid #fff;
+    border-radius: 50%;
+    box-sizing: border-box;
+    flex-shrink: 0;
+`;
+
 export const SeccionProyectosV2Ux = () => {
     const proyectosAnteriores = DataProyectosAnteriores.filter((pagina) => ![
         'Registros UAdeO',
@@ -96,16 +116,30 @@ export const SeccionProyectosV2Ux = () => {
         ...(invitacion ? [invitacion] : []),
     ];
     const columnas = [[], [], []];
+    const alturaAcumulada = [0, 0, 0];
+    const verticalesPorColumna = [0, 0, 0];
 
-    Data.forEach((pagina, index) => {
-        columnas[index % 3].push(pagina);
+    Data.forEach((pagina) => {
+        let candidatas = [0, 1, 2];
+        if (pagina.esVertical) {
+            const minVerticales = Math.min(...verticalesPorColumna);
+            candidatas = candidatas.filter((i) => verticalesPorColumna[i] === minVerticales);
+        }
+        const columnaElegida = candidatas.reduce((mejor, actual) =>
+            alturaAcumulada[actual] < alturaAcumulada[mejor] ? actual : mejor
+        );
+        columnas[columnaElegida].push(pagina);
+        alturaAcumulada[columnaElegida] += pagina.esVertical ? 1.8 : 1;
+        if (pagina.esVertical) verticalesPorColumna[columnaElegida] += 1;
     });
 
     return (
         <ContenedorProyectosUx>
             <ContenedorInferiorBtn />
 
-            <TxtGenerico size='16px' color='var(--AmarilloEspecial)' txt='(Da click para ir cada proyecto)' />
+            <TxtGenericoStyled size='16px' color='var(--AmarilloEspecial)'>
+                Da click en los proyectos con <IconoInlineInstruccion><FaEye /></IconoInlineInstruccion> para ir a ellos
+            </TxtGenericoStyled>
 
             <ContenedorGridProyectos>
                 {columnas.map((columna, columnaIndex) => (

@@ -29,15 +29,35 @@ const ImageContainer = styled.div`
   
 `;
 
-export const ImgPicture = ({ src, srcWebp = '', alt, index, hover, bg, zIndex, obPosition }) => {
-    
-    return src ? (
-        <ImageContainer index={index}  hover={hover} bg={bg} zIndex={zIndex} obPosition={obPosition} >
+export const ImgPicture = ({
+    src,
+    srcWebp = '',
+    alt,
+    index,
+    hover,
+    bg,
+    zIndex,
+    obPosition,
+    loading,
+    fetchPriority,
+}) => {
+    if (!src) return null;
+
+    const loadingMode = loading || (bg ? 'eager' : 'lazy');
+    const priority = fetchPriority || (bg ? 'high' : 'auto');
+
+    return (
+        <ImageContainer index={index} hover={hover} bg={bg} zIndex={zIndex} obPosition={obPosition}>
             <picture>
-                <source srcSet={`${srcWebp}`} type="image/webp" />
-                <source srcSet={`${src}`} type="image/jpeg" />
-                <img src={`${src}`} alt={alt} loading="lazy"/>
+                {srcWebp && <source srcSet={srcWebp} type="image/webp" />}
+                <img
+                    src={src}
+                    alt={alt}
+                    loading={loadingMode}
+                    decoding={bg ? 'sync' : 'async'}
+                    fetchPriority={priority}
+                />
             </picture>
         </ImageContainer>
-    ) : null;
+    );
 };

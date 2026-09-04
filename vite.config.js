@@ -6,7 +6,7 @@ export default defineConfig(({ command }) => ({
   plugins: [react()],
   base: command === 'build' ? '/PortafolioRamonCastillo/' : '/',
   server: {
-    port: 3000,
+    port: 3001,
     open: true
   }
 }))
