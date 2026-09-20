@@ -63,6 +63,8 @@ import MazatlanTuristasImg1 from '../../../Img/Pages/PgMazatlanTuristas_img1.png
 import MazatlanTuristasImg2 from '../../../Img/Pages/PgMazatlanTuristas_img2.png';
 import MazatlanTuristasImg1Webp from '../../../Img/Pages/PgMazatlanTuristas_img1.webp';
 import MazatlanTuristasImg2Webp from '../../../Img/Pages/PgMazatlanTuristas_img2.webp';
+import ExploreMaztoursImg from '../../../Img/Pages/exploremaztours.png';
+import ExploreMaztoursWebp from '../../../Img/Pages/exploremaztours.webp';
 import ExnocoachImg1 from '../../../Img/Pages/PgExnocoach_img1.png';
 import ExnocoachImg2 from '../../../Img/Pages/PgExnocoach_img2.png';
 import PromedixImg1 from '../../../Img/Pages/PgPromedix_img1.png';
@@ -89,7 +91,7 @@ export const Data = [
         imgWebp: PromedixImg1,
         img2Webp: PromedixImg2,
         tecnologias: ['wordpress'],
-        url: 'https://promedixmexico.com/'
+        propiedadDe: 'sitio random'
     },
     {
         nombre: 'Exnocoach',
@@ -99,7 +101,8 @@ export const Data = [
         imgWebp: ExnocoachImg1,
         img2Webp: ExnocoachImg2,
         tecnologias: ['nextjs', 'html', 'css', 'js'],
-        url: 'https://escueladeherederos.mx/'
+        url: 'https://escueladeherederos.mx/',
+        propiedadDe: 'sitio random'
     },
     {
         nombre: 'Grow to Go',
@@ -181,11 +184,11 @@ export const Data = [
     {
         nombre: 'Explore Mazatlán',
         descripcion: 'Plataforma turística integral diseñada para Explore Mazatlán (MazaTours). El sitio facilita la reserva de paquetes especiales, tours personalizados y servicios de transporte privado, ofreciendo una experiencia de usuario fluida para los visitantes que buscan explorar los puntos más emblemáticos de Mazatlán.',
-        img: MazatlanTuristasImg1,
-        img2: MazatlanTuristasImg2,
-        imgWebp: MazatlanTuristasImg1Webp,
-        img2Webp: MazatlanTuristasImg2Webp,
-        tecnologias: ['wordpress'],
+        img: ExploreMaztoursImg,
+        img2: ExploreMaztoursImg,
+        imgWebp: ExploreMaztoursWebp,
+        img2Webp: ExploreMaztoursWebp,
+        tecnologias: ['next', 'tailwind', 'css', 'html 5'],
         url: 'https://exploremaztours.com/'
     },
     {
@@ -196,7 +199,8 @@ export const Data = [
         imgWebp: SmileDepotImg1Webp,
         img2Webp: SmileDepotImg2Webp,
         tecnologias: ['shopify', 'css', 'js'],
-        url: 'https://smiledepot.mx/'
+        url: 'https://smiledepot.mx/',
+        propiedadDe: 'sitio random'
     },
     {
         nombre: 'Zaldo',

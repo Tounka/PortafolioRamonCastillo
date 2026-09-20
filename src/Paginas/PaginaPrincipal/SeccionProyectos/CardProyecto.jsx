@@ -3,7 +3,7 @@ import { ImgPicture } from "../../Img";
 import { TxtPrincipal, TxtGenerico } from "../../../ComponentesGenerales/TxtPrincipal";
 import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaPhp, FaGithub } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io';
-import { SiStyledcomponents } from 'react-icons/si';
+import { SiStyledcomponents, SiNextdotjs, SiTailwindcss } from 'react-icons/si';
 import { BiLogoPostgresql } from 'react-icons/bi';
 import { RiFirebaseFill, RiSupabaseFill } from 'react-icons/ri';
 
@@ -86,6 +86,8 @@ const ContenedorIcono = styled.div`
 `
 const tecnologiaMap = {
     html: { icon: <FaHtml5 />, bgColor: '#FC490B' ,color: 'white' },
+    html5: { icon: <FaHtml5 />, bgColor: '#FC490B' ,color: 'white' },
+    'html 5': { icon: <FaHtml5 />, bgColor: '#FC490B' ,color: 'white' },
     css: { icon: <FaCss3Alt />, bgColor: '#264DE4', color: 'white'},
     js: { icon: <IoLogoJavascript />, bgColor: '#F0DB4F' },
     react: { icon: <FaReact />, bgColor: '#262626', color: '#02DCFF' },
@@ -96,9 +98,15 @@ const tecnologiaMap = {
     firebase: { icon: <RiFirebaseFill />, bgColor: '#F58917' },
     supabase: { icon: <RiSupabaseFill />, bgColor: '#3ECF8E' },
     github: { icon: <FaGithub />, bgColor: '#4F5B93' },
+    nextjs: { icon: <SiNextdotjs />, bgColor: '#ffffff', color: '#000000' },
+    next: { icon: <SiNextdotjs />, bgColor: '#ffffff', color: '#000000' },
+    tailwind: { icon: <SiTailwindcss />, bgColor: '#06B6D4', color: 'white' },
+    tailwindcss: { icon: <SiTailwindcss />, bgColor: '#06B6D4', color: 'white' },
 };
 const Icono = ({tecnologia}) =>{
-    const { icon, bgColor, color } = tecnologiaMap[tecnologia] || {};
+    const key = typeof tecnologia === 'string' ? tecnologia.toLowerCase().trim() : tecnologia;
+    const { icon, bgColor, color } = tecnologiaMap[key] || tecnologiaMap[tecnologia] || {};
+    if (!icon) return null;
     return(
         <ContenedorIcono bgColor={bgColor} color={color}>
             {icon}

@@ -3,7 +3,7 @@ import { ImgPicture } from "../../Img";
 import { TxtPrincipal, TxtGenerico } from "../../../ComponentesGenerales/TxtPrincipal";
 import { FaHtml5, FaCss3Alt, FaReact, FaBootstrap, FaGithub, FaWordpress, FaShopify, FaElementor, FaEye } from 'react-icons/fa';
 import { IoLogoJavascript } from 'react-icons/io';
-import { SiStyledcomponents, SiWoocommerce, SiNextdotjs } from 'react-icons/si';
+import { SiStyledcomponents, SiWoocommerce, SiNextdotjs, SiTailwindcss } from 'react-icons/si';
 import { BiLogoPostgresql } from 'react-icons/bi';
 import { RiFirebaseFill, RiSupabaseFill } from 'react-icons/ri';
 import { TxtGenericoStyled } from "../../../ComponentesGenerales/TxtPrincipal";
@@ -14,6 +14,8 @@ import CSLPSalesLogo from '../../../nuevos-proyectos/pimages v2/cslp-sales-logo.
 
 const tecnologiaMap = {
     html: { icon: <FaHtml5 />, bgColor: '#FC490B', color: 'white' },
+    html5: { icon: <FaHtml5 />, bgColor: '#FC490B', color: 'white' },
+    'html 5': { icon: <FaHtml5 />, bgColor: '#FC490B', color: 'white' },
     css: { icon: <FaCss3Alt />, bgColor: '#264DE4', color: 'white' },
     js: { icon: <IoLogoJavascript />, bgColor: '#F0DB4F' },
     react: { icon: <FaReact />, bgColor: '#262626', color: '#02DCFF' },
@@ -28,9 +30,14 @@ const tecnologiaMap = {
     supabase: { icon: <RiSupabaseFill />, bgColor: '#3ECF8E' },
     github: { icon: <FaGithub />, bgColor: '#4F5B93' },
     nextjs: { icon: <SiNextdotjs />, bgColor: '#ffffff', color: '#000000' },
+    next: { icon: <SiNextdotjs />, bgColor: '#ffffff', color: '#000000' },
+    tailwind: { icon: <SiTailwindcss />, bgColor: '#06B6D4', color: 'white' },
+    tailwindcss: { icon: <SiTailwindcss />, bgColor: '#06B6D4', color: 'white' },
 };
 const Icono = ({ tecnologia }) => {
-    const { icon, bgColor, color } = tecnologiaMap[tecnologia] || {};
+    const key = typeof tecnologia === 'string' ? tecnologia.toLowerCase().trim() : tecnologia;
+    const { icon, bgColor, color } = tecnologiaMap[key] || tecnologiaMap[tecnologia] || {};
+    if (!icon) return null;
     return (
         <ContenedorIcono bgColor={bgColor} color={color}>
             {icon}
@@ -65,10 +72,12 @@ const ContenedorIcono = styled.div`
     padding: 4px;
 `
 const ContenedorIconos = styled.div`
-    width: 100%; 
+    position: relative;
+    z-index: 2;
+    width: 100%;
     display: flex;
-    overflow-x: auto; 
-    
+    overflow-x: auto;
+
 `;
 
 
@@ -132,13 +141,14 @@ const ContenedorTxtStyled = styled.div`
     &:hover{
         opacity: 1;
         transition: .2s;
-        
+
     }
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1;
 
     display: flex;
     flex-direction: column;
@@ -153,7 +163,7 @@ const LogoPropiedadStyled = styled.img`
     position: absolute;
     bottom: 10px;
     right: 10px;
-    height: 42px;
+    height: 38px;
     width: auto;
     object-fit: contain;
     z-index: 10;
@@ -191,6 +201,8 @@ const TxtCardProyecto = styled(TxtGenericoStyled)`
     text-align: center;
 `
 const ContenedorInternoTxt = styled.div`
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     gap: 8px;

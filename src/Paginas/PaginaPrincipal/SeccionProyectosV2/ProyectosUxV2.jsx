@@ -106,14 +106,19 @@ export const SeccionProyectosV2Ux = () => {
         'Registros UAdeO',
         'Mc Donald\'s',
         'Invitación de Boda',
+        'Promedix México',
     ].includes(pagina.nombre));
     const invitacion = DataProyectosAnteriores.find(
         (pagina) => pagina.nombre === 'Invitación de Boda'
+    );
+    const promedix = DataProyectosAnteriores.find(
+        (pagina) => pagina.nombre === 'Promedix México'
     );
     const Data = [
         ...proyectosAnteriores,
         ...DataProyectosNuevos,
         ...(invitacion ? [invitacion] : []),
+        ...(promedix ? [promedix] : []),
     ];
     const columnas = [[], [], []];
     const alturaAcumulada = [0, 0, 0];
