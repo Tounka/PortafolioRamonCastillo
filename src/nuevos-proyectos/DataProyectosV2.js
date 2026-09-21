@@ -14,7 +14,6 @@ const carpetasPorProyecto = {
     'EM General Contractor': 'em-general-contractor',
     'Rainy Time Roofing': 'rainy-time-roofing',
     'Pro-Mexas Painting Corp': 'pro-mexas-painting',
-    'Guzman Painting Inc.': 'guzman-painting',
     'Burrito Tile & Stone': 'burrito-tile-stone',
     'Procoat Drywall Inc.': 'procoat-drywall',
     'Avellaneda Construction': 'avellaneda-construction',

@@ -12,8 +12,6 @@ import rainytimeroofingincCelular from '../../../Img/Pages/Contratistas/rainytim
 import rainytimeroofinginc169 from '../../../Img/Pages/Contratistas/rainytimeroofinginc-169.jpg';
 import promexaspaintingCelular from '../../../Img/Pages/Contratistas/promexaspainting-celular.jpg';
 import promexaspainting169 from '../../../Img/Pages/Contratistas/promexaspainting-169.jpg';
-import guzmanpaintingincCelular from '../../../Img/Pages/Contratistas/guzmanpaintinginc-celular.jpg';
-import guzmanpaintinginc169 from '../../../Img/Pages/Contratistas/guzmanpaintinginc-169.jpg';
 import burritotileandstoneCelular from '../../../Img/Pages/Contratistas/burritotileandstone-celular.jpg';
 import burritotileandstone169 from '../../../Img/Pages/Contratistas/burritotileandstone-169.jpg';
 import procoatdrywallincCelular from '../../../Img/Pages/Contratistas/procoatdrywallinc-celular.jpg';
@@ -32,7 +30,6 @@ const imagenes = [
     [emgeneralcontractorCelular, emgeneralcontractor169],
     [rainytimeroofingincCelular, rainytimeroofinginc169],
     [promexaspaintingCelular, promexaspainting169],
-    [guzmanpaintingincCelular, guzmanpaintinginc169],
     [burritotileandstoneCelular, burritotileandstone169],
     [procoatdrywallincCelular, procoatdrywallinc169],
     [avellanedaconstructionCelular, avellanedaconstruction169],

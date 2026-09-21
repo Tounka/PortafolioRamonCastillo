@@ -36,12 +36,6 @@
     "tecnologias": ["wordpress", "elementor"]
   },
   {
-    "direccion": "https://guzmanpaintinginc.com",
-    "titulo": "Guzman Painting Inc.",
-    "descripcion": "Empresa familiar de pintura y recubrimiento de paredes en el Inland Empire desde 2003, con servicio personalizado y trabajo de calidad.",
-    "tecnologias": ["wordpress", "elementor"]
-  },
-  {
     "direccion": "https://burritotileandstone.com",
     "titulo": "Burrito Tile & Stone",
     "descripcion": "Contratistas profesionales de piso y piedra en Anaheim, California, especializados en instalaciones de azulejo, mármol y acabados de calidad.",
