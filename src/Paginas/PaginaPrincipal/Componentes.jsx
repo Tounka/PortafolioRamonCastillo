@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { ContextoGeneral } from "./ContextoGeneral";
 
 const ControladorDpad = styled.div`
-  --controlador-size: min(660px, 86vmin);
+  --controlador-size: min(460px, 44vw, 62vmin);
   --yellow: #fcb71c;
   --yellow-light: #ffe08a;
   --white: #fffaf0;
@@ -102,8 +102,12 @@ const ControladorDpad = styled.div`
     filter: none;
   }
 
-  @media (max-width: 480px) {
-    --controlador-size: min(560px, 100vw);
+  @media (max-width: 1024px) {
+    --controlador-size: min(370px, 44vw, 48vmin);
+  }
+
+  @media (max-width: 680px) {
+    --controlador-size: min(340px, 82vw, 42vh);
 
     .diamond-zone-label {
       font-size: 17px;

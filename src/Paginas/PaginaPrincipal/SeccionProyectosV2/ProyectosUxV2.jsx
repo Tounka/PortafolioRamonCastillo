@@ -114,11 +114,18 @@ export const SeccionProyectosV2Ux = () => {
     const promedix = DataProyectosAnteriores.find(
         (pagina) => pagina.nombre === 'Promedix México'
     );
+    const msLandscaping = DataProyectosNuevos.find(
+        (pagina) => pagina.nombre === 'MS Landscaping'
+    );
+    const proyectosNuevos = DataProyectosNuevos.map((pagina) =>
+        pagina.nombre === 'MS Landscaping' ? promedix : pagina
+    ).filter(Boolean);
+
     const Data = [
         ...proyectosAnteriores,
-        ...DataProyectosNuevos,
+        ...proyectosNuevos,
         ...(invitacion ? [invitacion] : []),
-        ...(promedix ? [promedix] : []),
+        ...(msLandscaping ? [msLandscaping] : []),
     ];
     const columnas = [[], [], []];
     const alturaAcumulada = [0, 0, 0];

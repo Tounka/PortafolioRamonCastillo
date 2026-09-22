@@ -10,6 +10,7 @@ const ContenedorSeccionPrincipal = styled(ContenedorPrincipal)`
   pointer-events: ${props => (props.activa ? "auto" : "none")};
   transition: opacity 0.6s ease;
   will-change: opacity;
+  overflow: hidden;
 
   &::before {
     content: "";
