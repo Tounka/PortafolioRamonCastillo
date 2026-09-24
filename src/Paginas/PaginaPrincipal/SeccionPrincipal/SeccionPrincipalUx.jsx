@@ -8,6 +8,7 @@ import retratoWebp from "../../../Img/ramonPizarra.webp";
 import FoldText from "../../../ComponentesGenerales/FoldText";
 import { useTextoRotativo } from "../../../hooks/useTextoRotativo";
 import ClickSpark from "../../../ComponentesGenerales/ClickSpark";
+import DitherVeil from "../../../ComponentesGenerales/DitherVeil";
 
 const ContenedorPrincipal = styled.div`
   --yellow: #fcb71c;
@@ -206,7 +207,7 @@ const BloqueRetrato = styled.figure`
   align-items: flex-end;
   justify-content: flex-start;
   padding-left: clamp(0px, 2vw, 24px);
-  pointer-events: none;
+  pointer-events: auto;
 
   &::before {
     content: "";
@@ -223,30 +224,24 @@ const BloqueRetrato = styled.figure`
       transparent 68%
     );
     filter: blur(8px);
+    pointer-events: none;
   }
 
-  picture {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    max-height: 100%;
-    min-height: 0;
-  }
-
-  img {
+  .dither-wrapper {
     position: relative;
     display: block;
-    max-height: min(82vh, 82dvh, 860px);
+    height: min(82vh, 82dvh, 860px);
+    aspect-ratio: 688 / 1100;
     width: auto;
     max-width: min(100%, 640px);
-    object-fit: contain;
-    object-position: bottom left;
     filter: drop-shadow(0 18px 38px rgba(0, 0, 0, .65));
+    pointer-events: auto;
+    touch-action: pan-y;
   }
 
   @media (min-width: 1600px) {
-    img {
-      max-height: min(84vh, 84dvh, 920px);
+    .dither-wrapper {
+      height: min(84vh, 84dvh, 920px);
       max-width: min(100%, 700px);
     }
   }
@@ -261,18 +256,10 @@ const BloqueRetrato = styled.figure`
       left: 60%;
     }
 
-    picture {
-      justify-content: flex-end;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    img {
-      max-height: min(84vh, 84dvh, 840px);
+    .dither-wrapper {
+      height: min(84vh, 84dvh, 840px);
       width: auto;
       max-width: none;
-      object-fit: contain;
-      object-position: bottom right;
       transform: translateX(12%);
       filter: drop-shadow(0 16px 32px rgba(0, 0, 0, .75));
     }
@@ -341,16 +328,22 @@ export const SeccionPrincipalUx = () => {
           </ColumnaIzquierda>
 
           <BloqueRetrato>
-            <picture>
-              <source srcSet={retratoWebp} type="image/webp" />
-              <img
-                src={retrato}
-                alt="Ramón Castillo con pizarra de Ingeniería en Software"
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
+            <div className="dither-wrapper">
+              <DitherVeil
+                src={retratoWebp || retrato}
+                fit="contain"
+                pattern="floyd"
+                pixelSize={2}
+                inkColor="#120f17"
+                paperColor="#f4f1ea"
+                revealRadius={200}
+                softness={0.6}
+                linger={1}
+                clickBurst={true}
+                reverse={true}
+                transparent={true}
               />
-            </picture>
+            </div>
           </BloqueRetrato>
         </Escenario>
       </ContenedorPrincipal>
