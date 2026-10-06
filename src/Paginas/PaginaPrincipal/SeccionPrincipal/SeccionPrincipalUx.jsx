@@ -7,7 +7,6 @@ import retrato from "../../../Img/ramonPizarra.png";
 import retratoWebp from "../../../Img/ramonPizarra.webp";
 import FoldText from "../../../ComponentesGenerales/FoldText";
 import { useTextoRotativo } from "../../../hooks/useTextoRotativo";
-import ClickSpark from "../../../ComponentesGenerales/ClickSpark";
 import DitherVeil from "../../../ComponentesGenerales/DitherVeil";
 
 const ContenedorPrincipal = styled.div`
@@ -280,73 +279,64 @@ export const SeccionPrincipalUx = () => {
   );
 
   return (
-    <ClickSpark
-      sparkColor="#fcb71c"
-      sparkSize={12}
-      sparkRadius={22}
-      sparkCount={8}
-      duration={420}
-      extraScale={1.1}
-    >
-      <ContenedorPrincipal>
-        <ImgPicture
-          src={img}
-          srcWebp={imgWebp}
-          bg={true}
-          alt="Imagen de fondo principal"
-        />
+    <ContenedorPrincipal>
+      <ImgPicture
+        src={img}
+        srcWebp={imgWebp}
+        bg={true}
+        alt="Imagen de fondo principal"
+      />
 
-        <Escenario>
-          <ColumnaIzquierda>
-            <ContenedorMenuYTitulo>
-              <BloqueTitulo>
-                <h1>
-                  <FoldText
-                    key={texto}
-                    text={texto}
-                    phase={fase}
-                    onExitComplete={alTerminarSalida}
-                    splitBy="char"
-                    hinge="top"
-                    trigger="mount"
-                    duration={0.65}
-                    stagger={0.045}
-                    ease="power3.out"
-                    perspective={700}
-                    creaseShading={0.55}
-                    fontSize="clamp(1.4rem, 4.8vw, 4.2rem)"
-                    fontWeight={400}
-                    color="#fffaf0"
-                  />
-                </h1>
-              </BloqueTitulo>
+      <Escenario>
+        <ColumnaIzquierda>
+          <ContenedorMenuYTitulo>
+            <BloqueTitulo>
+              <h1>
+                <FoldText
+                  key={texto}
+                  text={texto}
+                  phase={fase}
+                  onExitComplete={alTerminarSalida}
+                  splitBy="char"
+                  hinge="top"
+                  trigger="mount"
+                  duration={0.65}
+                  stagger={0.045}
+                  ease="power3.out"
+                  perspective={700}
+                  creaseShading={0.55}
+                  fontSize="clamp(1.4rem, 4.8vw, 4.2rem)"
+                  fontWeight={400}
+                  color="#fffaf0"
+                />
+              </h1>
+            </BloqueTitulo>
 
-              <BloqueMenu>
-                <CuadradoContenedor />
-              </BloqueMenu>
-            </ContenedorMenuYTitulo>
-          </ColumnaIzquierda>
+            <BloqueMenu>
+              <CuadradoContenedor />
+            </BloqueMenu>
+          </ContenedorMenuYTitulo>
+        </ColumnaIzquierda>
 
-          <BloqueRetrato>
-            <div className="dither-wrapper">
-              <DitherVeil
-                src={retratoWebp || retrato}
-                fit="contain"
-                pattern="floyd"
-                pixelSize={2}
-                inkColor="#120f17"
-                paperColor="#f4f1ea"
-                revealRadius={200}
-                softness={0.6}
-                linger={1}
-                clickBurst={true}
-                reverse={true}
-                transparent={true}
-              />
-            </div>
-          </BloqueRetrato>
-        </Escenario>
-      </ContenedorPrincipal>
-    </ClickSpark>
+        <BloqueRetrato>
+          <div className="dither-wrapper">
+            <DitherVeil
+              src={retratoWebp || retrato}
+              fit="contain"
+              pattern="floyd"
+              pixelSize={2}
+              inkColor="#120f17"
+              paperColor="#f4f1ea"
+              revealRadius={200}
+              softness={0.6}
+              linger={1}
+              clickBurst={true}
+              reverse={true}
+              transparent={true}
+            />
+          </div>
+        </BloqueRetrato>
+      </Escenario>
+    </ContenedorPrincipal>
   );
 };

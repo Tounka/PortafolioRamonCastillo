@@ -173,8 +173,10 @@ const DriftWall = ({
         <img
           src={item.image}
           alt=""
-          loading={copyIndex === 0 ? "eager" : "lazy"}
-          decoding="async"
+          // Las copias se mueven dentro del viewport con transform: con lazy
+          // sólo se piden al acercarse y la tarjeta aparece vacía un momento.
+          loading="eager"
+          decoding="sync"
           draggable={false}
         />
         <span className="drift-wall__overlay" aria-hidden="true" />

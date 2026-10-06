@@ -70,6 +70,8 @@ import ExnocoachImg2 from '../../../Img/Pages/PgExnocoach_img2.png';
 import PromedixImg1 from '../../../Img/Pages/PgPromedix_img1.png';
 import PromedixImg2 from '../../../Img/Pages/PgPromedix_img2.png';
 import TraalmaImg1 from '../../../Img/Pages/PgTraalma_img1.png';
+import CimaCoachingImg from '../../../Img/Pages/PgCimaCoaching.webp';
+import MtcMaqImg from '../../../Img/Pages/PgMtcMaq.webp';
 
 
 
@@ -190,6 +192,26 @@ export const Data = [
         img2Webp: ExploreMaztoursWebp,
         tecnologias: ['next', 'tailwind', 'css', 'html 5'],
         url: 'https://exploremaztours.com/'
+    },
+    {
+        nombre: 'CIMA Coaching',
+        descripcion: 'Sitio web para CIMA Coaching, firma de coaching empresarial y personal. Presenta sus servicios para personas, equipos y empresas, el catálogo de talleres y los próximos cursos con inscripción en línea y contacto directo por WhatsApp.',
+        img: CimaCoachingImg,
+        img2: CimaCoachingImg,
+        imgWebp: CimaCoachingImg,
+        img2Webp: CimaCoachingImg,
+        tecnologias: ['nextjs', 'react', 'js'],
+        url: 'https://cimacoaching.com/'
+    },
+    {
+        nombre: 'MTC MAQ',
+        descripcion: 'Sitio para MTC MAQ, distribuidor de maquinaria de pavimentación y compactación. Incluye un inventario consultable por unidad con fotos y detalles, secciones separadas de renta y venta de equipo nuevo y usado, y cotización a un clic desde cada ficha.',
+        img: MtcMaqImg,
+        img2: MtcMaqImg,
+        imgWebp: MtcMaqImg,
+        img2Webp: MtcMaqImg,
+        tecnologias: ['nextjs', 'react', 'js'],
+        url: 'https://mtcmaq.com/'
     },
     {
         nombre: 'Smile Depot',

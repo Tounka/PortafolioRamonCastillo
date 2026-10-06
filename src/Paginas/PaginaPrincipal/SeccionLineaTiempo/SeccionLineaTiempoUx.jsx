@@ -85,11 +85,11 @@ const ContenedorItemLineaDeTiempoStyled = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 300px;
+  width: 360px;
   height: 40px;
 
   @media (max-width : 400px) {
-      width: 250px;
+      width: 280px;
   }
 `
 
@@ -104,8 +104,8 @@ const WrapContenido = styled.div`
 `
 
 const ContenedorImg = styled.div`
-  height: 250px;
   width: 100%;
+  aspect-ratio: 16 / 10;
   position: relative;
   display: flex;
   flex-direction: column;

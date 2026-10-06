@@ -11,6 +11,8 @@ import imgPracticas from "../../Img/TimeLine/imgPracticas.png";
 import imgPracticasWebp from "../../Img/TimeLine/imgPracticas.webp";
 import imgSitioRandom from "../../Img/TimeLine/sitioRandom.jpg";
 import imgSitioRandomWebp from "../../Img/TimeLine/sitioRandom.webp";
+import imgFreelance from "../../Img/TimeLine/freelance.jpg";
+import imgFreelanceWebp from "../../Img/TimeLine/freelance.webp";
 
 const ContextoGeneral = createContext();
 
@@ -52,6 +54,13 @@ const ContextoProviderGeneral = ({ children }) => {
       descripcion: "(Agosto 2025 / Agosto 2026) Me desempeño como desarrollador Full Stack en Sitio Random, donde diseño y desarrollo soluciones web escalables utilizando Next.js, contribuyendo a la creación de aplicaciones modernas, eficientes y orientadas al crecimiento del negocio.",
       img: imgSitioRandom,
       imgWebp: imgSitioRandomWebp
+    },
+    {
+      titulo: "Freelance",
+      fecha: "2026",
+      descripcion: "(Actualidad) Desarrollo proyectos de forma independiente para negocios de distintos sectores: sitios de servicios y cursos como CIMA Coaching, catálogos de inventario como MTC MAQ, plataformas de reservas como Explore Mazatlán y sistemas internos como el ERP de Traalma.",
+      img: imgFreelance,
+      imgWebp: imgFreelanceWebp
     },
   ];
   const [navegarASeccion, setNavegarASeccion] = useState(null)

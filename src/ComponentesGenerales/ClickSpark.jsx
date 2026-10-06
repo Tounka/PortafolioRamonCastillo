@@ -1,5 +1,14 @@
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect } from 'react';
 
+const easings = {
+  linear: t => t,
+  'ease-in': t => t * t,
+  'ease-in-out': t => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t),
+  'ease-out': t => t * (2 - t)
+};
+
+// Capa global: un canvas fijo sobre toda la ventana que dibuja chispas en cada click,
+// sin importar la sección o el modal donde ocurra.
 const ClickSpark = ({
   sparkColor = '#fcb71c',
   sparkSize = 10,
@@ -11,151 +20,98 @@ const ClickSpark = ({
   children
 }) => {
   const canvasRef = useRef(null);
-  const sparksRef = useRef([]);
-  const startTimeRef = useRef(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const parent = canvas.parentElement;
-    if (!parent) return;
-
-    let resizeTimeout;
-
-    const resizeCanvas = () => {
-      const { width, height } = parent.getBoundingClientRect();
-      if (canvas.width !== width || canvas.height !== height) {
-        canvas.width = width;
-        canvas.height = height;
-      }
-    };
-
-    const handleResize = () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(resizeCanvas, 100);
-    };
-
-    const ro = new ResizeObserver(handleResize);
-    ro.observe(parent);
-
-    resizeCanvas();
-
-    return () => {
-      ro.disconnect();
-      clearTimeout(resizeTimeout);
-    };
-  }, []);
-
-  const easeFunc = useCallback(
-    t => {
-      switch (easing) {
-        case 'linear':
-          return t;
-        case 'ease-in':
-          return t * t;
-        case 'ease-in-out':
-          return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-        default:
-          return t * (2 - t);
-      }
-    },
-    [easing]
-  );
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
+    const easeFunc = easings[easing] || easings['ease-out'];
 
-    let animationId;
+    let sparks = [];
+    let animationId = null;
+
+    const resizeCanvas = () => {
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.round(window.innerWidth * dpr);
+      canvas.height = Math.round(window.innerHeight * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
 
     const draw = timestamp => {
-      if (!startTimeRef.current) {
-        startTimeRef.current = timestamp;
-      }
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
-      sparksRef.current = sparksRef.current.filter(spark => {
+      sparks = sparks.filter(spark => {
         const elapsed = timestamp - spark.startTime;
-        if (elapsed >= duration) {
-          return false;
-        }
+        if (elapsed >= duration) return false;
 
-        const progress = elapsed / duration;
-        const eased = easeFunc(progress);
-
+        const eased = easeFunc(Math.max(0, elapsed) / duration);
         const distance = eased * sparkRadius * extraScale;
         const lineLength = sparkSize * (1 - eased);
 
-        const x1 = spark.x + distance * Math.cos(spark.angle);
-        const y1 = spark.y + distance * Math.sin(spark.angle);
-        const x2 = spark.x + (distance + lineLength) * Math.cos(spark.angle);
-        const y2 = spark.y + (distance + lineLength) * Math.sin(spark.angle);
+        const cos = Math.cos(spark.angle);
+        const sin = Math.sin(spark.angle);
 
         ctx.strokeStyle = sparkColor;
         ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.lineTo(x2, y2);
+        ctx.moveTo(spark.x + distance * cos, spark.y + distance * sin);
+        ctx.lineTo(spark.x + (distance + lineLength) * cos, spark.y + (distance + lineLength) * sin);
         ctx.stroke();
 
         return true;
       });
 
-      animationId = requestAnimationFrame(draw);
+      // Solo se anima mientras haya chispas vivas
+      animationId = sparks.length ? requestAnimationFrame(draw) : null;
     };
 
-    animationId = requestAnimationFrame(draw);
+    const handleClick = e => {
+      // Los clicks generados por teclado llegan con coordenadas 0,0
+      if (e.detail === 0) return;
+
+      const now = performance.now();
+      for (let i = 0; i < sparkCount; i++) {
+        sparks.push({
+          x: e.clientX,
+          y: e.clientY,
+          angle: (2 * Math.PI * i) / sparkCount,
+          startTime: now
+        });
+      }
+
+      if (animationId === null) animationId = requestAnimationFrame(draw);
+    };
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    // Fase de captura para que un stopPropagation en algún componente no bloquee el efecto
+    window.addEventListener('click', handleClick, true);
 
     return () => {
-      cancelAnimationFrame(animationId);
+      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('click', handleClick, true);
+      if (animationId !== null) cancelAnimationFrame(animationId);
     };
-  }, [sparkColor, sparkSize, sparkRadius, sparkCount, duration, easeFunc, extraScale]);
-
-  const handleClick = e => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const now = performance.now();
-    const newSparks = Array.from({ length: sparkCount }, (_, i) => ({
-      x,
-      y,
-      angle: (2 * Math.PI * i) / sparkCount,
-      startTime: now
-    }));
-
-    sparksRef.current.push(...newSparks);
-  };
+  }, [sparkColor, sparkSize, sparkRadius, sparkCount, duration, easing, extraScale]);
 
   return (
-    <div
-      style={{
-        position: 'relative',
-        width: '100%',
-        height: '100%'
-      }}
-      onClick={handleClick}
-    >
+    <>
       <canvas
         ref={canvasRef}
+        aria-hidden="true"
         style={{
-          width: '100%',
-          height: '100%',
+          position: 'fixed',
+          inset: 0,
+          width: '100vw',
+          height: '100vh',
           display: 'block',
           userSelect: 'none',
-          position: 'absolute',
-          top: 0,
-          left: 0,
           pointerEvents: 'none',
-          zIndex: 25
+          zIndex: 9999
         }}
       />
       {children}
-    </div>
+    </>
   );
 };
 
