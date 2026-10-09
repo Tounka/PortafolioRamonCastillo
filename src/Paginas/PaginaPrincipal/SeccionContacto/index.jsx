@@ -18,13 +18,14 @@ const ContenedorContacto = styled(ContenedorGenerico)`
 
 export const SeccionContacto = () => {
     const { seccionSeleccionada } = useContext(ContextoGeneral)
+    const activa = ["Contacto", "contacto"].includes(seccionSeleccionada)
 
     return (
         <ContenedorContacto
             id="Contacto"
-            activa={["Contacto", "contacto"].includes(seccionSeleccionada)}
+            activa={activa}
         >
-            <PaginaContactoUx />
+            <PaginaContactoUx activa={activa} />
         </ContenedorContacto>
     )
 }

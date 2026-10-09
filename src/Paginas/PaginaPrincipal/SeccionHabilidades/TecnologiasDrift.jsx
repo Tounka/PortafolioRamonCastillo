@@ -121,9 +121,26 @@ const varianteElemento = {
   visible: { opacity: 1, y: 0, transition: resorte }
 };
 
+// Cada tarjeta de categoría llega desde la derecha desenfocada y luego reparte sus logos.
+const varianteCategoria = {
+  oculto: { opacity: 0, x: 56, filter: "blur(8px)" },
+  visible: {
+    opacity: 1,
+    x: 0,
+    filter: "blur(0px)",
+    transition: { ...resorte, staggerChildren: 0.055, delayChildren: 0.18 }
+  }
+};
+
+// El separador amarillo crece desde el centro; sirve igual en vertical que en horizontal.
+const varianteSeparador = {
+  oculto: { scale: 0, opacity: 0 },
+  visible: { scale: 1, opacity: 1, transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] } }
+};
+
 const varianteLogo = {
-  oculto: { opacity: 0, y: 14, scale: 0.8 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: resorte }
+  oculto: { opacity: 0, y: 18, scale: 0.3, rotate: -25 },
+  visible: { opacity: 1, y: 0, scale: 1, rotate: 0, transition: { type: "spring", stiffness: 420, damping: 17 } }
 };
 
 // La tarjeta entra por un lado y sale por el otro según la dirección del cambio.
@@ -148,8 +165,9 @@ const IconoTecnologia = ({ tecnologia }) => {
 };
 
 const LogoTecnologia = ({ tecnologia, seleccionada, onSeleccionar }) => (
-  <motion.li variants={varianteLogo}>
-    <button
+  <li>
+    <motion.button
+      variants={varianteLogo}
       type="button"
       className={`tecnologias-drift__tech${seleccionada ? " is-seleccionada" : ""}`}
       aria-pressed={seleccionada}
@@ -167,8 +185,8 @@ const LogoTecnologia = ({ tecnologia, seleccionada, onSeleccionar }) => (
         )}
       </span>
       <span className="tecnologias-drift__tech-nombre">{tecnologia.title}</span>
-    </button>
-  </motion.li>
+    </motion.button>
+  </li>
 );
 
 const CarruselTecnologias = ({ indice, direccion, enMarcha, onCambiar, onPausar }) => {
@@ -334,7 +352,8 @@ export const TecnologiasDrift = () => {
             key={categoria.id}
             className="tecnologias-drift__categoria"
             style={{ "--color-categoria": categoria.color }}
-            variants={{ oculto: {}, visible: { transition: { staggerChildren: 0.05 } } }}
+            variants={varianteCategoria}
+            whileHover={{ x: 6, transition: { type: "spring", stiffness: 400, damping: 22 } }}
           >
             <motion.div className="tecnologias-drift__categoria-info" variants={varianteElemento}>
               <h3 className="tecnologias-drift__categoria-nombre">
@@ -343,6 +362,8 @@ export const TecnologiasDrift = () => {
               </h3>
               <p className="tecnologias-drift__categoria-descripcion">{categoria.descripcion}</p>
             </motion.div>
+
+            <motion.span className="tecnologias-drift__separador" aria-hidden="true" variants={varianteSeparador} />
 
             <ul className="tecnologias-drift__techs">
               {categoria.tecnologias.map(tecnologia => (
