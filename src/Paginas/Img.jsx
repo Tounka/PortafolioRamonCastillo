@@ -55,7 +55,7 @@ export const ImgPicture = ({
                     alt={alt}
                     loading={loadingMode}
                     decoding={bg ? 'sync' : 'async'}
-                    fetchPriority={priority}
+                    fetchpriority={priority}
                 />
             </picture>
         </ImageContainer>

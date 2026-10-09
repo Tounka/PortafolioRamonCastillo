@@ -31,14 +31,8 @@ const ContenedoroIcono = styled.div`
 `;
 
 const ContenedorInferiorBtn = () => {
-    const { setSeccionSeleccionada } = useContext(ContextoGeneral)
-    const handleClick = () => {
-        const element = document.getElementById('main');
-        setSeccionSeleccionada("main")
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
-        }
-    };
+    const { irASeccion } = useContext(ContextoGeneral);
+    const handleClick = () => irASeccion("main");
     return (
         <ContenedorInferiorBtnStyled onClick={handleClick}>
             <ContenedoroIcono>

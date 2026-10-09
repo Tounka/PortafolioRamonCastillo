@@ -1,7 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { TxtPrincipalStyled } from "../../../ComponentesGenerales/TxtPrincipal";
 import { ImgPicture } from "../../Img";
-import ReactDOM from 'react-dom';
 import { ModalContext } from "./ContextoModal";
 import { useContext, useEffect, useState } from "react";
 import { ContextoGeneral } from "../ContextoGeneral";

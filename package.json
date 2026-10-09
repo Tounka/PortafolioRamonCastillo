@@ -4,20 +4,15 @@
   "private": true,
   "homepage": "https://tounka.github.io/PortafolioRamonCastillo",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@emotion/is-prop-valid": "^1.4.0",
     "clipboard-copy": "^4.0.1",
-    "framer-motion": "^12.23.24",
+    "framer-motion": "^12.43.0",
     "gsap": "^3.15.0",
     "ogl": "^1.0.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",
-    "react-scroll": "^1.9.3",
-    "smooth-scroll": "^16.1.3",
-    "styled-components": "^6.1.11",
-    "web-vitals": "^2.1.4"
+    "styled-components": "^6.1.11"
   },
   "scripts": {
     "start": "vite",
@@ -25,24 +20,6 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist --repo https://github.com/tounka/PortafolioRamonCastillo.git"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.1.4",

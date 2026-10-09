@@ -1,68 +1,48 @@
-
 import GrowToGoImg1 from '../../../Img/Pages/PgGrowToGo_img1.png';
 import GrowToGoImg2 from '../../../Img/Pages/PgGrowToGo_img2.png';
 import GavaImg1 from '../../../Img/Pages/PgGava_img1.png';
 import GavaImg2 from '../../../Img/Pages/PgGava_img2.png';
 import SmileDepotImg1 from '../../../Img/Pages/PgSmileDepot_img1.png';
 import SmileDepotImg2 from '../../../Img/Pages/PgSmileDepot_img2.png';
-import SmileDepotImg1Webp from '../../../Img/Pages/PgSmileDepot_img2.webp';
-import SmileDepotImg2Webp from '../../../Img/Pages/PgSmileDepot_img1.webp';
+import SmileDepotImg1Webp from '../../../Img/Pages/PgSmileDepot_img1.webp';
+import SmileDepotImg2Webp from '../../../Img/Pages/PgSmileDepot_img2.webp';
 
-import AtgImg from '../../../Img/Pages/ATG.png';
-import AtgImgWebp from '../../../Img/Pages/ATG.webp';
 import AtgCelular from '../../../Img/Pages/AtgCelular.png';
 import AtgCuadrado from '../../../Img/Pages/AtgCuadrado.png';
 
-import WopImg from '../../../Img/Pages/Wop.png';
-import WopImgWebp from '../../../Img/Pages/Wop.webp';
 import WopImgCelular from '../../../Img/Pages/WopCelular.png';
 import WopCuadrado from '../../../Img/Pages/WopCuadrado.png';
 
-import FiscalizaTImg from '../../../Img/Pages/fiscalizaT.png';
 import FiscalizaTImgCelular from '../../../Img/Pages/fiscalizaTCelular.png';
-import FiscalizaTImgWebp from '../../../Img/Pages/fiscalizaT.webp';
 import FiscalizaTCuadrado from '../../../Img/Pages/fiscalizaTCuadrado.png';
 import InncilabCelular from '../../../Img/Pages/innciLabCelular.png';
 import InnciLab from '../../../Img/Pages/innciLab.png';
 
 import McImg1 from '../../../Img/Pages/PgMc_img1.png';
 import McImg2 from '../../../Img/Pages/PgMc_img2.png';
-
-
-import UadeoImg1 from '../../../Img/Pages/PgUadeo_img1.png';
-import UadeoImg2 from '../../../Img/Pages/PgUadeo_img2.png';
-
-import BodaImg1 from '../../../Img/Pages/PgBoda_img1.jpeg'
-import BodaImg2 from '../../../Img/Pages/PgBoda_img2.jpeg'
-import PosWebImg1 from '../../../Img/Pages/PgPosWeb_img1.png'
-import PosWebImg2 from '../../../Img/Pages/PgPosWeb_img2.png'
-import SolucionesInnciImg1 from '../../../Img/Pages/SolucionesInnciImg1.png'
-import SolucionesInnciImg2 from '../../../Img/Pages/SolucionesInnciImg2.png'
-import ZaldoImg1 from '../../../Img/Pages/PgZaldoImg.jpg'
-import ZaldoImg2 from '../../../Img/Pages/PgZaldoImg2.jpg'
-
-
-
-import ZaldoImg1webp from '../../../Img/Pages/PgZaldoImg.webp'
-import ZaldoImg2webp from '../../../Img/Pages/PgZaldoImg2.webp'
 import McImg1webp from '../../../Img/Pages/PgMc_img1.webp';
 import McImg2webp from '../../../Img/Pages/PgMc_img2.webp';
 
-import TarjetasImg1webp from '../../../Img/Pages/PgTarjetas_img1.webp';
-import TarjetasImg2webp from '../../../Img/Pages/PgTarjetas_img2.webp';
+import UadeoImg1 from '../../../Img/Pages/PgUadeo_img1.png';
+import UadeoImg2 from '../../../Img/Pages/PgUadeo_img2.png';
 import UadeoImg1webp from '../../../Img/Pages/PgUadeo_img1.webp';
 import UadeoImg2webp from '../../../Img/Pages/PgUadeo_img2.webp';
 
-import BodaImg1Webp from '../../../Img/Pages/PgBoda_img1.webp'
-import BodaImg2Webp from '../../../Img/Pages/PgBoda_img2.webp'
-import PosWebImg1Webp from '../../../Img/Pages/PgPosWeb_img1.webp'
-import PosWebImg2Webp from '../../../Img/Pages/PgPosWeb_img2.webp'
-import SolucionesInnciImg1Webp from '../../../Img/Pages/SolucionesInnciImg1.webp'
-import SolucionesInnciImg2Webp from '../../../Img/Pages/SolucionesInnciImg2.webp'
-import MazatlanTuristasImg1 from '../../../Img/Pages/PgMazatlanTuristas_img1.png';
-import MazatlanTuristasImg2 from '../../../Img/Pages/PgMazatlanTuristas_img2.png';
-import MazatlanTuristasImg1Webp from '../../../Img/Pages/PgMazatlanTuristas_img1.webp';
-import MazatlanTuristasImg2Webp from '../../../Img/Pages/PgMazatlanTuristas_img2.webp';
+import BodaImg1 from '../../../Img/Pages/PgBoda_img1.jpeg';
+import BodaImg2 from '../../../Img/Pages/PgBoda_img2.jpeg';
+import BodaImg1Webp from '../../../Img/Pages/PgBoda_img1.webp';
+import BodaImg2Webp from '../../../Img/Pages/PgBoda_img2.webp';
+
+import SolucionesInnciImg1 from '../../../Img/Pages/SolucionesInnciImg1.png';
+import SolucionesInnciImg2 from '../../../Img/Pages/SolucionesInnciImg2.png';
+import SolucionesInnciImg1Webp from '../../../Img/Pages/SolucionesInnciImg1.webp';
+import SolucionesInnciImg2Webp from '../../../Img/Pages/SolucionesInnciImg2.webp';
+
+import ZaldoImg1 from '../../../Img/Pages/PgZaldoImg.jpg';
+import ZaldoImg2 from '../../../Img/Pages/PgZaldoImg2.jpg';
+import ZaldoImg1webp from '../../../Img/Pages/PgZaldoImg.webp';
+import ZaldoImg2webp from '../../../Img/Pages/PgZaldoImg2.webp';
+
 import ExploreMaztoursImg from '../../../Img/Pages/exploremaztours.png';
 import ExploreMaztoursWebp from '../../../Img/Pages/exploremaztours.webp';
 import ExnocoachImg1 from '../../../Img/Pages/PgExnocoach_img1.png';
@@ -72,8 +52,6 @@ import PromedixImg2 from '../../../Img/Pages/PgPromedix_img2.png';
 import TraalmaImg1 from '../../../Img/Pages/PgTraalma_img1.png';
 import CimaCoachingImg from '../../../Img/Pages/PgCimaCoaching.webp';
 import MtcMaqImg from '../../../Img/Pages/PgMtcMaq.webp';
-
-
 
 export const Data = [
     {
@@ -118,7 +96,6 @@ export const Data = [
         propiedadDe: 'sitio random'
     },
 
-
     {
         nombre: 'ATG',
         descripcion: 'Desarrollé el sitio web corporativo para ATG en colaboración con Sitio Random, una empresa mexicana especializada en soportería y canalización eléctrica. ',
@@ -156,8 +133,6 @@ export const Data = [
         propiedadDe: 'sitio random',
         esVertical: true
     },
-
-
 
     {
         nombre: 'WOP',
@@ -227,14 +202,13 @@ export const Data = [
     {
         nombre: 'Zaldo',
         descripcion: 'Aplicación web para gestión financiera personal. Permite administrar múltiples cuentas, visualizar el histórico de movimientos e interpretar métricas mensuales de gastos e ingresos de forma centralizada.',
+        img: ZaldoImg1,
         img2: ZaldoImg2,
         imgWebp: ZaldoImg1webp,
         img2Webp: ZaldoImg2webp,
         tecnologias: ['html', 'css', 'js', 'react', "firebase"],
         url: 'https://zaldo-desarrollo.netlify.app/'
     },
-
-
 
     {
         nombre: 'Invitación de Boda',
@@ -246,8 +220,6 @@ export const Data = [
         tecnologias: ['html', 'css', 'js', 'react'],
         url: 'https://te-invito-a-mi-evento.netlify.app/'
     },
-
-
 
     {
         nombre: 'Mc Donald\'s',

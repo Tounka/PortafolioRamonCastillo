@@ -349,7 +349,7 @@ const Control = ({ listaData }) => {
 }
 
 export const SeccionLineaDeTiempoUx = ({ boolSlider }) => {
-  const { setBoolSlider, Datos, posicionTimeline, setPosicionTimeline, seccionSeleccionada, setSeccionSeleccionada } = useContext(ContextoGeneral);
+  const { Datos, posicionTimeline, setPosicionTimeline, seccionSeleccionada, irASeccion } = useContext(ContextoGeneral);
   const carrilRef = useRef(null);
   const destinoScrollRef = useRef(0);
   const listaData = ['punto0', ...Datos.map((_, index) => `punto${index + 1}`), `punto${Datos.length + 1}`];
@@ -544,16 +544,7 @@ export const SeccionLineaDeTiempoUx = ({ boolSlider }) => {
     };
   }, [setPosicionTimeline]);
 
-  const handleClick = () => {
-
-    const element = document.getElementById('main');
-    setSeccionSeleccionada("main")
-    if (element) {
-
-      element.scrollIntoView({ behavior: 'smooth' });
-      setBoolSlider(false);
-    }
-  }
+  const handleClick = () => irASeccion("main");
   return (
     <ContenedorLineaTiempo ref={carrilRef} data-scroll-interno>
 

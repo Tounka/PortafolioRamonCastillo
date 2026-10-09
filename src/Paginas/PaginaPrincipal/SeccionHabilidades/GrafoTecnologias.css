@@ -1,0 +1,232 @@
+.grafo-tecnologias {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.06) 1px, transparent 0) 0 0 / 26px 26px,
+    #050505;
+  touch-action: none;
+  user-select: none;
+}
+
+.grafo-tecnologias__halo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: clamp(220px, 34vw, 420px);
+  height: clamp(220px, 34vw, 420px);
+  margin: calc(clamp(220px, 34vw, 420px) / -2) 0 0 calc(clamp(220px, 34vw, 420px) / -2);
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--gt-color) 14%, transparent) 0%, transparent 65%);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.grafo-tecnologias__enlaces {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.grafo-tecnologias__enlace {
+  stroke: rgba(255, 255, 255, 0.18);
+  stroke-width: 1;
+  transition: stroke 0.25s ease, stroke-width 0.25s ease, opacity 0.25s ease;
+}
+
+.grafo-tecnologias__enlace--isla {
+  stroke: color-mix(in srgb, var(--gt-color) 35%, transparent);
+}
+
+.grafo-tecnologias__enlace--puente {
+  stroke: rgba(255, 255, 255, 0.09);
+  stroke-dasharray: 3 5;
+}
+
+.grafo-tecnologias--enfocado .grafo-tecnologias__enlace {
+  opacity: 0.25;
+}
+
+.grafo-tecnologias--enfocado .grafo-tecnologias__enlace.is-encendido {
+  opacity: 1;
+  stroke: var(--gt-color);
+  stroke-width: 1.6;
+}
+
+.grafo-tecnologias__nodo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 0;
+  height: 0;
+  cursor: grab;
+  touch-action: none;
+  will-change: transform;
+  transition: opacity 0.25s ease;
+}
+
+.grafo-tecnologias__nodo:active {
+  cursor: grabbing;
+}
+
+.grafo-tecnologias__nodo.is-atenuado {
+  opacity: 0.22;
+}
+
+.grafo-tecnologias__nodo.is-activo {
+  z-index: 3;
+}
+
+.grafo-tecnologias__burbuja {
+  position: absolute;
+  top: calc(var(--gt-radio) * -1);
+  left: calc(var(--gt-radio) * -1);
+  display: grid;
+  place-items: center;
+  width: calc(var(--gt-radio) * 2);
+  height: calc(var(--gt-radio) * 2);
+  box-sizing: border-box;
+  border: 1.5px solid color-mix(in srgb, var(--gt-color) 55%, transparent);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #222, #0d0d0d 70%);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.6), 0 0 18px color-mix(in srgb, var(--gt-color) 18%, transparent);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.grafo-tecnologias__burbuja img {
+  display: block;
+  width: 58%;
+  height: 58%;
+  object-fit: contain;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+.grafo-tecnologias__nodo.is-activo .grafo-tecnologias__burbuja {
+  border-color: var(--gt-color);
+  transform: scale(1.18);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.6), 0 0 30px color-mix(in srgb, var(--gt-color) 50%, transparent);
+}
+
+.grafo-tecnologias__etiqueta {
+  position: absolute;
+  top: calc(var(--gt-radio) + 6px);
+  color: rgba(255, 255, 255, 0.72);
+  font-family: "Baloo 2", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  left: 0;
+  pointer-events: none;
+}
+
+.grafo-tecnologias__nodo.is-activo .grafo-tecnologias__etiqueta {
+  color: #fff;
+}
+
+.grafo-tecnologias__punto {
+  position: absolute;
+  top: -7px;
+  left: -7px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gt-color);
+  box-shadow: 0 0 16px var(--gt-color);
+  transition: transform 0.25s ease;
+}
+
+.grafo-tecnologias__nodo--isla .grafo-tecnologias__etiqueta {
+  top: 13px;
+  color: var(--gt-color);
+  font-family: "Paytone One", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.grafo-tecnologias__nodo--isla.is-activo .grafo-tecnologias__punto {
+  transform: scale(1.4);
+}
+
+.grafo-tecnologias__ficha {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  z-index: 4;
+  max-width: min(320px, calc(100% - 32px));
+  padding: 12px 14px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: rgba(10, 10, 12, 0.82);
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+.grafo-tecnologias__ficha-isla {
+  display: block;
+  margin-bottom: 2px;
+  font-family: "Baloo 2", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.grafo-tecnologias__ficha strong {
+  display: block;
+  color: #fff7db;
+  font-family: "Paytone One", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.grafo-tecnologias__ficha p {
+  margin: 4px 0 0;
+  color: rgba(255, 247, 219, 0.75);
+  font-family: "Baloo 2", sans-serif;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.grafo-tecnologias__ficha p.grafo-tecnologias__pista {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 640px) {
+  .grafo-tecnologias__etiqueta {
+    font-size: 10px;
+  }
+
+  .grafo-tecnologias__nodo--isla .grafo-tecnologias__etiqueta {
+    font-size: 11px;
+  }
+
+  .grafo-tecnologias__ficha {
+    right: 112px;
+    max-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .grafo-tecnologias__burbuja,
+  .grafo-tecnologias__nodo,
+  .grafo-tecnologias__enlace {
+    transition: none;
+  }
+}

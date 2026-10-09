@@ -1,4 +1,11 @@
-import { useCallback, useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
+import {
+  useCallback,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import styled from "styled-components";
 import { ContextoGeneral } from "./ContextoGeneral";
 import { SeccionContacto } from "./SeccionContacto";
@@ -8,7 +15,14 @@ import { SeccionLineaDeTiempo } from "./SeccionLineaTiempo";
 import { SeccionProyectosV2 } from "./SeccionProyectosV2";
 
 const DURACION_TRANSICION = 760;
-const DURACION_REDUCIDA = 180;
+
+const ZONAS = [
+  { zona: "contacto", etiqueta: "Contacto", Seccion: SeccionContacto },
+  { zona: "tecnologias", etiqueta: "Tecnologías", Seccion: SeccionHabilidades },
+  { zona: "main", etiqueta: "Inicio", Seccion: SeccionPrincipal },
+  { zona: "timeline", etiqueta: "Mi historia", Seccion: SeccionLineaDeTiempo },
+  { zona: "proyectos", etiqueta: "Proyectos", Seccion: SeccionProyectosV2 },
+];
 
 const MAPA_SECCIONES = {
   contacto: { columna: 1, fila: 0 },
@@ -31,23 +45,16 @@ const DESTINOS_TECLADO = {
   proyectos: { ArrowUp: "main" },
 };
 
-const ALIAS_SECCIONES = {
-  centro: "main",
-  contacto: "contacto",
-  tecnologias: "tecnologias",
-  timeline: "timeline",
-  proyectos: "proyectos",
-  main: "main",
-};
-
 const normalizarSeccion = (seccion) => {
   const valor = String(seccion || "main").trim().toLowerCase();
-  return ALIAS_SECCIONES[valor] || "main";
+  return MAPA_SECCIONES[valor] ? valor : "main";
 };
+
+const seccionParaVista = (seccion) =>
+  normalizarSeccion(seccion) === "contacto" ? "Contacto" : normalizarSeccion(seccion);
 
 const seccionDesdeHash = () => {
   if (typeof window === "undefined") return "main";
-
   return normalizarSeccion(
     decodeURIComponent(window.location.hash.replace(/^#/, "")),
   );
@@ -55,32 +62,10 @@ const seccionDesdeHash = () => {
 
 const destinoDeSeccion = (seccion, ancho, alto) => {
   const posicion = MAPA_SECCIONES[normalizarSeccion(seccion)];
-
   return {
     izquierda: posicion.columna * ancho,
     arriba: posicion.fila * alto,
   };
-};
-
-const seccionMasCercana = (izquierda, arriba, ancho, alto, preferida) => {
-  if (!ancho || !alto) return "main";
-
-  return Object.keys(MAPA_SECCIONES).reduce(
-    (mejor, seccion) => {
-      const posicion = MAPA_SECCIONES[seccion];
-      const distancia =
-        Math.pow(izquierda / ancho - posicion.columna, 2) +
-        Math.pow(arriba / alto - posicion.fila, 2);
-
-      if (distancia < mejor.distancia) return { seccion, distancia };
-      if (distancia === mejor.distancia && seccion === preferida) {
-        return { seccion, distancia };
-      }
-
-      return mejor;
-    },
-    { seccion: "main", distancia: Number.POSITIVE_INFINITY },
-  ).seccion;
 };
 
 const suavizar = (progreso) =>
@@ -140,38 +125,38 @@ const Zona = styled.div`
   min-width: 0;
   min-height: 0;
   overflow: hidden;
+
+  & > #Contacto,
+  & > #proyectos {
+    margin-left: 0 !important;
+  }
+
+  & > #timeline {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none;
+  }
+
+  & > #timeline::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const NavegacionEspacial = () => {
-  const {
-    setBoolSlider,
-    setSeccionSeleccionada,
-    registrarNavegacion,
-  } = useContext(ContextoGeneral);
+  const { setBoolSlider, setSeccionSeleccionada, registrarNavegacion } =
+    useContext(ContextoGeneral);
   const referenciaVisor = useRef(null);
   const seccionActualRef = useRef(seccionDesdeHash());
   const animacionRef = useRef(null);
   const animandoRef = useRef(false);
   const redimensionandoRef = useRef(false);
   const [listo, setListo] = useState(false);
-  const [movimientoReducido, setMovimientoReducido] = useState(false);
-
-  useEffect(() => {
-    const consulta = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const actualizarPreferencia = () => setMovimientoReducido(consulta.matches);
-
-    actualizarPreferencia();
-    consulta.addEventListener("change", actualizarPreferencia);
-
-    return () => consulta.removeEventListener("change", actualizarPreferencia);
-  }, []);
 
   const cancelarAnimacion = useCallback(() => {
     if (animacionRef.current) {
       cancelAnimationFrame(animacionRef.current);
       animacionRef.current = null;
     }
-
     animandoRef.current = false;
   }, []);
 
@@ -208,9 +193,8 @@ export const NavegacionEspacial = () => {
       const seccionValida = normalizarSeccion(seccion);
       const yaEstaEnSeccion = seccionActualRef.current === seccionValida;
       seccionActualRef.current = seccionValida;
-      setSeccionSeleccionada(seccionValida);
-
-      if (seccionValida !== "timeline") setBoolSlider(false);
+      setSeccionSeleccionada(seccionParaVista(seccionValida));
+      setBoolSlider(seccionValida === "timeline");
 
       if (historial === "push" && !yaEstaEnSeccion) {
         window.history.pushState({ seccion: seccionValida }, "", `#${seccionValida}`);
@@ -229,13 +213,10 @@ export const NavegacionEspacial = () => {
       );
       cancelarAnimacion();
 
-      const duracion = movimientoReducido ? DURACION_REDUCIDA : DURACION_TRANSICION;
       const desplazamientoHorizontal = destino.izquierda - visor.scrollLeft;
       const desplazamientoVertical = destino.arriba - visor.scrollTop;
-
       if (
         !animar ||
-        movimientoReducido ||
         (Math.abs(desplazamientoHorizontal) < 1 &&
           Math.abs(desplazamientoVertical) < 1)
       ) {
@@ -251,7 +232,7 @@ export const NavegacionEspacial = () => {
       animandoRef.current = true;
 
       const animarPaso = (ahora) => {
-        const progreso = Math.min(1, (ahora - inicio) / duracion);
+        const progreso = Math.min(1, (ahora - inicio) / DURACION_TRANSICION);
         const avance = suavizar(progreso);
 
         visor.scrollLeft = inicioHorizontal + desplazamientoHorizontal * avance;
@@ -271,13 +252,14 @@ export const NavegacionEspacial = () => {
 
       animacionRef.current = requestAnimationFrame(animarPaso);
     },
-    [cancelarAnimacion, enfocarSeccion, movimientoReducido, setBoolSlider, setSeccionSeleccionada],
+    [cancelarAnimacion, enfocarSeccion, setBoolSlider, setSeccionSeleccionada],
   );
 
   useLayoutEffect(() => {
     const seccionInicial = seccionDesdeHash();
     seccionActualRef.current = seccionInicial;
-    setSeccionSeleccionada(seccionInicial);
+    setSeccionSeleccionada(seccionParaVista(seccionInicial));
+    setBoolSlider(seccionInicial === "timeline");
     window.history.replaceState(
       { seccion: seccionInicial },
       "",
@@ -287,12 +269,7 @@ export const NavegacionEspacial = () => {
     setListo(true);
 
     return cancelarAnimacion;
-  }, [cancelarAnimacion, posicionarSinAnimacion, setSeccionSeleccionada]);
-
-  useEffect(() => {
-    registrarNavegacion(irASeccion);
-    return () => registrarNavegacion(null);
-  }, [irASeccion, registrarNavegacion]);
+  }, [cancelarAnimacion, posicionarSinAnimacion, setBoolSlider, setSeccionSeleccionada]);
 
   useEffect(() => {
     const visor = referenciaVisor.current;
@@ -302,6 +279,7 @@ export const NavegacionEspacial = () => {
     const conservarSeccion = () => {
       const seccion = seccionActualRef.current;
       redimensionandoRef.current = true;
+
       cancelAnimationFrame(cuadroPendiente);
 
       cuadroPendiente = requestAnimationFrame(() => {
@@ -325,6 +303,11 @@ export const NavegacionEspacial = () => {
       window.removeEventListener("orientationchange", conservarSeccion);
     };
   }, [posicionarSinAnimacion]);
+
+  useEffect(() => {
+    registrarNavegacion(irASeccion);
+    return () => registrarNavegacion(null);
+  }, [irASeccion, registrarNavegacion]);
 
   useEffect(() => {
     const restaurarDesdeHistorial = () => {
@@ -364,50 +347,17 @@ export const NavegacionEspacial = () => {
         aria-label="Portafolio navegable en cuatro direcciones"
       >
         <Lienzo>
-          <Zona
-            $zona="contacto"
-            data-seccion="contacto"
-            tabIndex="-1"
-            aria-label="Contacto"
-          >
-            <SeccionContacto />
-          </Zona>
-
-          <Zona
-            $zona="tecnologias"
-            data-seccion="tecnologias"
-            tabIndex="-1"
-            aria-label="Tecnologías"
-          >
-            <SeccionHabilidades />
-          </Zona>
-
-          <Zona
-            $zona="main"
-            data-seccion="main"
-            tabIndex="-1"
-            aria-label="Inicio"
-          >
-            <SeccionPrincipal />
-          </Zona>
-
-          <Zona
-            $zona="timeline"
-            data-seccion="timeline"
-            tabIndex="-1"
-            aria-label="Mi historia"
-          >
-            <SeccionLineaDeTiempo />
-          </Zona>
-
-          <Zona
-            $zona="proyectos"
-            data-seccion="proyectos"
-            tabIndex="-1"
-            aria-label="Proyectos"
-          >
-            <SeccionProyectosV2 />
-          </Zona>
+          {ZONAS.map(({ zona, etiqueta, Seccion }) => (
+            <Zona
+              key={zona}
+              $zona={zona}
+              data-seccion={zona}
+              tabIndex="-1"
+              aria-label={etiqueta}
+            >
+              <Seccion />
+            </Zona>
+          ))}
         </Lienzo>
       </Visor>
     </Aplicacion>
