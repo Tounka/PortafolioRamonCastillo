@@ -146,8 +146,9 @@ const ZonaReproductor = styled.section`
   padding: 24px;
   overflow-y: auto;
 
-  video {
+  iframe {
     display: block;
+    border: 0;
     width: 100%;
     aspect-ratio: 16 / 9;
     max-height: calc(100% - 110px);
@@ -159,7 +160,7 @@ const ZonaReproductor = styled.section`
     overflow: visible;
     padding: 0 0 16px;
 
-    video {
+    iframe {
       border-radius: 0;
       max-height: none;
     }
@@ -308,7 +309,6 @@ export const ModalCursos = ({ abierto, alCerrar }) => {
   const [vistas, setVistas] = useState(leerProgreso);
   const [autoReproducir, setAutoReproducir] = useState(false);
   const botonCerrarRef = useRef(null);
-  const videoRef = useRef(null);
   const clase = clases[indice];
 
   const marcarVista = useCallback((i) => {
@@ -339,7 +339,6 @@ export const ModalCursos = ({ abierto, alCerrar }) => {
 
     return () => {
       window.removeEventListener("keydown", alPresionar);
-      videoRef.current?.pause();
       focoPrevio?.focus?.({ preventScroll: true });
     };
   }, [abierto, alCerrar]);
@@ -367,23 +366,14 @@ export const ModalCursos = ({ abierto, alCerrar }) => {
 
         <Cuerpo>
           <ZonaReproductor>
-            <video
+            <iframe
               key={clase.src}
-              ref={videoRef}
-              src={clase.src}
-              poster={clase.poster}
-              controls
-              autoPlay={autoReproducir}
-              preload="metadata"
-              playsInline
-              onEnded={() => {
-                marcarVista(indice);
-                cambiarClase(indice + 1);
-              }}
-              onTimeUpdate={(evento) => {
-                const { currentTime, duration } = evento.currentTarget;
-                if (duration && currentTime / duration > 0.9) marcarVista(indice);
-              }}
+              src={`${clase.src}${autoReproducir ? "&autoplay=1" : ""}`}
+              title={clase.titulo}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              onLoad={() => marcarVista(indice)}
             />
 
             <InfoClase>
