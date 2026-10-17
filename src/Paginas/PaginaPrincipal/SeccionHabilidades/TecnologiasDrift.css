@@ -286,29 +286,16 @@
   opacity: 0.6;
 }
 
-/* Columna de categorías: una tarjeta blanca por categoría, unidas por un riel amarillo */
+/* Columna de categorías: una tarjeta blanca por categoría, separadas por líneas horizontales */
 .tecnologias-drift__categorias {
+  --espacio-categorias: clamp(18px, 3vh, 28px);
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: clamp(8px, 1.5vh, 14px);
+  gap: var(--espacio-categorias);
   min-width: 0;
   min-height: 0;
-  padding-left: clamp(18px, 3vw, 48px);
-}
-
-/* Riel amarillo vertical que desvanece en los extremos */
-.tecnologias-drift__categorias::before {
-  content: "";
-  position: absolute;
-  top: 6%;
-  bottom: 6%;
-  left: 0;
-  width: 2px;
-  border-radius: 2px;
-  background: linear-gradient(180deg, transparent, var(--AmarilloEspecial) 18%, var(--AmarilloEspecial) 82%, transparent);
-  opacity: 0.55;
 }
 
 .tecnologias-drift__categoria {
@@ -325,30 +312,18 @@
   transition: box-shadow 220ms ease;
 }
 
-/* Nodo amarillo sobre el riel, a la altura de cada tarjeta */
-.tecnologias-drift__categoria::before {
+/* Separador horizontal amarillo, centrado en el hueco entre tarjetas */
+.tecnologias-drift__categoria + .tecnologias-drift__categoria::before {
   content: "";
   position: absolute;
-  top: 50%;
-  left: calc(-1 * clamp(18px, 3vw, 48px) - 4px);
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #000;
-  box-shadow: 0 0 0 2px var(--AmarilloEspecial), 0 0 12px rgba(252, 183, 28, 0.6);
-  transform: translateY(-50%);
-}
-
-/* Conector del nodo a la tarjeta */
-.tecnologias-drift__categoria::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: calc(-1 * clamp(18px, 3vw, 48px) + 6px);
-  width: calc(clamp(18px, 3vw, 48px) - 6px);
+  left: 8%;
+  right: 8%;
+  top: calc(var(--espacio-categorias) / -2 - 1px);
   height: 2px;
-  background: linear-gradient(90deg, var(--AmarilloEspecial), rgba(252, 183, 28, 0.15));
-  transform: translateY(-50%);
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--AmarilloEspecial) 20%, var(--AmarilloEspecial) 80%, transparent);
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 /* El desplazamiento en hover lo hace framer-motion (whileHover) para no pelear con su transform */
@@ -575,16 +550,6 @@
 
   .tecnologias-drift__categorias {
     margin-top: 24px;
-    padding-left: 18px;
-  }
-
-  .tecnologias-drift__categoria::before {
-    left: -22px;
-  }
-
-  .tecnologias-drift__categoria::after {
-    left: -12px;
-    width: 12px;
   }
 
   .tecnologias-drift__categoria-descripcion {

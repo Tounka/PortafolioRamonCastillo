@@ -25,3 +25,6 @@ yarn-error.log*
 # respaldo local, no forma parte del repo
 /.respaldo-pre-git-2026-08-28
 /cambios-locales.patch
+
+# videos de cursos (pesan ~1 GB, GitHub rechaza archivos > 100 MB)
+/public/cursos/**/*.mp4
